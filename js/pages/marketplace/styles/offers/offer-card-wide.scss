@@ -1,0 +1,271 @@
+.o-wide-offer-card {
+  @include flex-container($direction: column);
+  position: relative;
+  flex-basis: 100%;
+  margin-bottom: 24px;
+  border-radius: 4px;
+  overflow: hidden;
+
+  @include if-screen-smaller-than(sm) {
+    border-radius: 0 0 4px 4px;
+  }
+}
+
+.o-wide-offer-card__footer {
+  @include flex-container(space-between, $wrap: nowrap);
+  padding: 4px 16px;
+  background-color: $cl-neutral-1;
+  color: $cl-neutral-4;
+  cursor: pointer;
+
+  @include if-screen-smaller-than(sm) {
+    display: none;
+  }
+}
+
+.o-wide-offer-card__mobile-footer {
+  @include flex-container(space-between, $wrap: nowrap);
+  display: none;
+  padding: 4px 16px;
+  border: 0;
+  background-color: $cl-neutral-1;
+  color: $cl-neutral-4;
+  cursor: pointer;
+  overflow: hidden;
+
+  > .c-wide-offer-card__footer-link {
+    > img {
+      transform: rotate(-90deg);
+    }
+  }
+
+  @include if-screen-smaller-than(sm) {
+    display: flex;
+  }
+}
+
+.c-wide-offer-card {
+  border: 1px solid $cl-border;
+  background-color: $cl-white;
+
+  &.is-open {
+    .o-wide-offer-card__details-section {
+      transition: max-height 0.4s ease-in-out, opacity 0.2s linear;
+      opacity: 1;
+    }
+  }
+
+  @include if-screen-smaller-than(sm) {
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+  }
+
+  @include if-screen-smaller-than(832px) {
+    .o-wide-offer-card__aside-column {
+      border: 0;
+    }
+
+    .o-wide-offer-card__aside-column,
+    .o-wide-offer-card__main-column {
+      flex-basis: 100%;
+    }
+
+    .c-offer-tags {
+      justify-content: center;
+
+      .c-offer-tags__tag {
+        @include flex-item(100px, 1);
+      }
+    }
+
+    .c-approval-odds-tag {
+      flex-basis: 100%;
+      padding-bottom: 0;
+      text-align: center;
+    }
+
+    .c-wide-offer-card__call-agent {
+      text-align: center;
+    }
+
+    .c-wide-offer-card__cta {
+      flex-grow: 1;
+      margin-left: inherit;
+      padding-bottom: 8px;
+
+      .c-btn {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+.o-wide-offer-card__summary-section {
+  @include flex-container();
+  @include flex-item(auto, 1);
+
+  .o-wide-offer-card__main-column,
+  .o-wide-offer-card__aside-column {
+    align-content: stretch;
+    border-bottom: 1px solid $cl-border;
+
+    @include if-screen-smaller-than(sm) {
+      border-bottom: 0;
+    }
+  }
+}
+
+// TODO: this color and contrast sucks, lets make it a color in our styleguide or use our colors
+.o-wide-offer-card__details-section {
+  @include flex-container();
+  max-height: 0;
+  transition: max-height 0.4s ease-in-out, opacity 0.2s linear 0.2s;
+  // stylelint-disable-next-line sh-waqar/declaration-use-variable
+  background-color: lighten($cl-neutral-1, 4%);
+  opacity: 0;
+  overflow: hidden;
+
+  .o-wide-offer-card__main-column {
+    padding: 16px 0;
+  }
+}
+
+.o-wide-offer-card__details-section.o-wide-offer-card__details-section--mobile {
+  max-height: inherit;
+  background-color: $cl-white;
+  opacity: 1;
+
+  .o-wide-offer-card__main-column {
+    border-bottom: 0;
+  }
+}
+
+.o-wide-offer-card__aside-column {
+  @include flex-container(left, top, top);
+  @include flex-item(200px, 1);
+  border-right: 1px solid $cl-border;
+}
+
+.o-wide-offer-card__main-column {
+  @include flex-container(left, top, top);
+  @include flex-item(336px, 2);
+}
+
+.c-wide-offer-card__addition-details {
+  @include flex-item(100%);
+  @include flex-container();
+  padding: 8px;
+  border-bottom: 1px solid $cl-border;
+
+  > h3 {
+    flex-basis: 100%;
+    padding-left: 16px;
+  }
+
+  > .c-stats-list__stat {
+    margin-top: 8px;
+    border: 0;
+  }
+}
+
+.c-wide-offer-card__light-header {
+  @include flex-container(left, center, center);
+  @include flex-item(100%);
+  max-height: 64px;
+  transition: max-height 0.2s ease-in-out, opacity 0.2s linear;
+  background-color: $cl-neutral-0;
+  opacity: 1;
+}
+
+.c-wide-offer-card__description {
+  padding: 0 16px 24px;
+}
+
+.c-wide-offer-card__icon-list-item {
+  @include flex-container(left, top, top, false);
+  flex-basis: 100%;
+  width: 100%;
+  margin-left: 8px;
+  padding: 8px 16px;
+
+  img {
+    width: 28px;
+    height: 23px;
+  }
+
+  > p {
+    padding-left: 16px;
+  }
+
+  strong {
+    padding-right: 4px;
+  }
+
+  &:last-child {
+    padding-bottom: 24px;
+  }
+}
+
+// TODO: Once typography is standardized, we can remove 'p' from selector
+// stylelint-disable-next-line selector-no-qualifying-type
+p.c-wide-offer-card__call-agent {
+  @include flex-item(100px, 1);
+  align-self: center;
+  padding: 16px;
+  color: $cl-neutral-4;
+  font-size: 12px;
+  line-height: 1.24;
+
+  > a {
+    display: inline-block;
+    font-size: 16px;
+  }
+}
+
+.c-wide-offer-card__cta {
+  @include flex-container(right, center, center);
+  align-self: center;
+  margin-left: auto;
+  padding: 0 8px;
+}
+
+.c-wide-offer-card__apply-btn {
+  @include flex-item(200px, 1);
+  @include flex-container(center, center, center);
+  flex-grow: 1;
+  padding: 16px;
+
+  .c-btn {
+    margin-bottom: 0;
+  }
+
+  p {
+    color: $cl-neutral-4;
+    font-size: 10px;
+    text-align: center;
+  }
+}
+
+.c-wide-offer-card__apply-btn.c-wide-offer-card__apply-btn--hide-on-mobile {
+  @include if-screen-smaller-than(sm) {
+    display: none;
+  }
+}
+
+.c-wide-offer-card__footer-link {
+  @include flex-container($wrap: nowrap);
+
+  > img {
+    width: 16px;
+    height: auto;
+    margin-left: 8px;
+    transition: transform 0.5s;
+  }
+
+  &.is-open {
+    > img {
+      transform: rotateX(180deg);
+    }
+  }
+}

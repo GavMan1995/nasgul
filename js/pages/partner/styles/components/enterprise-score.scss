@@ -1,0 +1,142 @@
+.c-enterprise-score {
+  @include flex-container();
+  width: 100%;
+}
+
+.c-enterprise-score-container {
+  @include flex-container();
+  @include flex-item(100%);
+}
+
+.c-enterprise-score__section {
+  @include flex-container();
+  @include flex-item(320px, 1);
+  padding: 24px;
+}
+
+.c-enterprise-score__section--align-top {
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.c-enterprise-score__section--align-center {
+  align-content: center;
+  align-items: center;
+}
+
+.c-enterprise-score__section--no-padding {
+  padding: 0;
+}
+
+.c-enterprise-score__section--score-factors {
+  padding: 32px 16px;
+}
+
+.c-enterprise-score__provided-by {
+  @include flex-container(flex-start, center, center, nowrap);
+  @include flex-item(100%);
+  padding: 32px;
+  padding-bottom: 16px;
+
+  > p {
+    padding-right: 8px;
+    color: $cl-neutral-3;
+    font-weight: 200;
+  }
+
+  > img {
+    width: 80px;
+    height: auto;
+  }
+}
+
+.c-enterprise-score__info {
+  @include flex-container(space-between, flex-end, flex-end, nowrap);
+  @include flex-item(100%);
+  padding: 8px 24px;
+
+  > h4 {
+    font-weight: 600;
+    line-height: 0.7;
+  }
+
+  > h1 {
+    padding-right: 8px;
+    color: $cl-neutral-4;
+    font-size: 72px;
+    font-weight: 200;
+    line-height: 0.7;
+  }
+}
+
+.c-enterprise-score__update-info {
+  @include flex-container(space-between, center, center);
+  @include flex-item(100%);
+  align-self: flex-end;
+  margin-top: 24px;
+  padding: 0 16px;
+  // stylelint-disable-next-line sh-waqar/declaration-use-variable
+  background-color: rgba($cl-secondary-2, 0.1);
+  color: $cl-neutral-4;
+
+  > p {
+    padding: 8px;
+  }
+}
+
+.c-enterprise-score__header {
+  width: 100%;
+  padding-bottom: 8px;
+}
+
+.c-enterprise-score__days-beyond-terms-container {
+  @include flex-container(space-between);
+  padding-top: 40px;
+}
+
+.c-enterprise-score__days-beyond-terms {
+  @include flex-container();
+  @include flex-item(40px);
+
+  > h3 {
+    width: 100%;
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+.c-enterprise-payment-trends-section {
+  @include flex-container($direction: column);
+  width: 100%;
+  padding: 16px;
+  border: 2px solid $cl-border;
+  border-radius: 8px;
+
+  > h1 {
+    width: 80px;
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid $cl-border;
+    color: $cl-neutral-3;
+    font-size: 56px;
+    font-weight: 200;
+  }
+
+  > h3 {
+    width: 200px;
+    padding-bottom: 16px;
+    color: $cl-neutral-4;
+  }
+}
+
+.c-utilization-bar-section {
+  @include flex-item(280px);
+  padding: 40px 0;
+
+  > h1 {
+    width: 100%;
+    font-size: 56px;
+    font-weight: 200;
+    line-height: 1;
+  }
+}

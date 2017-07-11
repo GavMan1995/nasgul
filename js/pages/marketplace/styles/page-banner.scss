@@ -1,0 +1,55 @@
+.c-page-banner {
+  @include site-container();
+  @include flex-container(left, center, center);
+  flex-basis: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: $cl-neutral-1;
+
+  // This is here until we go to a full width design.
+  .o-site-container {
+    // Repeats what c-page-banner does for its flex container since its contents need to be wrapped in o-site-container
+    @include flex-container(left, center, center);
+  }
+}
+
+.c-page-banner.c-page-banner--hide-on-mobile {
+  @include if-screen-smaller-than(680px) {
+    display: none;
+  }
+}
+
+.c-page-banner.c-page-banner--has-breadcrumbs {
+  @include if-screen-smaller-than(680px) {
+    display: flex;
+    min-height: 0;
+
+    h2,
+    .c-call-agent-cta {
+      display: none;
+    }
+  }
+}
+
+.c-page-banner__title {
+  flex-grow: 2;
+  margin-right: auto;
+  padding: 8px 16px 8px 0;
+}
+
+.c-breadcrumb {
+  @include flex-item(100%);
+  @include flex-container(flex-start, center, center, $wrap: nowrap);
+  padding-bottom: 8px;
+
+  > img {
+    width: 12px;
+    transform: rotate(90deg);
+  }
+}
+
+.c-breadcrumb.c-breadcrumb--banner {
+  padding: 8px;
+  background-color: $cl-neutral-1;
+  color: $cl-secondary-2;
+}

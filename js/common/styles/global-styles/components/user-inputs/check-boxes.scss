@@ -1,0 +1,119 @@
+.c-check {
+  position: absolute;
+  opacity: 0;
+}
+
+.c-check:focus + label::before {
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.c-check + label {
+  display: block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  border-radius: 4px;
+  outline: none;
+  background-color: $cl-neutral-2;
+  cursor: pointer;
+  user-select: none;
+}
+
+.c-check + label::before,
+.c-check + label::after {
+  display: block;
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: 1px;
+  content: '';
+}
+
+.c-check + label::before {
+  right: 1px;
+  transition: background 0.3s;
+  border-radius: 4px;
+  background-color: $cl-neutral-1;
+}
+
+.c-check + label::after {
+  width: 18px;
+  transition: background-color 0.4s;
+  border-radius: 4px;
+  background-color: $cl-white;
+}
+
+.c-check:checked + label::after {
+  background: url(#{$cdn-path}/icons/form-elements/check--white.svg) no-repeat center;
+  background-color: $cl-neutral-4;
+  background-size: 15px;
+}
+
+.c-check:checked + label::before {
+  background-color: $cl-neutral-4;
+}
+
+// Small
+.c-check.c-check--small + label {
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+}
+
+.c-check.c-check--small + label::before {
+  border-radius: 4px;
+}
+
+.c-check.c-check--small + label::after {
+  width: 13px;
+  background-size: 10px;
+}
+
+// Large
+.c-check.c-check--large + label {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+}
+
+.c-check.c-check--large + label::before {
+  border-radius: 4px;
+}
+
+.c-check.c-check--large + label::after {
+  width: 28px;
+  background-size: 22px;
+}
+
+.c-check--primary-2.c-check:checked + label::after {
+  background-color: $cl-primary-2;
+}
+
+.c-check--secondary-2.c-check:checked + label::after {
+  background-color: $cl-secondary-2;
+}
+
+.c-check--accent-1.c-check:checked + label::after {
+  background-color: $cl-accent-1;
+}
+
+.c-check--accent-2.c-check:checked + label::after {
+  background-color: $cl-accent-2;
+}
+
+.c-check--accent-3.c-check:checked + label::after {
+  background-color: $cl-accent-3;
+}
+
+.c-check--accent-4.c-check:checked + label::after {
+  background-color: $cl-accent-4;
+}
+
+.c-check--accent-5.c-check:checked + label::after {
+  background-color: $cl-accent-5;
+}
+
+.c-check--accent-6.c-check:checked + label::after {
+  background-color: $cl-accent-6;
+}

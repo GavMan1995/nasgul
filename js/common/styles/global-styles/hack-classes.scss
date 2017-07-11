@@ -1,0 +1,24 @@
+/* ==========================================================================
+    HACK CLASSES
+   ========================================================================== */
+
+// Only allow hack classes in this file.
+// scss-lint:disable SelectorFormat
+
+._vertical-align-sign-in-that-takes-you-to-the-app {
+  padding-top: 4px;
+}
+
+._margin-ontop-of-signup-page {
+  margin-top: 24px;
+}
+
+._hide-bullet-list-on-mobile {
+  @include if-screen-smaller-than(sm) {
+    display: none;
+  }
+}
+
+._margin-left-for-benefit-cta {
+  margin-left: 112px;
+}

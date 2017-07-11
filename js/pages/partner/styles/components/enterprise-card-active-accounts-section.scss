@@ -1,0 +1,64 @@
+.c-active-accounts-card-header {
+  @include flex-container(space-between, center, center);
+  @include flex-item(100%);
+  cursor: pointer;
+}
+
+.c-active-accounts-card-header__arrow-section {
+  @include flex-container(flex-end);
+  @include flex-item(120px, 1);
+  padding: 24px;
+
+  @include if-screen-smaller-than(md) {
+    flex-basis: 100%;
+    justify-content: center;
+    border-top: 1px solid $cl-border;
+  }
+}
+
+.c-active-accounts-card-header__arrow-section.is-open {
+  > img {
+    transform: rotate(180deg);
+  }
+}
+
+.c-active-accounts-card-body {
+  @include flex-container(space-between);
+  @include flex-item(100%);
+  height: 0;
+  background-color: $cl-neutral-0;
+}
+
+.c-active-accounts-card-body.is-open {
+  height: 100%;
+}
+
+.c-trade-account-tab-card-section {
+  @include flex-container();
+  @include flex-item(100%);
+  padding-bottom: 8px;
+
+  > p {
+    width: 100%;
+  }
+}
+
+.c-trade-account-tab-card-section__tab-container {
+  @include flex-container();
+  @include flex-item(80px, 1, $shrink: 0);
+  margin-right: 8px;
+  margin-bottom: 8px;
+
+  > small {
+    width: 100%;
+  }
+}
+
+.c-trade-account-tab-card-section__tab {
+  @include flex-container(center, center, center);
+  @include flex-item(80px, $shrink: 0);
+  padding: 4px 16px;
+  border-radius: 4px;
+  background-color: $cl-neutral-3;
+  color: $cl-white;
+}

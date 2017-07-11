@@ -1,0 +1,128 @@
+.c-score-bar-container {
+  position: relative;
+  @include flex-container(center, center, center);
+  @include flex-item(280px, 1);
+  padding: 0 24px 24px;
+}
+
+.c-score-bar {
+  position: relative;
+  @include flex-container();
+  @include flex-item(100%);
+  height: 16px;
+  padding: 6px;
+  border-radius: 24px;
+  background: linear-gradient(to right, rgba($cl-poor, 0.2), rgba($cl-fair, 0.2), rgba($cl-good, 0.2));
+}
+
+.c-score-bar__segment-container {
+  @include flex-container(space-between, $wrap: nowrap);
+  @include flex-item(100%);
+}
+
+.c-score-bar__segment {
+  height: 4px;
+  border-radius: 8px;
+}
+
+.c-score-bar__segment--poor {
+  width: 43%;
+  background-color: $cl-poor;
+}
+
+.c-score-bar__segment--semi-poor {
+  width: 11%;
+  background-color: $cl-semi-poor;
+}
+
+.c-score-bar__segment--fair {
+  width: 11%;
+  background-color: $cl-fair;
+}
+
+.c-score-bar__segment--semi-good {
+  width: 11%;
+  background-color: $cl-semi-good;
+}
+
+.c-score-bar__segment--good {
+  width: 19%;
+  margin-right: 0;
+  background-color: $cl-good;
+}
+
+.c-score-bar__segment-container--experian-report {
+  > .c-score-bar__segment--poor {
+    width: 9%;
+  }
+
+  > .c-score-bar__segment--semi-poor {
+    width: 14%;
+  }
+
+  > .c-score-bar__segment--fair {
+    width: 24%;
+  }
+
+  > .c-score-bar__segment--semi-good {
+    width: 24%;
+  }
+
+  > .c-score-bar__segment--good {
+    width: 24%;
+  }
+}
+
+.c-score-bar__circle {
+  position: absolute;
+  top: -1px;
+  width: 18px;
+  height: 18px;
+  border: 4px solid $cl-neutral-4;
+  border-radius: 50%;
+  background-color: $cl-white;
+}
+
+.c-score-bar__numbers {
+  position: relative;
+  @include flex-container($wrap: nowrap);
+  @include flex-item(100%);
+  padding: 4px 8px;
+  color: $cl-neutral-3;
+
+  > p {
+    position: absolute;
+    width: 24px;
+    font-weight: 200;
+
+    &:nth-child(2) {
+      left: calc(20% - 12px);
+    }
+
+    &:nth-child(3) {
+      left: calc(50% - 12px);
+    }
+
+    &:nth-child(4) {
+      right: calc(20% - 12px);
+    }
+
+    &:last-child {
+      right: 0;
+    }
+  }
+}
+
+.c-credit-utilization-bar {
+  @include flex-item(200px);
+  height: 16px;
+  margin-top: 8px;
+  border: 6px solid $cl-border;
+  border-radius: 12px;
+
+  > span {
+    display: block;
+    height: 100%;
+    background-color: $cl-neutral-3;
+  }
+}

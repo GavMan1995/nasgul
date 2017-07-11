@@ -1,0 +1,301 @@
+// TODO: OLD Style, Kill them eventually please.
+// scss-lint:disable all
+
+
+
+/* ==========================================================================
+    FLEX
+   ========================================================================== */
+
+/* NOTE: The structure of the framework is brought to you by FlexBox. */
+
+/* NOTE: Flexbox = Magic and Awesome and Flying Unicorns. */
+
+/* NOTE: Flexbox is a magical css property taken from the lands of Oz that make it really easy to lay things out and position them. There are a few key differences from using the typical twelve column structure, like how things wrap and how they scale by screen size. But to get you started just think that if flex-containers are the rows of the layout, then items are the columns except for the fact the items can wrap to the next line if they run out of space on their row. For further reading here is a great intro to flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+
+
+
+/* ==========================================================================
+    $FLEX CONTAINERS
+   ========================================================================== */
+
+//Sets all children to be flex containers.
+[data-flex--container~='all-grandchildren'] * {
+	display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  flex-grow: 0;
+  flex-shrink: 1;
+	max-width: 100%;
+}
+
+//If 'all-grandchildren' was used this can used to stop all children from inheriting the flex container property.
+//Note: This will still set the direct children of the flex container to be flex items but it will stop those flex items and their childrem from becoming flex containers and causing their children to also be flex items.
+[data-flex--container~='no-grandchildren'] * {
+	display: block;
+}
+[data-flex--container~='no-grandchildren'] a {
+	display: inline;
+}
+
+[data-flex--container~='false'] {
+	display: block !important;
+	* {
+		display: block;
+	}
+	a {
+		display: inline;
+	}
+}
+
+
+
+/*  Set Defualts
+   -------------------------------------------------------------------------- */
+
+//This doesn't let text elements inherent being flex contaienrs from 'all-grandchildren' since text align doesn't work on text blocks that are flex container. However you can overide this by just putting 'data-flex--container' on a text element.
+[data-flex--container~='all-grandchildren'] p,[data-flex--container~='all-grandchildren'] h1,[data-flex--container~='all-grandchildren'] h2,[data-flex--container~='all-grandchildren'] h3,[data-flex--container~='all-grandchildren'] h4,[data-flex--container~='all-grandchildren'] h5,[data-flex--container~='all-grandchildren'] h6 {
+	display: block;
+}
+a,[data-flex--container~='all-grandchildren'] a,[data-flex--container~='all-grandchildren'] span,[data-flex--container~='all-grandchildren'] em,[data-flex--container~='all-grandchildren'] strong {
+	display: inline;
+}
+[data-flex--container~='all-grandchildren'] li {
+	display: list-item;
+}
+[data-flex--container~='all-grandchildren'] ul, [data-flex--container~='all-grandchildren'] ol {
+	display: block;
+}
+[data-flex--container~='all-grandchildren'] script {
+	display: none;
+}
+[data-flex--container],a[data-flex--container],p[data-flex--container],h1[data-flex--container],h2[data-flex--container],h3[data-flex--container],h4[data-flex--container],h5[data-flex--container],h6[data-flex--container],span[data-flex--container],em[data-flex--container],strong[data-flex--container] {
+	display: -ms-flexbox;
+	display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: flex-start;
+	position: relative;  //TODO: remove and put into an 'anchor' property that can be applied anywhere
+}
+
+//This sets the defaults on the children and keeps things safe and working.
+[data-flex--container] > * {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+	max-width: 100%;
+}
+
+
+
+/* ==========================================================================
+    $FLEX CONTAINER PROPERTIES
+   ========================================================================== */
+
+//Use these helper classes to change the properties of the Flex Container properties and its children.
+
+
+/*  Flex Direction
+   -------------------------------------------------------------------------- */
+
+[data-flex--container~='row'] {
+  flex-direction: row; //Default
+}
+
+[data-flex--container~='column'] {
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+
+//This Keeps the children in a column from acting up.
+[data-flex--container~='column'] > * {
+	width: 100%;
+}
+
+
+/*  Row Wrap
+   -------------------------------------------------------------------------- */
+
+[data-flex--container~='wrap'] {
+  flex-wrap: wrap; //Default
+}
+
+[data-flex--container~='nowrap'] {
+  flex-wrap: nowrap;
+}
+
+
+/*  Horizontal  Align/Space
+   -------------------------------------------------------------------------- */
+
+//Flex items will align to the left.
+[data-flex--container~='left'] {
+  justify-content: flex-start; //Default
+}
+
+[data-flex--container~='right'] {
+  justify-content: flex-end;
+}
+
+[data-flex--container~='center'] {
+  justify-content: center;
+}
+
+//Each flex row puts equal space on the sides of each flex item exept on the sides of the flex container.
+[data-flex--container~='space-between-items'] {
+  justify-content: space-between;
+}
+
+//Each flex row puts equal space on the sides of each flex item.
+[data-flex--container~='space-around-items'] {
+  justify-content: space-around;
+}
+
+
+/*  Vertical Align/Space
+   -------------------------------------------------------------------------- */
+
+//All of the flex rows are aligned to the top of the flex container.
+[data-flex--container~='top'] {
+  align-content: flex-start;  //default
+}
+
+[data-flex--container~='bottom'] {
+  align-content: flex-end;
+}
+
+[data-flex--container~='middle'] {
+  align-content: center;
+}
+
+//Flex rows stretch equally in height to fill the height of the flex container.
+//NOTE: this only works if the flex container has a set height as it does not stretch the flex items but the flex rows.
+[data-flex--container~='stretch-rows'] {
+  align-content: stretch;
+}
+
+//Aligns all of the items on a flex row to be top aligned to the row.
+[data-flex--container~='row-items--top'] {
+  align-items: flex-start; //Default
+}
+
+[data-flex--container~='row-items--bottom'] {
+  align-items: flex-end;
+}
+
+[data-flex--container~='row-items--middle'] {
+  align-items: center;
+}
+
+//Stretches all of the flex items on a row to be the same height
+[data-flex--container~='row-items--stretch'] {
+  align-items: stretch; //Default
+}
+
+
+
+/* ==========================================================================
+    $FLEX ITEM PROPERTIES
+   ========================================================================== */
+
+
+ /*  Widths
+    -------------------------------------------------------------------------- */
+
+
+//use this to do a row break, this is the same as col-12
+[data-flex--item~='break'], [data-flex--item~='full'] {
+  flex-basis: 100%;
+	width: 100%;
+}
+
+[data-flex--item~='half'] {
+  flex-basis: 50%;
+	width: 50%;
+}
+
+//This fixes 'full' flex items that are in a column from being super tall. Also fixes ie/edge bug where full itmems are super large when placed in a column.
+[data-flex--container~='column'] [data-flex--item~='full'], [data-flex--container~='column'] [data-flex--item~='break'], [data-flex--container~='column'] [data-flex--item~='col-12'] {
+  flex-basis: 100%;
+}
+
+
+//use this to keep things the same width as the site container.
+[data-flex--item~='site-container'] {
+	margin-left: auto;
+	margin-right: auto;
+	width: 92% !important;
+	width: 92vw !important;
+	max-width: $screen-large;
+}
+@media (max-width: $screen-large) {
+	[data-flex--item~='site-container'] {
+		max-width: 92% !important;
+		max-width: 92vw !important;
+	}
+}
+
+[data-flex--item~='modal'] {
+	margin-left: auto;
+	margin-right: auto;
+	width: 92% !important;
+	width: 92vw !important;
+	max-width: 800px;
+}
+@media (max-width: 800px) {
+	[data-flex--item~='modal'] {
+		max-width: 92% !important;
+		max-width: 92vw !important;
+	}
+}
+
+
+/*  Pulls
+   -------------------------------------------------------------------------- */
+
+//The flex pulls will pull them and anything between them and the side they are getting pulled to to that side. If you would like to pull only one item make sure it is in the correct order on the row and keep things in separate rows using 'break's.
+[data-flex--item~='pull--right'] {
+	margin-left: auto !important;
+}
+
+[data-flex--item~='pull--center'] {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+[data-flex--item~='pull--down'] {
+  align-self: flex-end;
+}
+
+[data-flex--item~='pull--middle'] {
+  align-self: center;
+}
+
+
+/*  Floats
+   -------------------------------------------------------------------------- */
+
+//These are very literal floats. They are positioned absolutely according to their parent container and are taken out of the flow of all other elements. These means things can be displayed underneath it.
+//NOTE: Floats can be combined.
+
+
+[data-flex--item~='float--right'] {
+	position: absolute;
+	right: 10px;
+	z-index: 10; //TODO: set standards for z-index
+}
+
+[data-flex--item~='float--bottom'] {
+	position: absolute;
+	bottom: 10px;
+	z-index: 10; //TODO: set standards for z-index
+}
+
+[data-flex--item~='float--center'] {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10; //TODO: set standards for z-index
+}

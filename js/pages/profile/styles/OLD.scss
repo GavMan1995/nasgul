@@ -1,0 +1,137 @@
+/* ==========================================================================
+    PROFILE
+   ========================================================================== */
+
+/*  Sidebar
+   -------------------------------------------------------------------------- */
+   // TODO: OLD Style, Kill them eventually please.
+   // scss-lint:disable all
+
+._profile-sidebar {
+  background-color: #fff;
+  align-self: flex-start;
+  border: 1px solid $cl-border;
+  border-radius: 4px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  ._profile-progress {
+    h4 {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    h6 {
+      font-size: 12px;
+      color: $cl-neutral-3;
+    }
+  }
+  ._profile-menu {
+    padding-left: 0;
+    margin: 0;
+    li {
+      display: flex;
+      list-style: none;
+      cursor: pointer;
+      border-top: 1px solid $cl-neutral-2;
+      ._section-icon {
+        position: relative;
+        height: 32px;
+        width: 32px;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      h5 {
+        font-size: 14px;
+        line-height: 2.2;
+      }
+      &.-tab-selected {
+        background-color: $cl-neutral-2
+      }
+    }
+  }
+  ._upgrade-btn {
+    display: block;
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+._profile-section {
+  margin: 0 8px;
+  font-size: 16px;
+  ._profile-picture {
+    background-color: $cl-neutral-5;
+    position: relative;
+    height: 175px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    overflow: hidden;
+    img {
+      & + button {
+        transition: transform .2s .5s;
+      }
+      &.-has-img + button {
+        transform: translateY(160%);
+      }
+      &.-has-img:hover + button {
+        transform: translateY(0%);
+        transition: transform .2s 0s
+      }
+      &.-has-img + button:hover {
+        transform: translateY(0%);
+        transition: transform .2s 0s
+      }
+    }
+    .c-btn {
+      margin-right: 0;
+    }
+    button {
+      font-size: 14px;
+      &.-success {
+      		background-color: $cl-accent-1;
+      		color: #fff;
+      }
+      &.-success[disabled] {
+      		background-color: $cl-accent-1;
+      		color: #fff;
+      }
+    }
+  }
+  button {
+    &.-success {
+        background-color: $cl-accent-1;
+        color: #fff;
+    }
+    &.-success[disabled] {
+        background-color: $cl-accent-1;
+        color: #fff;
+    }
+    &.-error {
+        background-color: $cl-accent-5;
+        color: #fff;
+    }
+    &.-error[disabled] {
+        background-color: $cl-accent-5;
+        color: #fff;
+    }
+  }
+}
+
+
+/*  Donut Graph
+   -------------------------------------------------------------------------- */
+
+   .donut-chart {
+       position: absolute;
+       top: 0;
+       left: 0;
+       svg {
+           transform: rotate(-90deg);
+       }
+       circle {
+         stroke-dasharray: 97.34;
+         transition: stroke-dashoffset 1s;
+       }
+   }

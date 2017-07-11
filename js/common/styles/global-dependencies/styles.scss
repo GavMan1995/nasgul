@@ -1,0 +1,21 @@
+// NOTE: importing this file will not add any css by itself, but it gives access
+// to all of the global mixins, functions and variables so this file is required
+// to be included at the top of any style manifest files.
+
+@import 'variables';
+@import 'animations';
+
+@import 'functions/mixin-helpers';
+@import 'functions/responsive-calc';
+@import 'functions/set-average';
+@import 'functions/set-units';
+@import 'functions/tint-and-shade';
+
+@import 'mixins/box-shadows';
+@import 'mixins/flex-container';
+@import 'mixins/flex-item';
+@import 'mixins/media-queries';
+@import 'mixins/OLD-spacing';
+@import 'mixins/responsive-calc';
+@import 'mixins/site-container';
+@import 'mixins/typography';

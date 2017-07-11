@@ -1,0 +1,39 @@
+.c-card {
+  @include flex-container($direction: column);
+  @include flex-item(auto, 1);
+  position: relative;
+  margin: 0 8px 32px;
+  border: 1px solid $cl-border;
+  border-radius: 4px;
+  background-color: $cl-white;
+  overflow: hidden;
+}
+
+.c-card.c-card--full {
+  flex-basis: 100%;
+}
+
+.c-card__header {
+  padding: 16px;
+  @include flex-container(left, top, top);
+  @include flex-item($grow: 0);
+  border-bottom: 1px solid $cl-border;
+}
+
+.c-card__banner {
+  width: 100%;
+  padding: 24px 16px;
+  border-bottom: 1px solid $cl-border;
+  background-color: $cl-neutral-0;
+  text-align: center;
+}
+
+.c-card__content {
+  @include flex-container($align-content: top, $align-items: top);
+  @include flex-item($grow: 1);
+}
+
+.c-card__footer {
+  @include flex-container();
+  @include flex-item($grow: 0);
+}

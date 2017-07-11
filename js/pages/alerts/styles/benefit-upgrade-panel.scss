@@ -1,0 +1,54 @@
+.c-benefit-upgrade-cta-container {
+  @include flex-item(100%);
+  @include flex-container();
+
+  margin-top: 40px;
+  margin-left: 112;
+  border: 1px solid $cl-border;
+  border-radius: 4px;
+  background-color: $cl-white;
+
+  @include if-screen-smaller-than(sm) {
+    margin-top: 16px;
+    margin-left: 0;
+  }
+}
+
+.c-benefit-upgrade-cta {
+  @include flex-container();
+  @include flex-item(240px, 1);
+
+  align-content: flex-start;
+  padding: 24px;
+
+  > h2 {
+    width: 100%;
+    padding-bottom: 16px;
+  }
+
+  &:first-child {
+    border-right: 1px solid $cl-border;
+
+    @include if-screen-smaller-than(sm) {
+      border-right: 0;
+      border-bottom: 1px solid $cl-border;
+    }
+  }
+}
+
+.c-why-not-free {
+  margin-top: 40px;
+  padding: 16px;
+  border: 1px solid $cl-border;
+  border-radius: 4px;
+  background-color: $cl-neutral-0;
+
+  > p {
+    padding-top: 16px;
+  }
+}
+
+.c-benefit-upgrade-cta__btn {
+  flex-basis: 100%;
+  padding-top: 16px;
+}

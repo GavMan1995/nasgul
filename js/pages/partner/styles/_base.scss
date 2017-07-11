@@ -1,0 +1,123 @@
+.c-enterprise {
+  width: 100%;
+  padding-right: calc(50% - 400px);
+  padding-left: calc(50% - 400px);
+
+  @include if-screen-smaller-than(832px) {
+    padding: 0 16px;
+  }
+}
+
+.c-enterprise__header {
+  @include flex-container(space-between, center, center, nowrap);
+  padding: 12px 24px;
+  border-radius: 0 0 4px 4px;
+}
+
+.c-enterprise__header-images {
+  @include flex-container(flex-end, flex-end, flex-end, nowrap);
+  @include flex-item(240px, 1);
+
+  > small {
+    padding-right: 4px;
+    padding-left: 16px;
+    color: $cl-neutral-3;
+    font-size: 8px;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  @include if-screen-smaller-than(sm) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-top: 8px;
+  }
+}
+
+.c-enterprise__partner-logo {
+  width: auto;
+  height: 24px;
+}
+
+.c-enterprise__nav-logo {
+  width: auto;
+  height: 16px;
+}
+
+.c-enterprise__bread-crumb {
+  @include flex-container(flex-start, center, center, nowrap);
+  @include flex-item(184px, 1);
+  color: $cl-secondary-2;
+  cursor: pointer;
+
+  > img {
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+    transform: rotate(90deg);
+  }
+}
+
+.c-enterprise__info-header {
+  @include flex-container(flex-start, center, center, nowrap);
+  width: 100%;
+  padding-bottom: 16px;
+
+  > h2 {
+    padding-left: 16px;
+  }
+}
+
+.c-enterprise__info-header-img {
+  @include flex-container(center, center, center);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: $cl-white;
+  box-shadow: 0 4px 8px -2px $cl-neutral-3;
+
+  > img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.c-enterprise__next-best-action {
+  @include flex-item(200px, 1);
+  padding: 8px;
+  border: 1px solid $cl-border;
+  border-radius: 4px;
+}
+
+.c-enterprise__payment-history-status {
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 16px;
+  border: 1px solid $cl-border;
+  border-radius: 4px;
+  background-color: $cl-white;
+  font-size: 12px;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+  }
+}
+
+.c-enterprise__payment-history-status--good {
+  border-color: $cl-good;
+  color: $cl-good;
+}
+
+.c-enterprise__payment-history-status--bad {
+  border-color: $cl-accent-5;
+  color: $cl-accent-5;
+}
+
+.c-trade-account-status-good {
+  color: $cl-good;
+}
+
+.c-trade-account-status-bad {
+  color: $cl-accent-5;
+}

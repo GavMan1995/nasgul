@@ -1,0 +1,52 @@
+.c-page-footer {
+  @include site-container();
+  @include flex-container(center);
+  @include flex-item(auto, 0, 0);
+  max-width: 100%;
+  margin-top: 32px;
+  padding: 16px 0 76px;
+  background-color: $cl-primary-3;
+  color: $cl-white;
+
+  li,
+  p,
+  a {
+    line-height: 1;
+  }
+
+  > p,
+  .c-page-footer__links {
+    padding-top: 16px;
+  }
+
+  > p {
+    flex-shrink: 0;
+    margin-right: 96px;
+
+    @include if-screen-smaller-than(sm) {
+      flex-basis: 100%;
+      margin-right: 0;
+      text-align: center;
+    }
+  }
+}
+
+.c-page-footer__links {
+  @include flex-container();
+  padding-left: 0;
+  list-style: none;
+
+  li {
+    padding: 0 8px;
+    border-right: 1px solid $cl-white;
+
+    &:last-of-type {
+      border-right: 0;
+    }
+  }
+
+  a {
+    padding: 0 8px;
+    color: $cl-white;
+  }
+}

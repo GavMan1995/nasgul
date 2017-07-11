@@ -1,0 +1,46 @@
+.c-plan-selector-card {
+  @include flex-container(space-around, flex-start, flex-start);
+  flex-basis: 100%;
+  order: 0;
+  margin: 16px 0 40px;
+  padding: 24px;
+
+  > h1 {
+    flex-basis: 100%;
+    margin: 0 8px 24px;
+    text-align: center;
+  }
+}
+
+.c-plan-selector-card__plan {
+  @include flex-container(center);
+  @include flex-item(240px);
+  margin: 8px;
+}
+
+.c-plan-selector-card__btn {
+  position: relative;
+  @include flex-container(left, center, center, nowrap);
+  flex-basis: 100%;
+  padding: 16px;
+  transition: box-shadow 0.1s linear;
+  color: $cl-neutral-5;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+
+  > label {
+    margin-right: 16px;
+  }
+
+  &:hover {
+    color: $cl-neutral-5;
+  }
+}
+
+.c-plan-selector-card__sub-text {
+  flex-basis: 100%;
+  font-size: 12px;
+  font-style: italic;
+  text-align: center;
+}

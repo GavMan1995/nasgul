@@ -1,0 +1,49 @@
+.c-stats-list {
+  @include flex-container($wrap: nowrap);
+  @include flex-item(100%);
+  max-height: 500px;
+  transition: max-height 0.2s ease-in-out, opacity 0.2s linear, padding 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.c-stats-list__stat {
+  @include flex-container($align-items: center);
+  @include flex-item(200px, 1, 400px);
+  margin: 16px 0;
+  padding: 0 16px;
+  border-left: 1px solid $cl-border;
+
+  > p {
+    flex-basis: 100%;
+    line-height: 1.24;
+  }
+
+  strong {
+    display: block;
+    width: 100%;
+    padding-right: 8px;
+  }
+
+  &:first-child,
+  &:nth-child(2) {
+    border-left: 0;
+  }
+
+  @include if-screen-smaller-than(sm) {
+    margin: 8px 0;
+    padding: 0 8px;
+    border-left: 0;
+
+    > p {
+      font-size: 12px;
+    }
+
+    > strong {
+      font-size: 10px;
+    }
+
+    &:nth-child(n+4) {
+      display: none;
+    }
+  }
+}

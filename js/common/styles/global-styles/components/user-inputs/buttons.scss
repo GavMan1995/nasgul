@@ -1,0 +1,591 @@
+// stylelint-disable sh-waqar/declaration-use-variable
+
+.c-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.c-btn {
+  display: block;
+  @include flex-item(auto);
+  align-self: flex-start;
+  margin: 8px;
+  padding: 9px 32px;
+  transition: background-color 0.08s linear, color 0.08s linear, border-color 0.08s linear;
+  border: 1px solid $cl-secondary-2;
+  border-radius: 4px;
+  outline: 0 solid $cl-black--transparent;
+  background-color: $cl-secondary-2;
+  color: $cl-white;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+
+  @at-root a#{&} {
+    height: 32px;
+  }
+
+  @at-root button#{&} {
+    min-height: 32px;
+  }
+
+  &:hover {
+    border-color: scale-color($cl-secondary-2, $lightness: 10%);
+    outline: 0 solid $cl-black--transparent;
+    background-color: scale-color($cl-secondary-2, $lightness: 10%);
+    color: $cl-white;
+    text-decoration: none;
+  }
+
+  &:active {
+    border-color: scale-color($cl-secondary-2, $lightness: -10%);
+    outline: 0 solid $cl-black--transparent;
+    outline-offset: 0;
+    background-color: scale-color($cl-secondary-2, $lightness: -10%);
+  }
+
+  &:focus {
+    border-color: scale-color($cl-secondary-2, $lightness: -50%);
+    outline: 0 solid $cl-black--transparent;
+    outline-offset: 0;
+  }
+
+  &[disabled] {
+    border-color: scale-color($cl-secondary-2, $lightness: 10%);
+    background-color: scale-color($cl-secondary-2, $lightness: 10%);
+    cursor: not-allowed;
+
+    &:hover {
+      border-color: scale-color($cl-secondary-2, $lightness: 10%);
+      background-color: scale-color($cl-secondary-2, $lightness: 10%);
+    }
+
+    &:active {
+      border-color: scale-color($cl-secondary-2, $lightness: -10%);
+      background-color: scale-color($cl-secondary-2, $lightness: -10%);
+    }
+
+    &:focus {
+      border-color: scale-color($cl-secondary-2, $lightness: 10%);
+      background-color: scale-color($cl-secondary-2, $lightness: 10%);
+    }
+  }
+
+  &.c-btn--outline {
+    border: 1px solid $cl-secondary-2;
+    background-color: rgba($cl-secondary-2, 0);
+    color: $cl-secondary-2;
+
+    &:hover {
+      background-color: rgba($cl-secondary-2, 0.2);
+      color: $cl-secondary-2;
+    }
+
+    &:active {
+      background-color: rgba($cl-secondary-2, 0.3);
+    }
+
+    &:focus {
+      border-color: scale-color($cl-secondary-2, $lightness: -50%);
+    }
+
+    &[disabled] {
+      border-color: $cl-neutral-3;
+      background-color: rgba($cl-white, 0);
+      color: $cl-neutral-3;
+      cursor: not-allowed;
+
+      &:hover {
+        border-color: $cl-neutral-3;
+        background-color: rgba($cl-white, 0);
+      }
+
+      &:active {
+        border-color: $cl-neutral-3;
+        background-color: rgba($cl-white, 0);
+      }
+
+      &:focus {
+        border-color: $cl-neutral-3;
+        background-color: rgba($cl-white, 0);
+      }
+    }
+  }
+}
+
+.c-btn.c-btn--mobile {
+  @include if-screen-smaller-than(sm) {
+    @include flex-item(100%, 1);
+  }
+}
+
+.c-btn--vertical-center {
+  align-self: center;
+}
+
+.c-btn.c-btn--sm {
+  min-width: 80px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 400;
+
+  @at-root a#{&} {
+    height: 24px;
+  }
+
+  @at-root button#{&} {
+    min-height: 24px;
+  }
+}
+
+.c-btn.c-btn--md {
+  padding: 9px 32px;
+  font-weight: 600;
+
+  @at-root a#{&} {
+    height: 32px;
+  }
+
+  @at-root button#{&} {
+    min-height: 32px;
+  }
+}
+
+.c-btn.c-btn--lg {
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+
+  @at-root a#{&} {
+    height: 40px;
+  }
+
+  @at-root button#{&} {
+    min-height: 40px;
+  }
+}
+
+.c-btn.c-btn--xl {
+  padding: 19px 40px;
+  font-size: 18px;
+  font-weight: 600;
+
+  @at-root a#{&} {
+    height: 56px;
+  }
+
+  @at-root button#{&} {
+    min-height: 56px;
+  }
+}
+
+.c-btn.c-btn--no-margin {
+  margin: 0;
+}
+
+.c-btn.c-btn--primary {
+  border: 1px solid $cl-secondary-2;
+  background-color: $cl-secondary-2;
+  color: $cl-white;
+
+  &:focus {
+    border-color: scale-color($cl-secondary-2, $lightness: -20%);
+  }
+
+  &:hover {
+    border-color: scale-color($cl-secondary-2, $lightness: 20%);
+    background-color: scale-color($cl-secondary-2, $lightness: 20%);
+    color: $cl-white;
+  }
+
+  &:active {
+    border-color: scale-color($cl-secondary-2, $lightness: -20%);
+    background-color: scale-color($cl-secondary-2, $lightness: -20%);
+  }
+
+  &[disabled] {
+    border-color: scale-color($cl-secondary-2, $lightness: 75%);
+    background-color: scale-color($cl-secondary-2, $lightness: 75%);
+    color: rgba($cl-white, 0.9);
+    cursor: not-allowed;
+
+    &:focus {
+      border-color: scale-color($cl-secondary-2, $lightness: 75%);
+      background-color: scale-color($cl-secondary-2, $lightness: 75%);
+      color: rgba($cl-white, 0.9);
+    }
+
+    &:hover {
+      border-color: scale-color($cl-secondary-2, $lightness: 75%);
+      background-color: scale-color($cl-secondary-2, $lightness: 75%);
+      color: rgba($cl-white, 0.9);
+    }
+
+    &:active {
+      border-color: scale-color($cl-secondary-2, $lightness: 75%);
+      background-color: scale-color($cl-secondary-2, $lightness: 75%);
+      color: rgba($cl-white, 0.9);
+    }
+  }
+
+  &.c-btn--outline {
+    border: 1px solid $cl-secondary-2;
+    background-color: rgba($cl-secondary-2, 0);
+    color: $cl-secondary-2;
+
+    &:focus {
+      border-color: scale-color($cl-secondary-2, $lightness: -20%);
+    }
+
+    &:hover {
+      background-color: rgba($cl-secondary-2, 0.05);
+      color: $cl-secondary-2;
+    }
+
+    &:active {
+      background-color: rgba($cl-secondary-2, 0.2);
+    }
+
+    &[disabled] {
+      border-color: $cl-neutral-2;
+      background-color: rgba($cl-white, 0);
+      color: $cl-neutral-3;
+      cursor: not-allowed;
+
+      &:focus {
+        border-color: $cl-neutral-3;
+        background-color: rgba($cl-white, 0);
+      }
+
+      &:hover {
+        border-color: $cl-neutral-2;
+        background-color: rgba($cl-white, 0);
+      }
+
+      &:active {
+        border-color: $cl-neutral-2;
+        background-color: rgba($cl-white, 0);
+      }
+    }
+  }
+}
+
+.c-btn.c-btn--secondary {
+  border: 1px solid $cl-neutral-2;
+  background-color: $cl-neutral-2;
+  color: $cl-neutral-6;
+
+  &:focus {
+    border-color: $cl-neutral-3;
+    background-color: $cl-neutral-2;
+    color: $cl-neutral-6;
+  }
+
+  &:hover {
+    border-color: scale-color($cl-neutral-2, $lightness: 70%);
+    background-color: scale-color($cl-neutral-2, $lightness: 70%);
+    color: $cl-neutral-6;
+  }
+
+  &:active {
+    border-color: $cl-neutral-2;
+    background-color: $cl-neutral-3;
+    color: $cl-neutral-6;
+  }
+
+  &[disabled] {
+    border: 1px solid $cl-neutral-2;
+    background-color: $cl-neutral-2;
+    color: $cl-neutral-3;
+    cursor: not-allowed;
+
+    &:focus {
+      border: 1px solid $cl-neutral-2;
+      outline: 0 solid rgba(0, 0, 0, 0);
+      background-color: $cl-neutral-2;
+      color: $cl-neutral-3;
+    }
+
+    &:hover {
+      border: 1px solid $cl-neutral-2;
+      outline: 0 solid rgba(0, 0, 0, 0);
+      background-color: $cl-neutral-2;
+      color: $cl-neutral-3;
+    }
+
+    &:active {
+      border: 1px solid $cl-neutral-2;
+      outline: 0 solid rgba(0, 0, 0, 0);
+      background-color: $cl-neutral-2;
+      color: $cl-neutral-3;
+    }
+  }
+
+  &.c-btn--outline {
+    border: 1px solid $cl-neutral-3;
+    background-color: rgba($cl-neutral-2, 0);
+    color: $cl-neutral-6;
+
+    &:focus {
+      border-color: $cl-neutral-6;
+    }
+
+    &:hover {
+      background-color: rgba($cl-neutral-3, 0.05);
+      color: $cl-neutral-6;
+    }
+
+    &:active {
+      border-color: $cl-neutral-4;
+      background-color: rgba($cl-neutral-3, 0.2);
+    }
+
+    &[disabled] {
+      border-color: $cl-neutral-3;
+      background-color: rgba($cl-white, 0);
+      color: $cl-neutral-3;
+      cursor: not-allowed;
+
+      &:focus {
+        border-color: $cl-neutral-3;
+        background-color: rgba($cl-white, 0);
+      }
+
+      &:hover {
+        border-color: $cl-neutral-3;
+        background-color: rgba($cl-white, 0);
+      }
+
+      &:active {
+        border-color: $cl-neutral-3;
+        background-color: rgba($cl-white, 0);
+      }
+    }
+  }
+}
+
+.c-btn.c-btn--white {
+  border: 1px solid $cl-white;
+  background-color: $cl-white;
+  color: $cl-secondary-2;
+
+  &:focus {
+    border-color: $cl-neutral-3;
+    background-color: $cl-white;
+    color: $cl-neutral-4;
+  }
+
+  &:hover {
+    border-color: scale-color($cl-neutral-2, $lightness: 70%);
+    background-color: scale-color($cl-neutral-2, $lightness: 70%);
+    color: $cl-neutral-4;
+  }
+
+  &:active {
+    border-color: scale-color($cl-neutral-2, $lightness: 35%);
+    background-color: scale-color($cl-neutral-2, $lightness: 35%);
+    color: $cl-neutral-4;
+  }
+
+  &[disabled] {
+    border: 1px solid $cl-neutral-2;
+    background-color: $cl-neutral-2;
+    color: $cl-neutral-3;
+    cursor: not-allowed;
+
+    &:focus {
+      border: 1px solid $cl-neutral-2;
+      outline: 0 solid rgba(0, 0, 0, 0);
+      background-color: $cl-neutral-2;
+      color: $cl-neutral-3;
+    }
+
+    &:hover {
+      border: 1px solid $cl-neutral-2;
+      outline: 0 solid rgba(0, 0, 0, 0);
+      background-color: $cl-neutral-2;
+      color: $cl-neutral-3;
+    }
+
+    &:active {
+      border: 1px solid $cl-neutral-2;
+      outline: 0 solid rgba(0, 0, 0, 0);
+      background-color: $cl-neutral-2;
+      color: $cl-neutral-3;
+    }
+  }
+
+  &.c-btn--outline {
+    border: 1px solid $cl-border;
+    background-color: rgba($cl-neutral-2, 0);
+    color: $cl-neutral-6;
+
+    &:focus {
+      border-color: $cl-neutral-4;
+    }
+
+    &:hover {
+      background-color: rgba($cl-neutral-3, 0.05);
+      color: $cl-neutral-6;
+    }
+
+    &:active {
+      border-color: $cl-neutral-4;
+      background-color: rgba($cl-neutral-3, 0.1);
+    }
+
+    &[disabled] {
+      border-color: $cl-neutral-3;
+      background-color: rgba($cl-white, 0);
+      color: $cl-neutral-3;
+      cursor: not-allowed;
+
+      &:focus {
+        border-color: $cl-neutral-3;
+        background-color: rgba($cl-white, 0);
+      }
+
+      &:hover {
+        border-color: $cl-neutral-3;
+        background-color: rgba($cl-white, 0);
+      }
+
+      &:active {
+        border-color: $cl-neutral-3;
+        background-color: rgba($cl-white, 0);
+      }
+    }
+  }
+}
+
+.c-btn.c-btn--upgrade {
+  @include flex-container(center, center, center, $wrap: nowrap);
+  border: 1px solid $cl-accent-3;
+  background-color: $cl-accent-3;
+  color: $cl-white;
+
+  &:focus {
+    border-color: scale-color($cl-accent-3, $lightness: -20%);
+  }
+
+  &:hover {
+    border-color: scale-color($cl-accent-3, $lightness: 20%);
+    background-color: scale-color($cl-accent-3, $lightness: 20%);
+  }
+
+  &:active {
+    border-color: scale-color($cl-accent-3, $lightness: -20%);
+    background-color: scale-color($cl-accent-3, $lightness: -20%);
+  }
+
+  &[disabled] {
+    border-color: scale-color($cl-accent-3, $lightness: 75%);
+    background-color: scale-color($cl-accent-3, $lightness: 75%);
+    color: rgba($cl-white, 0.9);
+    cursor: not-allowed;
+
+    &:focus {
+      border-color: scale-color($cl-accent-3, $lightness: 75%);
+      background-color: scale-color($cl-accent-3, $lightness: 75%);
+      color: rgba($cl-white, 0.9);
+    }
+
+    &:hover {
+      border-color: scale-color($cl-accent-3, $lightness: 75%);
+      background-color: scale-color($cl-accent-3, $lightness: 75%);
+      color: rgba($cl-white, 0.9);
+    }
+
+    &:active {
+      border-color: scale-color($cl-accent-3, $lightness: 75%);
+      background-color: scale-color($cl-accent-3, $lightness: 75%);
+      color: rgba($cl-white, 0.9);
+    }
+  }
+
+  &.c-btn--outline {
+    border: 1px solid $cl-accent-3;
+    background-color: rgba($cl-secondary-2, 0);
+    color: $cl-accent-3;
+
+    &:focus {
+      border-color: scale-color($cl-accent-3, $lightness: -20%);
+    }
+
+    &:hover {
+      background-color: rgba($cl-accent-3, 0.05);
+      color: $cl-accent-3;
+    }
+
+    &:active {
+      background-color: rgba($cl-accent-3, 0.2);
+    }
+
+    &[disabled] {
+      border-color: $cl-neutral-3;
+      background-color: rgba($cl-white, 0);
+      color: $cl-neutral-3;
+      cursor: not-allowed;
+
+      &:focus {
+        border-color: $cl-neutral-3;
+        background-color: rgba($cl-white, 0);
+      }
+
+      &:hover {
+        border-color: $cl-neutral-3;
+        background-color: rgba($cl-white, 0);
+      }
+
+      &:active {
+        border-color: $cl-neutral-3;
+        background-color: rgba($cl-white, 0);
+      }
+    }
+  }
+}
+
+.c-btn--upgrade__icon {
+  margin-right: 8px;
+}
+
+.c-btn.c-btn--gold {
+  @include flex-container(center, center, center, $wrap: nowrap);
+  border-color: $cl-neutral-5;
+  background-color: $cl-fair;
+  color: $cl-neutral-5;
+
+  &:focus {
+    border-color: scale-color($cl-neutral-5, $lightness: -20%);
+  }
+
+  &:hover {
+    background-color: scale-color($cl-fair, $lightness: 20%);
+  }
+
+  &:active {
+    background-color: scale-color($cl-fair, $lightness: -20%);
+  }
+}
+
+.c-btn.c-btn--full-width {
+  flex-basis: 100%;
+}
+
+.c-btn.c-btn--block {
+  @include flex-item(100%);
+  margin: 0;
+  border-radius: 0;
+}
+
+.c-btn.c-btn--wrap-text {
+  white-space: normal;
+}

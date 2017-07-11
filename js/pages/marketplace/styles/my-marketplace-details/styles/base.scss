@@ -1,0 +1,30 @@
+.c-loan-details-page {
+  @include flex-container();
+  @include flex-item(100%);
+  padding-bottom: 64px;
+}
+
+.c-loan-details-page__overview {
+  flex-basis: 100%;
+  padding-top: 56px;
+  padding-bottom: 64px;
+}
+
+.c-loan-details-page__facts {
+  @include flex-container();
+  flex-basis: 100%;
+  margin: 0 -16px;
+  padding-top: 56px;
+  padding-bottom: 64px;
+}
+
+.c-loan-details-page__navs-verdict {
+  flex-basis: 100%;
+  padding-top: 56px;
+  padding-bottom: 64px;
+  padding-left: 64px;
+
+  @include if-screen-smaller-than(sm) {
+    padding-left: 0;
+  }
+}

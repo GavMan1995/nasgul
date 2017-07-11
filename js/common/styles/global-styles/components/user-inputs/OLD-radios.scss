@@ -1,0 +1,140 @@
+// TODO: OLD Style, Kill them eventually please.
+// scss-lint:disable all
+
+
+.radio {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.radio:focus + label::before {
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
+}
+
+.radio + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: $cl-neutral-3;
+  border-radius: 100%;
+}
+.radio + label:before,
+.radio + label:after {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  content: '';
+}
+.radio + label:before {
+  right: 1px;
+  background-color: $cl-neutral-3;
+  border-radius: 100%;
+  transition: background 0.3s;
+}
+.radio + label:after {
+  width: 18px;
+  background-color: #fff;
+  border-radius: 100%;
+  transition: background-color 0.2s linear, box-shadow .2s linear;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0), inset 0 0 0 3px #fff;
+}
+.radio:checked + label:after {
+  background-color: $cl-neutral-3;
+  background-size: 15px;
+}
+.radio:checked + label::before {
+  background-color: $cl-neutral-3;
+
+}
+
+
+
+/*  Alternate Styles
+   -------------------------------------------------------------------------- */
+
+
+ .-small.radio + label {
+   width: 15px;
+   height: 15px;
+   border-radius: 100%;
+ }
+ .-small.radio + label:before {
+   border-radius: 100%;
+ }
+ .-small.radio + label:after {
+   width: 13px;
+   background-size: 10px;
+ }
+
+ .-large.radio + label {
+   width: 30px;
+   height: 30px;
+   border-radius: 100%;
+ }
+ .-large.radio + label:before {
+   border-radius: 100%;
+ }
+ .-large.radio + label:after {
+   width: 28px;
+   background-size: 22px;
+ }
+
+ .-primary-2.radio:checked + label{
+   &:after {
+    background-color: $cl-primary-2;
+  }
+ }
+
+ .-secondary-2.radio:checked + label{
+   &:after {
+    background-color: $cl-secondary-2;
+  }
+ }
+
+ .-accent-1.radio:checked + label{
+   &:after {
+     background-color: $cl-accent-1;
+  }
+ }
+
+ .-accent-2.radio:checked + label{
+   &:after {
+     background-color: $cl-accent-2;
+  }
+ }
+
+ .-accent-3.radio:checked + label{
+   &:after {
+     background-color: $cl-accent-3;
+  }
+ }
+
+ .-accent-4.radio:checked + label{
+   &:after {
+     background-color: $cl-accent-4;
+  }
+ }
+
+ .-accent-5.radio:checked + label{
+   &:after {
+     background-color: $cl-accent-5;
+  }
+ }
+
+ .-accent-6.radio:checked + label{
+   &:after {
+     background-color: $cl-accent-6;
+  }
+ }

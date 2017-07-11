@@ -1,0 +1,273 @@
+// TODO: OLD Style, Kill them eventually please.
+// scss-lint:disable all
+
+.section-content-mainbox{
+  margin:0 0 10px 0;
+  padding:20px;
+  background: #fff;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.business-mainbox {
+  overflow:auto;
+}
+
+.business-mainbox h2{
+  margin: 5px 0 10px 0;
+  color:#71808b;
+}
+
+.business-mainbox h4{
+  font-family:  averta, helvetica, arial;
+  margin: 0 0 10px 0;
+  color:#666;
+  font-size: 24px;
+}
+
+.business-mainbox .btn-close {
+  font-size: 30px;
+  color: #ccc;
+  position: absolute;
+  top: -8px;
+  cursor: pointer;
+  right: 14px;
+}
+
+.business-mainbox .btn-close {
+  font-size: 30px;
+  color: #ccc;
+  position: absolute;
+  top: -8px;
+  cursor: pointer;
+  right: 14px;
+}
+
+
+.goal-selected{
+  padding:20px;
+  border:1px solid #ccc;
+}
+
+
+.goal-selected h4{
+  font-size:18px;
+  margin:3px 0;
+  font-family: 'averta', helvetica, arial;
+}
+
+.goal-selected ul{
+  margin-bottom:0;
+  margin-right: 20px;
+}
+
+.goal-selected li{
+  margin: 4px 0;
+  padding: 5px;
+  border-top: 1px dashed #bbb;
+}
+
+.goal-complete-message h1{
+  color:#FCAA30;
+}
+
+.goal-task-required{
+  font-size:12px;
+}
+
+.goal-selected li.goal-task-complete{
+  background: #fff;
+}
+
+.goal-task-complete span{
+  color:#999;
+  text-decoration: line-through;
+}
+
+.goal-task-complete .task-complete-text {
+  text-decoration: none;
+}
+
+.goal-task-complete .goal-list{
+  display:none;
+}
+
+.goal-task-complete .goal-fail-message{
+  display:none;
+}
+
+
+.fa.goal-task-check{
+  font-size: 21px;
+  position: relative;
+  top: 3px;
+  display:none;
+}
+
+li.goal-task-failed {
+  border-top:0;
+}
+
+.goal-task-failed a{
+  font-size: 12px;
+  color: #cc0000;
+  text-decoration: underline;
+}
+
+.task-count{
+  font-size:13px;
+  margin-bottom:0;
+}
+
+.goal-task-complete .fa.goal-task-check{
+  display:inline;
+}
+
+.goal-selected.empty .goal-circle{
+  width:100px;
+  height:100px;
+  text-align:center;
+  border-radius:100px;
+  border:1px dashed #999;
+  background:#efefef;
+  box-shadow: none;
+}
+
+.goal-selected.empty h4, .goal-selected.empty p{
+  color:#ccc;
+}
+
+.goal-circle img{
+  width:50px;
+  margin-top: 10px;
+}
+
+.goal-quit{
+  font-size: 12px;
+  color: #cc0000;
+}
+
+.goal-selected li.goal-month{
+  padding: 0px 3px;
+  border: 1px solid #4498d3;
+  font-size: 12px;
+  color: #4498d3;
+}
+
+.goal-month .fa-times, .goal-month .fa-check{
+  display:none;
+}
+
+.goal-selected li.goal-month.goal-month-succeed{
+  border-color:#00bb7b;
+  background:#00bb7b;
+  color:#fff;
+}
+
+.goal-month.goal-month-succeed .fa-check{
+  display:inline;
+}
+
+.goal-selected li.goal-month.goal-month-fail{
+  border-color:#ed193f;
+  background:#ed193f;
+  color:#fff;
+}
+
+.btn:hover {
+  &.gear{
+    background-color: #fff;
+  }
+}
+
+.goal__icon{
+  top: 8px;
+  position: relative;
+  margin-right: 16px;
+  font-size: 40px;
+}
+
+.goal__in-progress {
+  border-radius: 0 0 2px 2px;
+  color: #fff;
+  background-color: $cl-secondary-1;
+  &:focus {
+    color: $cl-primary-2;
+  }
+  &:active {
+    color: $cl-neutral-6;
+  }
+}
+
+.goal__complete {
+  color:  $cl-accent-1;
+  background-color:  lighten($cl-accent-2, 20%);
+
+  &:hover {
+    cursor: default;
+    color:  $cl-accent-1;
+    background-color:  lighten($cl-accent-2, 20%);
+  }
+
+  &:focus {
+    color:  $cl-accent-1;
+  }
+
+  &:active {
+    color: $cl-neutral-6;
+  }
+}
+
+.goal__complete-box {
+  overflow: none;
+  border-color:  $cl-accent-1;
+}
+
+h2.credit-target-header {
+  text-transform: none;
+}
+
+.goal-task-details {
+  color: $cl-accent-5;
+}
+
+.goal-icon {
+  padding-top: 16px;
+}
+
+.goals-selected {
+  padding: 0;
+}
+
+.goal-detail-container {
+  margin-bottom: 32px;
+  border-bottom: 1px solid $cl-border;
+}
+.goal-detail-container .alert {
+  padding: 24px !important;
+  margin: 24px 0;
+}
+
+.goal-box-container {
+  padding: 0 24px 8px 24px;
+}
+
+.section-content-mainbox {
+  padding: 24px;
+}
+
+.goal-selected {
+  border: 1px solid  $cl-neutral-2;
+}
+
+.business-mainbox .goal-box-container h4 {
+  font-size: 16px;
+}
+
+h3.other-goals {
+  margin: 8px 0 24px 0;
+}
+
+.goal-task {
+  padding: 8px 0;
+}

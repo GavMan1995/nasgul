@@ -1,0 +1,133 @@
+.c-warning-box {
+  position: relative;
+  @include flex-container(center);
+  @include flex-item(100%);
+  max-width: 960px;
+  margin: 32px auto 8px;
+  padding: 32px 48px;
+  border: 1px solid $cl-border;
+  border-radius: 4px;
+  background-color: $cl-white;
+
+  // .c-match-factor-score is old, delete once moved away from nav_web marketplace
+  .c-match-factor-score,
+  .c-mf-score {
+    margin: 8px 16px 0 0;
+  }
+
+  @include if-screen-smaller-than(sm) {
+    padding: 24px 16px;
+  }
+
+  @include if-screen-smaller-than(832px) {
+    max-width: calc(100% - 32px);
+  }
+
+  @include if-screen-smaller-than(600px) {
+    > .c-warning-box__image {
+      display: none;
+    }
+
+    .c-warning-box__copy {
+      .c-warning-box__image {
+        display: block;
+      }
+
+      h1,
+      h3 {
+        @include flex-item(150px, 1);
+      }
+
+      h3 {
+        padding-top: 16px;
+      }
+
+      p {
+        padding-top: 8px;
+      }
+    }
+  }
+}
+
+.c-warning-box.c-warning-box--full-width {
+  max-width: 100%;
+}
+
+.c-warning-box.c-warning-box--no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.c-warning-box__image {
+  flex-shrink: 0;
+  max-width: 100%;
+  margin: 8px 32px 16px 0;
+
+  @include if-screen-smaller-than(sm) {
+    margin: 0 0 16px;
+  }
+}
+
+.c-warning-box.c-warning-box--no-border {
+  max-width: none;
+  margin: 16px 8px;
+  border: 0;
+}
+
+.c-warning-box__copy {
+  @include flex-container(center, center, center);
+  @include flex-item(400px, 1);
+
+  > h3,
+  > p {
+    flex-basis: 100%;
+  }
+
+  p:not(:first-of-type) {
+    margin-top: 16px;
+  }
+
+  > h3 {
+    font-weight: 600;
+  }
+
+  .c-warning-box__image {
+    display: none;
+  }
+}
+
+.c-warning-box__cta {
+  @include flex-container(left, center, center);
+  @include flex-item(100%);
+  margin-top: 16px;
+  padding-left: 0;
+
+  .c-btn {
+    margin: 0;
+    margin-right: 16px;
+  }
+
+  li {
+    @include flex-item(100%);
+    margin-left: 16px;
+
+    a {
+      margin-right: 4px;
+    }
+  }
+
+  p a {
+    margin-left: 4px;
+  }
+
+  @include if-screen-smaller-than(sm) {
+    justify-content: center;
+
+    .c-btn {
+      flex-basis: 100%;
+    }
+  }
+}
+
+.c-warning-box__cta--align-right {
+  justify-content: flex-end;
+}

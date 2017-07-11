@@ -1,0 +1,90 @@
+.c-loan-reality__borrowing-power {
+  @include flex-item($grow: 1);
+  font-size: 32px;
+  text-align: center;
+}
+
+.c-loan-reality-card__borrowing-power-link {
+  padding: 8px;
+  font-size: 12px;
+  text-align: center;
+
+  > a {
+    text-decoration: underline;
+  }
+}
+
+.c-loan-reality-card__borrowing-power-text {
+  padding: 16px 0;
+  text-align: center;
+}
+
+.c-loan-reality-card__borrowing-power-image-wrapper {
+  @include flex-container(center, bottom);
+  @include flex-item(100%, 1);
+  padding-top: 16px;
+  text-align: center;
+}
+
+.c-loan-reality-card__borrowing-power-image {
+  @include flex-container(center, bottom);
+  @include flex-item($max: 100px);
+  height: 50px;
+  text-align: center;
+}
+
+.c-loan-reality-card__borrowing-power-checkmark-list--good {
+  padding: 8px 0;
+  font-size: 16px;
+  list-style-type: none; // remove default list style
+
+  span {
+    display: inline-block;
+    margin-right: 16px;
+    padding: 3px 6px;
+    border: 2px solid $cl-good;
+    border-radius: 50%;
+    vertical-align: text-bottom;
+
+    &::after {
+      display: block;
+      width: 5px;
+      height: 10px;
+      transform: rotate(45deg);
+      border: solid $cl-good;
+      border-width: 0 2px 2px 0;
+      content: '';
+    }
+  }
+}
+
+.c-loan-reality-card__borrowing-power-label {
+  font-size: 16px;
+}
+
+.c-loan-reality-card__borrowing-power-checkmark-list--bad {
+  padding: 8px 0;
+  font-size: 16px;
+  list-style-type: none; // remove default list style
+
+  span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    border: 2px solid $cl-error;
+    border-radius: 50%;
+    color: $cl-error;
+    vertical-align: text-bottom;
+
+    &::after {
+      display: block;
+      position: relative;
+      top: -10px;
+      left: 3px;
+      font-size: 20px;
+      font-weight: 600;
+      content: '\00D7';
+    }
+  }
+}

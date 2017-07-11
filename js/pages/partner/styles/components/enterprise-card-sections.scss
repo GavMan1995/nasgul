@@ -1,0 +1,168 @@
+.o-enterprise-card__section {
+  @include flex-item(40px, 1);
+  padding: 24px;
+}
+
+.o-enterprise-card__section--xs {
+  flex-basis: 80px;
+}
+
+.o-enterprise-card__section--sm {
+  flex-basis: 160px;
+}
+
+.o-enterprise-card__section--md {
+  flex-basis: 200px;
+}
+
+.o-enterprise-card__section--lg {
+  flex-basis: 280px;
+}
+
+.o-enterprise-card__section--full-width {
+  flex-basis: 100%;
+}
+
+.o-enterprise-card__section--full-width-mobile {
+  @include if-screen-smaller-than(sm) {
+    flex-basis: 100%;
+  }
+}
+
+.o-enterprise-card__section--no-padding {
+  padding: 0;
+}
+
+.o-enterprise-card__section--light-color {
+  color: $cl-neutral-4;
+
+  // stylelint-disable-next-line selector-no-universal
+  > * {
+    font-weight: 200;
+  }
+}
+
+.o-enterprise-card__section--header {
+  flex-basis: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid $cl-border;
+}
+
+.o-enterprise-card__section--title {
+  flex-basis: 120px;
+}
+
+.c-score-change-card-section {
+  @include flex-item(80px, 1);
+  padding: 24px;
+  color: $cl-neutral-4;
+
+  > span {
+    margin-top: 8px;
+  }
+}
+
+.c-stat-number-card-section {
+  @include flex-item(48px);
+  padding: 24px;
+
+  > h1 {
+    font-weight: 400;
+  }
+}
+
+.c-beyond-terms-summary-card-section {
+  @include flex-item(200px, 1);
+  margin: 8px;
+  padding: 16px;
+  border: 1px solid $cl-border;
+  border-radius: 4px;
+
+  > h3 {
+    width: 40px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid $cl-border;
+  }
+
+  > p {
+    width: 100%;
+  }
+
+  @include if-screen-smaller-than(sm) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.c-tradelines-card-section {
+  position: relative;
+  @include flex-item(280px, 1);
+  margin: 8px;
+  padding: 8px;
+  padding-right: 48px;
+  border: 1px solid $cl-border;
+  border-radius: 4px;
+  overflow: hidden;
+
+  > span {
+    position: absolute;
+    @include flex-container(center, center, center);
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 8px 16px;
+    background-color: $cl-neutral-2;
+  }
+}
+
+.c-tradelines-card-section-placeholder {
+  @include flex-item(280px, 1);
+  margin: 0 8px;
+}
+
+.c-enterprise-card-score-factor {
+  @include flex-container(space-between, center, center, nowrap);
+  @include flex-item(100%);
+  padding: 16px;
+  transition: background-color 0.3s;
+  background-color: $cl-white;
+
+  &:hover {
+    background-color: $cl-neutral-1;
+  }
+
+  > p {
+    color: $cl-neutral-5;
+    font-size: 16px;
+    font-weight: 200;
+  }
+}
+
+.c-enterprise-card-score-factor__status {
+  @include flex-container(space-between, center, center, nowrap);
+  @include flex-item(120px);
+
+  > img {
+    width: 16px;
+    height: 24px;
+  }
+}
+
+.c-credit-utilization-bar-card-section {
+  @include flex-container();
+  @include flex-item(100%);
+  padding-bottom: 24px;
+
+  > h1,
+  p {
+    width: 100%;
+    line-height: 1;
+  }
+
+  > h1 {
+    padding-bottom: 4px;
+    font-weight: 200;
+  }
+}

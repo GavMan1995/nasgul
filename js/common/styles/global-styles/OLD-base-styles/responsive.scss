@@ -1,0 +1,498 @@
+// TODO: OLD Style, Kill them eventually please.
+// scss-lint:disable all
+
+
+/*LG*/
+@media (max-width: 1199px) {
+  .box-small{
+    width: 117px;
+    height: 113px;
+    font-size: 12px;
+  }
+}
+
+/*SM*/
+@media (max-width: 991px) {
+
+  .score-box-title {
+    font-size: 9px !important;
+  }
+  .boxes-active .donutScore {
+    top: 40px ;
+  }
+
+  .account-detail-special-comment {
+    float: none;
+    margin-top: 0;
+  }
+
+  .box-small{
+    width: 98px;
+    height: 98px;
+    font-size: 9px;
+  }
+
+  .score-type {
+    float: none !important;
+  }
+
+  .box-small h1{
+    font-size:50px;
+    margin-top: 0;
+  }
+
+  .box-small .btn-go{
+    bottom: 2px;
+    right:2px;
+  }
+
+  .donutScore {
+    font-size: 13px;
+    position: absolute;
+    left: 30px;
+    top: 38px;
+    color: #999;
+  }
+
+  .donutChart, .pieChart{
+    width:50px;
+    height:50px;
+  }
+
+  #payment-history.box-small h3 {
+    margin: 2px 0 0 0;
+    font-size: 50px;
+    line-height: 40px;
+  }
+
+  #payment-history.box-small .late-payment {
+    line-height:7px;
+    font-size:9px;
+  }
+
+  .selected-box .donutScore{
+    left:38%;
+    top: 155px;
+  }
+
+  .selected-box .donutScore.biz-donut {
+    top: 191px;
+  }
+
+  .selected-debt-usage .selected-box .donutScore{
+    top: 145px;
+  }
+
+  .selected-payment-history ul li{
+    display:block;
+    margin:15px 0;
+  }
+
+  .selected-payment-history h2 {
+    line-height: 20px;
+  }
+
+  .selected-children h4 {
+    font-size: 12px;
+  }
+
+  .selected-box .pieChart {
+    width: 150px;
+    height: 150px;
+    margin: 10px auto;
+  }
+
+  .selected-account-mix .selected-box .icon-home{
+    font-size: 25px;
+  }
+
+  .selected-account-mix .selected-box .icon-credit-card {
+    font-size: 20px;
+  }
+
+  .selected-account-mix .selected-box .img-car{
+    font-size: 15px;
+  }
+
+  .account-donut-score {
+    left: 76px;
+  }
+
+  .account-mix-list li {
+    width: 100%;
+  }
+
+  .score-counts li {
+    width:auto;
+    line-height: 30px;
+  }
+
+  .payment-key{
+    width: 100%;
+  }
+
+  .report-block #payment-key .payment-key {
+    width: 48%;
+  }
+
+  .score-ranking{
+    display:none;
+  }
+
+  #biz-company.box-small h1 {
+    font-size: 37px;
+    line-height: 16px;
+  }
+
+  #biz-company.box-small h2 {
+    font-size: 10px;
+    margin-top: 5px;
+  }
+}
+
+/*XS*/
+
+@media (max-width: 767px) {
+  .update-billing-container {
+      left: 36px;
+      margin-bottom: 150px;
+  }
+
+  .signup-content label {
+    text-align: left;
+  }
+
+  .payment-form-box .credit-card{
+    width:100%;
+  }
+
+  .location-label,
+  .business-street-label {
+    width: 100% !important;
+    text-align:left !important;
+  }
+
+  .business-name,
+  .business-street,
+  .business-address-city {
+    width: 100% !important;
+  }
+
+  .lookup-business {
+    float: left !important;
+  }
+
+  .signup-content label {
+    text-align:left;
+  }
+
+  .form-field {
+    display: block!important;
+  }
+
+  .payment-body h1, .payment-body h4{
+    text-align:left;
+  }
+
+  .modal-xl{
+    width:100%;
+  }
+
+  .signup-line{
+    border-left:0px;
+  }
+
+  .placeholder-text{
+    display:none!important;
+  }
+
+  .control-label{
+    text-align:left;
+  }
+
+  h2.profile-name{
+    font-size:25px;
+    float: none!important;
+    margin-bottom: 10px;
+  }
+
+  #score-links {
+    float:none!important;
+    width:auto!important;
+    text-align:center;
+    padding:0;
+    margin:0;
+  }
+
+  .container .waiting {
+    left: 35%;
+  }
+
+  #score-links li{
+    width:50px;
+    display:inline-block;
+  }
+
+  .selected-children .box {
+    font-size: 13px;
+  }
+
+  .child-title {
+    height: auto!important;
+    margin:0;
+  }
+
+  .score-selected .selected-box .btn-close {
+    right: 17px;
+  }
+
+  .selected-children .box .btn-go {
+    font-size: 21px;
+  }
+
+  .selected-box .donutScore{
+    left: 45%;
+    top: 115px;
+  }
+
+  .selected-box .donutScore.biz-donut {
+    left: 41%;
+    top: 131px;
+  }
+
+  .selected-debt-usage .selected-box .donutScore{
+    top: 116px;
+  }
+
+  .selected-payment-history ul li{
+    display:inline-block;
+  }
+
+  .selected-box .pieChart {
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+  }
+
+  .selected-account-mix .icon-home{
+    font-size:30px;
+  }
+
+  .selected-account-mix .icon-credit-card{
+    font-size:25px;
+    padding: 3px;
+  }
+
+  .selected-account-mix .img-car{
+    font-size:18px;
+  }
+
+  .account-donut-score {
+    left: 44%;
+  }
+
+  .account-profile h1 {
+    font-size: 18px;
+  }
+
+  .account-profile .account-number {
+    font-size: 15px;
+  }
+
+  .payment-circle {
+    font-size: 20px;
+    height: 48px;
+    padding-top: 12px;
+    width: 48px;
+  }
+
+  .score-message {
+    display:none;
+  }
+
+  .payment-key p {
+    margin: 11px 0 0 0;
+    font-size: 19px;
+  }
+
+  .main-content{
+    margin:10px 16px 0 16px;
+  }
+
+  .score-selected .score {
+    font-size: 55px;
+  }
+
+  .full-score-factors li{
+    margin:8px 0;
+  }
+
+  .full-score-factors .help-popover{
+    display:none;
+  }
+
+  .report-block #payment-key .payment-key {
+    width: 100%;
+  }
+
+  .report-block #payment-key {
+    padding:0;
+  }
+
+  .report-block #payment-key .payment-circle {
+    font-size: 16px;
+    height: 35px;
+    padding-top: 7px;
+    width: 35px;
+  }
+
+  .report-block #payment-key .payment-key p {
+    margin: 6px 0 0 0;
+    font-size: 15px;
+  }
+
+  .report-detail{
+    padding-right:0;
+    padding-left:0;
+  }
+
+  .full-account-box {
+    padding: 0px;
+  }
+
+  .report-block ul {
+    padding: 0px;
+  }
+
+  .report-block #payment-key .payment-circle {
+    margin-left:0;
+  }
+
+  .report-block .payment-history {
+    padding:0;
+  }
+
+  .report-block .payment-history .payment-year {
+    margin:0;
+  }
+
+  .report-block .clear-spacing{
+    margin:0;
+    padding:0;
+  }
+
+  .full-report-body{
+    padding:0;
+    margin:0;
+  }
+
+  .full-score-factors ul {
+    padding:0 5px 0 20px;
+  }
+
+  .account-scroller-shadow{
+    display: none;
+  }
+
+  .account-scroller {
+    max-height: 290px!important;
+    margin-bottom: 10px;
+  }
+
+  .modal-lg{
+    width:100%;
+  }
+}
+
+/*This is some jankified jank to handle the account detail donut responsively*/
+@media (max-width: 650px) {
+  .account-donut-score {
+    left: 42%;
+  }
+}
+
+@media (max-width: 500px) {
+  .account-donut-score {
+    left: 38%;
+  }
+}
+
+@media (max-width: 400px) {
+  .account-donut-score {
+    left: 37%;
+  }
+
+  .score-change-btn {
+    float: none!important;
+    display: block;
+    text-align: center;
+  }
+}
+
+/*Print Styles*/
+
+@media print{
+
+  #main-area{
+    top:-40px;
+    position:relative;
+  }
+
+  .print-logo{
+    text-align: center;
+    display:block;
+  }
+
+  .score-ranking{
+    display:inline;
+  }
+
+  h2.profile-name {
+    float: right!important;
+  }
+
+  .score-main{
+    padding:10px 370px 10px 0;
+  }
+
+  .print-xs-6{
+    width: 49%;
+    float: left;
+  }
+
+  .print-xs-4{
+    width: 30%;
+    float: left;
+  }
+
+  .report-block {
+    border-top:1px solid #999;
+  }
+
+  .report-block #payment-key .payment-key{
+    display: inline-block;
+    margin-bottom: -5px;
+    width: 32%;
+    height: 25px;
+    overflow: hidden;
+  }
+
+  .payment-circle {
+    height: 42px;
+    padding-top: 8px;
+    width: 42px;
+  }
+
+  .report-block .payment-history .payment-year {
+    margin-top: 10px;
+  }
+
+  .report-block h2 {
+    padding: 0px;
+  }
+
+  ul{
+    page-break-inside: avoid!important;
+  }
+
+}

@@ -1,0 +1,548 @@
+/* ==========================================================================
+    MARKETPLACE DETAILS PAGE -- OLD
+   ========================================================================== */
+   //TODO: Delete these styles soon, as soon as the new designs take over.
+
+
+   // TODO: OLD Style, Kill them eventually please.
+   // scss-lint:disable all
+
+   
+/* +=============================+
+		0. Details Page
++=============================+ */
+
+.details-page {
+  background-color: #fff;
+}
+
+#main-area {
+  margin: 0;
+}
+
+/* +=============================+
+		1. Hero
++=============================+ */
+
+.details-page__offer-hero {
+  padding: 32px 0;
+
+    > *{
+      z-index: 1;
+    }
+}
+
+.details-page__offer-hero__hero-bg {
+  position: absolute;
+  bottom: 92px;
+  right: 0;
+  height: 175px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  z-index: 0 !important;
+  border-bottom: 1px solid  $cl-neutral-2;
+}
+
+.details-page__offer-hero__logo {
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid  $cl-neutral-2;
+  padding: 16px;
+  height: 200px;
+  width: auto;
+}
+
+
+
+.details-page__offer-hero__title {
+  color: $cl-neutral-6;
+  padding-bottom: 24px;
+}
+
+.details-page__offer-hero__button {
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  background-color: $cl-primary-2;
+  padding: 16px 64px;
+}
+
+
+/* +=============================+
+		2. Offer Stats
++=============================+ */
+
+.details-page__offer-stats {
+
+  border-right: 1px solid  $cl-neutral-2;
+
+}
+
+.details-page__offer-stats__borders {
+
+  height:100%;
+  border:1px solid #e2e2e2;
+  position: absolute;
+  width: 100%;
+  left: 0;
+
+}
+
+.details-page__offer-stats__overall-score {
+    padding-right: 24px;
+}
+
+.details-page__offer-stats__overall-score__number {
+  color:  $cl-neutral-4;
+}
+
+.details-page__offer-stats__overall-score__text {
+  color:  $cl-neutral-3;
+  text-transform: uppercase;
+}
+
+.details-page__offer-stats__stat-ratings {
+  padding: 24px 24px 40px 24px;
+  border-left: 1px solid  $cl-neutral-2;
+  border-bottom: 1px solid  $cl-neutral-2;
+}
+
+.details-page__offer-stats__stat-ratings__title {
+  line-height: 24px;
+  padding-right: 24px;
+  padding-top: 16px;
+  color: $cl-neutral-5;
+  text-transform: uppercase;
+}
+
+
+
+.details-page__offer-stats__stats {
+  img {
+    width: 100%;
+  }
+  & > div {
+    border-left: 1px solid $cl-neutral-2;
+    padding: 24px;
+    border-bottom: 1px solid $cl-neutral-2;
+    color: $cl-neutral-5;
+  }
+}
+
+
+.details-page__offer-stats__stats__data-title {
+  padding-top: 5px;
+  text-transform: uppercase;
+  color: $cl-neutral-5;
+
+}
+
+/* +=============================+
+		3. Offer Overview
++=============================+ */
+
+.details-page__overview {
+  padding: 92px 0;
+}
+
+.details-page__overview__section {
+  padding: 0 32px;
+  text-align: center;
+}
+
+.details-page__overview__section__icon {
+ margin-bottom: 16px;
+ }
+
+.details-page__overview__section__title {
+  padding-bottom: 8px;
+}
+
+.details-page__overview__section__content {
+  line-height: 1.4;
+}
+
+
+/* +=============================+
+		4. Call to Action
++=============================+ */
+
+.details-page__call-to-action {
+  background-color: $cl-primary-2;
+  color: #fff;
+  padding: 64px 0;
+
+}
+
+.details-page__call-to-action__title {
+  padding-bottom: 24px;
+
+}
+
+/* +=============================+
+		5. Offer Details
++=============================+ */
+
+
+.details-page__details {
+  padding: 92px 0;
+  text-align: center;
+}
+
+.details-page__details__header {
+  padding: 0 0 16px 0;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+
+.details-page__details__content {
+  padding: 40px 16px 8px 16px;
+  max-height: 200px;
+  transition: max-height 1s;
+  overflow: hidden;
+  border-bottom: 1px solid  $cl-neutral-2;
+}
+
+.details-page__details__content.expanded {
+  transition: max-height 1s;
+  max-height: 2000px;
+  border-bottom: 1px solid #fff;
+}
+
+.details-page__details__more-button {
+  padding-top: 24px;
+}
+.details-page__details__more-button:hover {
+  cursor: pointer;
+}
+
+
+/* +=============================+
+		6. Offer Requirements
++=============================+ */
+
+.details-page__requirements {
+  padding: 92px 0;
+  hr {
+    border-color:  $cl-neutral-3;
+  }
+}
+
+.details-page__requirements__header {
+  text-align: center;
+  h2 {
+  padding: 0 0 24px 0;
+  text-transform: uppercase;
+}
+  h4 {
+    padding-bottom: 0;
+  }
+}
+
+.details-page__requirements__section {
+    padding-bottom: 0;
+}
+
+.details-page__requirements__title {
+  padding: 64px 0 16px 0;
+  text-transform: uppercase;
+  color: $cl-neutral-5;
+}
+
+.details-page__requirements__item__qualify {
+  margin-top: 4px;
+  font-size: 14px;
+  padding: 4px 16px !important;
+}
+
+.details-page__requirements__item {
+  padding: 16px 8px;
+  hr {
+    padding-bottom: 0;
+  }
+  ul{
+    padding-left: 16px;
+    margin: 0; //TODO should this be set as a global style?
+  }
+  li {
+    color:  $cl-neutral-4;
+    list-style: none;
+    font-size: 14px;
+    line-height: 1.3rem;
+  }
+  &__title {
+    font-weight: 600;
+  }
+}
+
+.details-page__requirements__button {
+  z-index: 1;
+  position: absolute;
+  bottom: -100px;
+  right: 16px;
+}
+
+
+/* +=============================+
+		7. Ratings
++=============================+ */
+
+
+.details-page__reviews {
+  padding: 92px 0;
+}
+
+.details-page__reviews__header {
+  padding-bottom: 64px;
+  h2 {
+    padding: 32px;
+    text-transform: uppercase;
+
+  }
+
+}
+
+.details-page__reviews__ratings {
+  & > div {
+    padding: 0 24px;
+  }
+  &__score {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  hr {
+    padding-bottom: 8px;
+  }
+  &__title {
+    color:  $cl-neutral-4;
+  }
+  &__item {
+    padding-bottom: 16px;
+    &__title {
+      color:  $cl-neutral-3;
+      padding-right: 16px;
+    }
+  }
+}
+
+
+
+
+
+
+.details-page__reviews__user-reviews {
+  padding: 75px 15px 0 15px;
+  button {
+    margin-bottom: 5px;
+  }
+  &__title {
+    line-height: 35px;
+    color:  $cl-neutral-4;
+  }
+}
+
+.details-page__reviews__user-reviews__item {
+  padding: 20px 0 50px 0;
+}
+
+.details-page__reviews__user-reviews__pic {
+
+}
+
+.details-page__reviews__user-reviews__name {
+ padding-top: 5px;
+}
+
+
+.details-page__reviews__user-reviews__review {
+  padding-left: 20px;
+
+}
+
+
+
+/* =-----------------------------=
+		7.2 Qualify Pills
+ */
+//TODO move to its own scss file
+
+
+.qualify--good {
+	color: $cl-good;
+  max-width: 100px;
+	border: 1px solid $cl-good;
+	border-radius: 40px;
+	padding: 8px 10px;
+	text-align: center;
+}
+
+.qualify--fair {
+	color: $cl-fair;
+  max-width: 100px;
+	border: 1px solid $cl-fair;
+	border-radius: 40px;
+	padding: 8px 16px;
+	text-align: center;
+}
+
+.qualify--poor {
+	color: $cl-poor;
+  max-width: 100px;
+	border: 1px solid $cl-poor;
+	border-radius: 40px;
+	padding: 8px 16px;
+	text-align: center;
+}
+
+.qualify--neutral {
+	color:  $cl-neutral-4;
+  max-width: 100px;
+	border: 1px solid  $cl-neutral-4;
+	border-radius: 40px;
+	padding: 8px 16px;
+	text-align: center;
+}
+
+
+/* +=============================+
+		8. The Not so Fine Print
++=============================+ */
+
+.details-page__fine-print {
+  padding: 92px 0;
+  text-align: center;
+}
+
+.details-page__fine-print__header {
+  text-align: center;
+  h2 {
+  padding: 0 0 16px 0;
+  text-transform: uppercase;
+  }
+  h4 {
+    padding-bottom: 40px;
+  }
+}
+
+.details-page__fine-print__stats {
+  border-top: 1px solid  $cl-neutral-2;
+  border-right: 1px solid  $cl-neutral-2;
+  > div {
+    border-left: 1px solid  $cl-neutral-2;
+    padding: 24px;
+    border-bottom: 1px solid  $cl-neutral-2;
+
+  }
+  &__data {
+    padding-bottom: 4px;
+    color:  $cl-neutral-4;
+    text-align: center;
+  }
+  &__title {
+    color:  $cl-neutral-3;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
+
+.details-page__circle {
+  position: relative;
+  margin-right: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.details-page__contact {
+  cursor: pointer;
+}
+
+
+//duplicate from the loan application scss
+.form__item {
+
+ label {
+   width: 100%;
+   color:  $cl-neutral-4;
+   font-size: 12px;
+   padding-left: 24px;
+   padding-top: 16px;
+   cursor: default;
+ }
+
+ select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   color: $cl-neutral-6;
+   cursor: pointer;
+   background: url('#{$cdn-path}/icons/form-dropdown.svg') no-repeat right center;
+ }
+  ::-webkit-input-placeholder {
+   /* WebKit, Blink, Edge */
+   color:  $cl-neutral-3;
+ }
+  :-moz-placeholder {
+   /* Mozilla Firefox 4 to 18 */
+   color:  $cl-neutral-3;
+   opacity: 1;
+ }
+  ::-moz-placeholder {
+   /* Mozilla Firefox 19+ */
+   color:  $cl-neutral-3;
+   opacity: 1;
+ }
+  :-ms-input-placeholder {
+   /* Internet Explorer 10-11 */
+   color:  $cl-neutral-3;
+ }
+ input[type=text],
+ textarea,
+ select {
+   width: 100%;
+   border: 0;
+   background-color:  transparent;
+   font-size: 14px;
+   padding: 8px 24px 16px 24px;
+   line-height: 24px;
+   &:focus {
+     outline: 0;
+   }
+   option {
+     color: $cl-neutral-6;
+   }
+ }
+ .header_form_item {
+   padding: 8px 64px 8px 24px;
+ }
+
+ .company_name {
+   color: $cl-neutral-6;
+   font-size: 14px;
+ }
+
+ textarea {
+   height: 100px;
+ }
+
+ input[type=radio] {
+   margin: 16px 8px 16px 24px;
+   & + span {
+     color:  $cl-neutral-4;
+     padding: 12px 0px;
+   }
+ }
+}

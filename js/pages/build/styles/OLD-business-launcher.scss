@@ -1,0 +1,190 @@
+// TODO: OLD Style, Kill them eventually please.
+// scss-lint:disable all
+
+.text-lead{
+    font-size: 130%;
+}
+
+.title-bar__title-icon{
+    margin: 0 16px 0 0;
+}
+
+.section-content-mainbox {
+    margin: 0 0 10px 0;
+    padding: 0;
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: 0 0 4px 4px;
+    border-top: 0;
+}
+
+
+.business-launcher-section{
+    margin-top: 0;
+    margin-left: 0;
+
+}
+
+
+.launcher-task .btn--review {
+    display: none;
+}
+
+.btn--done{
+    background-color: transparent;
+    border: 1px solid $cl-primary-2;
+}
+
+
+
+
+.task-box{
+    padding: 0;
+}
+
+.section-content__container{
+    background: #fff;
+    &.-all-complete{
+      border-left: 1px solid $cl-neutral-2;
+      border-right: 1px solid $cl-neutral-2;
+    }
+}
+
+
+
+.section-content__header .btn-close{
+    top: -14px;
+    right: -16px;
+    font-size: 24px;
+    color:  $cl-neutral-2;
+    position: absolute;
+    cursor: pointer;
+}
+
+.section-content__header .btn-close:hover{
+    color:  $cl-neutral-4;
+}
+
+
+.section-content__headline{
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #7c7c7c;
+}
+
+.launcher-task {
+    margin: 8px 0 16px 0;
+    width: 100%;
+}
+
+.launcher-task.task--complete .task-complete-icon {
+    color: $cl-good;
+}
+
+.launcher-task--complete{
+  border-color: $cl-good;
+}
+
+.task-card__button-group{
+	background-color:   $cl-neutral-3;
+	border-radius: 0 0 4px 4px;
+}
+
+.task-card__buttons{
+  border-radius: 0 0 4px 4px;
+	background-color:   $cl-neutral-3;
+	height: 100%;
+  cursor: pointer;
+  color: $cl-neutral-6;
+}
+
+.task-card__buttons:hover{
+	background-color: $cl-primary-2;
+	color: #fff;
+	text-decoration: none;
+
+}
+
+.task-card__buttons__left {
+  background-color: $cl-secondary-2;
+	border-radius: 0 0 0 4px;
+  color: #fff;
+	border-right: none;
+
+  &:focus {
+    border-color: scale-color($cl-secondary-2, $lightness: -50%);
+    outline: 0 solid $cl-black--transparent;
+    outline-offset: 0;
+  }
+}
+
+.task-card__buttons__right {
+  background-color: $cl-neutral-1;
+	border-radius: 0 0 4px 0;
+
+  &:focus {
+    border-color: scale-color($cl-secondary-2, $lightness: -50%);
+    outline: 0 solid $cl-black--transparent;
+    outline-offset: 0;
+  }
+}
+
+.task-card__buttons--complete {
+  background-color:  lighten($cl-accent-2, 20%);
+  color:  $cl-accent-1;
+}
+
+.modal-body--business-launcher {
+  padding: 32px;
+}
+
+.modal-header .close:hover {
+    color:  $cl-neutral-1;
+}
+
+.task__button{
+	color:  $cl-neutral-4;
+  border-radius: 2px 2px 2px 2px;
+	background-color:   $cl-neutral-3;
+	height: 100%;
+  cursor: pointer;
+  padding: 16px;
+  margin-bottom: 8px;
+  text-decoration: none;
+}
+
+.task__button:hover{
+	background-color: $cl-primary-2;
+	color: #fff;
+	text-decoration: none;
+}
+
+.task__button__visit-settings {
+  display: block;
+  max-width: 350px;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.iconfont-check--lg {
+  font-size: 40px;
+}
+
+.badge-businesslauncher img {
+  border: 1px solid  $cl-neutral-2;
+  border-radius: 4px;
+  margin-top: 24px;
+}
+
+.business-mainbox .sweeper-box h3 {
+  font-size: 18px;
+}
+
+.upgrade-task:hover {
+  background-color: $cl-accent-2;
+  color: $cl-accent-1;
+  cursor: default;
+}

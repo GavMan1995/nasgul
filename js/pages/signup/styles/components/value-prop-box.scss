@@ -1,0 +1,104 @@
+.c-value-prop-box {
+  @include flex-container(left, center, center, nowrap);
+  @include flex-item(100%);
+  margin: 16px 0;
+
+  p {
+    @include flex-container($wrap: false);
+    @include flex-item(240px, 1);
+    padding: 16px;
+    border-radius: 8px;
+    background-color: $cl-neutral-1;
+
+    &::before {
+      display: block;
+      flex-shrink: 0;
+      width: 8px;
+      margin-right: 16px;
+      border-radius: 4px;
+      background-color: $cl-neutral-3;
+      content: '';
+    }
+
+    &::after {
+      display: none;
+      flex-shrink: 0;
+      width: 8px;
+      margin-left: 16px;
+      border-radius: 4px;
+      background-color: $cl-neutral-3;
+      content: '';
+    }
+  }
+
+  @include if-screen-smaller-than(sm) {
+    &::before {
+      margin-right: 16px;
+    }
+
+    &::after {
+      margin-left: 16px;
+    }
+  }
+}
+
+.c-value-prop-box.c-value-prop-box--right-aligned {
+  .c-value-prop-box__icon {
+    order: 2;
+    margin-right: 0;
+    margin-left: 64px;
+  }
+
+  p {
+    justify-content: flex-end;
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      display: block;
+    }
+  }
+}
+
+.c-value-prop-box.c-value-prop-box--color-1 {
+  p::before,
+  p::after {
+    background-color: $cl-primary-2;
+  }
+}
+
+.c-value-prop-box.c-value-prop-box--color-2 {
+  p::before,
+  p::after {
+    background-color: $cl-accent-8;
+  }
+}
+
+.c-value-prop-box.c-value-prop-box--color-3 {
+  p::before,
+  p::after {
+    background-color: $cl-accent-1;
+  }
+}
+
+.c-value-prop-box.c-value-prop-box--color-4 {
+  p::before,
+  p::after {
+    background-color: $cl-accent-5;
+  }
+}
+
+.c-value-prop-box__icon {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin-right: 64px;
+  border-radius: 50%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

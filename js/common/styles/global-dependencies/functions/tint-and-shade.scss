@@ -1,0 +1,9 @@
+//  Lighten a color
+@function tint($color, $percentage) {
+  @return mix($cl-white, $color, $percentage);
+}
+
+// Darken a color
+@function shade($color, $percentage) {
+  @return mix($cl-black, $color, $percentage);
+}

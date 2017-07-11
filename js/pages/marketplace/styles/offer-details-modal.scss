@@ -1,0 +1,71 @@
+@keyframes open-modal {
+  0% {
+    height: 0;
+    transform: translateY(50vh);
+  }
+
+  100% {
+    height: 100vh;
+    transform: translateY(0);
+  }
+}
+
+// stylelint-disable selector-no-qualifying-type
+body {
+  &.has-open-modal {
+    overflow: hidden;
+  }
+}
+// stylelint-enable selector-no-qualifying-type
+
+.c-offer-details-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 48px 0;
+  background-color: $cl-white;
+  box-shadow: 0 0 24px -8px $cl-neutral-4;
+  z-index: 5;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  > p {
+    margin: 16px;
+    color: $cl-primary-3;
+  }
+}
+
+.c-offer-details-modal.is-open {
+  @include flex-container();
+  animation: open-modal 0.2s ease-in-out, fade-in 0.2s linear;
+}
+
+.c-offer-details-modal__header {
+  @include flex-container(space-between, center, center, nowrap);
+
+  > img {
+    width: 120px;
+    height: auto;
+    margin: 16px;
+  }
+
+  .c-btn {
+    margin: 8px 0 0;
+  }
+}
+
+.c-offer-details__stats {
+  padding: 8px 16px;
+
+  > p {
+    flex-basis: 100%;
+    padding: 8px 0;
+  }
+
+  strong {
+    padding-right: 8px;
+  }
+}

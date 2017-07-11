@@ -1,0 +1,927 @@
+{
+  "XPN_BUS_PRM_RPT_98034_6523km0_034k34i0fko": {
+    "type": "experian_business_report",
+    "id": "XPN_BUS_PRM_RPT_98034_6523km0_034k34i0fko",
+    "attributes": {
+      "bankruptcies": [
+        {
+          "is_disputed": false,
+          "document_number": "U028829605W1033",
+          "file_date": "2017-05-04",
+          "jurisdiction": "Orange County Record",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "status": "chapter_7"
+        }
+      ],
+      "business_id": "BUS_38a9_46e7_b359_03a8a0f48c1e",
+      "company_identity": {
+        "address": {
+          "city": "Central City",
+          "extended_zip": "3424",
+          "state": "UT",
+          "street1": "123 Main Street",
+          "street2": "Suite 202",
+          "zip": "84107"
+        },
+        "business_type": "corporation",
+        "experian_file_number": "123456789",
+        "name": "Bob's Shake Shack",
+        "naics_codes": [
+          {
+            "code": "1234",
+            "description": "Computer Software, Prepackaged"
+          }
+        ],
+        "nav_commentary": [
+          {
+            "code": "payment_status",
+            "performance": "excellent",
+            "description": "You're doing awethome!"
+          }
+        ],
+        "phone": "8011111111",
+        "registration": {
+          "charter_number": "123456789",
+          "file_established_date": "2015-04-07",
+          "incorporation_date": "2015-04-07",
+          "is_active": true,
+          "is_for_profit": true,
+          "original_file_date": "2015-04-07",
+          "origin_state": "CA",
+          "recent_file_date": "2015-04-07"
+        },
+        "sic_codes": [
+          {
+            "code": "7372",
+            "description": "Computer Software, Prepackaged"
+          }
+        ],
+        "stock_information": {
+          "exchange": "National Association of Securities Dealers Inc.",
+          "symbol": "FB"
+        },
+        "tax_id": "201665019",
+        "website_url": "www.facebook.com",
+        "year_established": 2007,
+        "years_in_business": 10
+      },
+      "collections": [
+        {
+          "agency": {
+            "name": "Collection Agency",
+            "phone": "888-456-4567"
+          },
+          "amount": 1000,
+          "amount_paid": 1000,
+          "close_date": "2016-10-01",
+          "is_disputed": false,
+          "open_date": "2016-10-01",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "status": "uncollected"
+        }
+      ],
+      "executive_summary": {
+        "bankruptcies": {
+          "earliest_file_date": "2017-02-18",
+          "latest_file_date": "2017-03-18",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "total_count": 1
+        },
+        "collections": {
+          "earliest_file_date": "2017-02-18",
+          "latest_file_date": "2017-03-18",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "total_amount": 1,
+          "total_count": 1
+        },
+        "employee_count": 12410,
+        "inquiries": {
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "total_count": 1
+        },
+        "judgments": {
+          "earliest_file_date": "2017-02-18",
+          "latest_file_date": "2017-02-18",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "total_count": 1
+        },
+        "legal_filings_total_balance": 10000,
+        "nav_commentary": [
+          {
+            "code": "payment_status",
+            "performance": "excellent",
+            "description": "You're doing awethome!"
+          }
+        ],
+        "payment_trends": {
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "total_count": 1,
+          "trend": "stable"
+        },
+        "personnel": [
+          {
+            "name": "Bob Smith",
+            "title": "CHIEF EXECUTIVE OFFICER",
+            "title_short": "ceo"
+          }
+        ],
+        "sales_revenue": 10000,
+        "tax_liens": {
+          "earliest_file_date": "2017-02-18",
+          "latest_file_date": "2017-02-18",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "total_amount": 10000,
+          "total_count": 1
+        },
+        "tradelines": {
+          "active_tradelines": 3,
+          "average_days_beyond_terms": 1,
+          "current_days_beyond_terms": 1,
+          "current_total_balance": 10000,
+          "days_beyond_terms_experian_commentary": "Good Risk. 80% of businesses fall into this range",
+          "highest_balance_last_six_months": 15000,
+          "highest_days_beyond_terms_last_five_quarters": 5,
+          "highest_days_beyond_terms_last_six_months": 4,
+          "industry_days_beyond_terms": 1,
+          "industry_days_beyond_terms_experian_commentary": "Has paid slower than 70% of similar businesses",
+          "lowest_balance_last_six_months": 1,
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "payment_totals": {
+            "continuously_reported": {
+              "balance": 1000,
+              "current_payment_percent": 10,
+              "days_beyond_terms_30_days": 10,
+              "days_beyond_terms_60_days": 10,
+              "days_beyond_terms_90_days": 10,
+              "days_beyond_terms_over_90_days": 1000,
+              "highest_credit_last_six_months": 1000,
+              "nav_commentary": [
+                {
+                  "code": "payment_status",
+                  "performance": "excellent",
+                  "description": "You're doing awethome!"
+                }
+              ],
+              "total_count": 0
+            },
+            "newly_reported": {
+              "balance": 1000,
+              "current_payment_percent": 10,
+              "days_beyond_terms_30_days": 10,
+              "days_beyond_terms_60_days": 10,
+              "days_beyond_terms_90_days": 10,
+              "days_beyond_terms_over_90_days": 1000,
+              "highest_credit_last_six_months": 1000,
+              "nav_commentary": [
+                {
+                  "code": "payment_status",
+                  "performance": "excellent",
+                  "description": "You're doing awethome!"
+                }
+              ],
+              "total_count": 0
+            },
+            "total_reported": {
+              "balance": 1000,
+              "current_payment_percent": 10,
+              "days_beyond_terms_30_days": 10,
+              "days_beyond_terms_60_days": 10,
+              "days_beyond_terms_90_days": 10,
+              "days_beyond_terms_over_90_days": 1000,
+              "highest_credit_last_six_months": 1000,
+              "nav_commentary": [
+                {
+                  "code": "payment_status",
+                  "performance": "excellent",
+                  "description": "You're doing awethome!"
+                }
+              ],
+              "total_count": 0
+            }
+          },
+          "predicted_days_beyond_terms": 1,
+          "single_line_high_credit": 10000,
+          "total_count": 1,
+          "total_utilization_ratio": 49
+        },
+        "ucc_filings": {
+          "earliest_file_date": "2017-02-18",
+          "latest_file_date": "2017-02-18",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "summary_counts": [
+            {
+              "amended_and_assigned": 10,
+              "continuations": 10,
+              "end_date": "2016-10-01",
+              "derogatory_filings": 10,
+              "nav_commentary": [
+                {
+                  "code": "payment_status",
+                  "performance": "excellent",
+                  "description": "You're doing awethome!"
+                }
+              ],
+              "releases_and_terminations": 10,
+              "start_date": "2016-10-31",
+              "total_filings": 10
+            }
+          ],
+          "total_count": 1,
+          "total_derogatories": 1
+        }
+      },
+      "inquiries": [
+        {
+          "category": "Installment Loan Inquiry",
+          "date": "2016-08",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ]
+        }
+      ],
+      "judgments": [
+        {
+          "amount": 1000,
+          "is_disputed": false,
+          "document_number": "2015000121842",
+          "file_date": "2016-08-01",
+          "jurisdiction": "Orange County Record",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "status": "filed"
+        }
+      ],
+      "nav_commentary": [
+        {
+          "code": "payment_status",
+          "performance": "excellent",
+          "description": "You're doing awethome!"
+        }
+      ],
+      "notices": [
+        "ID FRAUD ALERT"
+      ],
+      "payment_trends": [
+        {
+          "balance": 1000,
+          "current_percentage": 100,
+          "date": "2016-08-01",
+          "days_beyond_terms": 10,
+          "days_beyond_terms_30_days": 10,
+          "days_beyond_terms_60_days": 10,
+          "days_beyond_terms_90_days": 10,
+          "days_beyond_terms_over_90_days": 10,
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ]
+        }
+      ],
+      "report_date": "2017-05-01",
+      "score_factors": [
+        {
+          "code": "commerical_accounts_net30_number",
+          "description": "Number of commercial accounts with NET1-30 terms",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "grade": "B",
+          "maximum_value": 100,
+          "minimum_value": 0,
+          "model": "Intelliscore",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "risk_rank": 40,
+          "risk_category": "Medium",
+          "value": 80
+        }
+      ],
+      "tax_liens": [
+        {
+          "amount": 1000,
+          "is_disputed": false,
+          "document_number": "2016001161742",
+          "file_date": "2016-08-01",
+          "filing_type": "state_tax",
+          "jurisdiction": "Orange County Record",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "status": "lien"
+        }
+      ],
+      "tradelines": [
+        {
+          "balance": 1000,
+          "business_category": "Transportation",
+          "classification": "additional",
+          "current_payment_percent": 10,
+          "days_beyond_terms_30_days": 10,
+          "days_beyond_terms_60_days": 10,
+          "days_beyond_terms_90_days": 10,
+          "days_beyond_terms_over_90_days": 1000,
+          "highest_credit_last_six_months": 10000,
+          "last_activity_at": "2016-10-01",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "reported_at": "2016-10-01",
+          "terms": "Net 30"
+        }
+      ],
+      "ucc_filings": [
+        {
+          "collaterals": [
+            "equipment"
+          ],
+          "document_number": "2017003131511",
+          "file_date": "2016-08-01",
+          "jurisdiction": "Quahog, Rhode Island",
+          "original_ucc_filing": {
+            "document_number": "2017003131511",
+            "file_date": "2016-08-01",
+            "filing_state": "UT",
+            "status": "filed"
+          },
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "secured_party": "PITNEY BOWES GLOBAL FINANCIAL SERVICES L CT SHELTON 06484 27",
+          "status": "filed"
+        }
+      ]
+    }
+  },
+  "DNB_BUS_PRM_RPT_0fbc3a5b_a19b_42c4_a514_c48349eaae81": {
+    "id": "DNB_BUS_PRM_RPT_0fbc3a5b_a19b_42c4_a514_c48349eaae81",
+    "type": "dun_and_bradstreet_report",
+    "attributes": {
+      "assets": [
+        {
+          "amount": 32775000,
+          "description": "Inventory",
+          "is_current": false,
+          "is_updated": false
+        }
+      ],
+      "business_id": "BUS_38a9_46e7_b359_03a8a0f48c1f",
+      "company_identity": {
+        "address": {
+          "city": "Irvine",
+          "extended_zip": "3424",
+          "state": "CA",
+          "street1": "16215 Alton Pkwy",
+          "street2": "Suite 202",
+          "zip": "92618"
+        },
+        "doing_business_as": "SUBSIDIARY OF ACTIVISION BLIZZARD, INC., SANTA MONICA, CA",
+        "duns_number": "173848990",
+        "fax": "9497372000",
+        "is_headquarters": true,
+        "line_of_business": [
+          "Prepackaged software services",
+          "ret computers/software",
+          "motion"
+        ],
+        "name": "BLIZZARD ENTERTAINMENT, INC.",
+        "naics_codes": [
+          {
+            "code": "1234",
+            "description": "Computer Software, Prepackaged"
+          }
+        ],
+        "nav_commentary": [
+          {
+            "code": "payment_status",
+            "performance": "excellent",
+            "description": "You're doing awethome!"
+          }
+        ],
+        "phone": "9499551380",
+        "primary_sic_code": {
+          "code": "7372",
+          "description": "Computer Software, Prepackaged"
+        },
+        "sic_codes": [
+          {
+            "code": "7372",
+            "description": "Computer Software, Prepackaged"
+          }
+        ],
+        "stock_information": [
+          {
+            "exchange": "nil",
+            "symbol": "BLZ"
+          }
+        ],
+        "website_url": "www.activision.com",
+        "year_established": "2004",
+        "years_in_business": 12
+      },
+      "executive_summary": {
+        "bankruptcies": {
+          "recent_file_date": "2017-03-18",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ]
+        },
+        "employee_total": 125,
+        "judgments": {
+          "recent_file_date": "nil",
+          "total_count": 0,
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ]
+        },
+        "local_employee_total": 85,
+        "net_worth": 0,
+        "payment_experiences": {
+          "average_high_credit": 360793,
+          "cash_experiences_high_credit": 750,
+          "dnb_collections_high_credit": 0,
+          "other_collections_high_credit": 0,
+          "pay_total_high_credit": 7000000,
+          "total_payment_experience_received": 48
+        },
+        "personnel": [
+          {
+            "name": "Mike Morhaime",
+            "title": "President and Chief Executive Officer",
+            "title_short": "pres-ceo"
+          }
+        ],
+        "sales_revenue": "nil",
+        "suits": {
+          "recent_file_date": "2013-07-17",
+          "total_count": 1,
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ]
+        },
+        "tax_liens": {
+          "recent_file_date": "",
+          "total_count": 0,
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ]
+        },
+        "total_asset_amount": 0,
+        "total_liabilities_amount": 0,
+        "ucc_filings": {
+          "recent_file_date": "2016-08-24",
+          "total_count": 5,
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ]
+        },
+        "updated_total_asset_amount": 0,
+        "updated_total_current_liabilities_amount": 0,
+        "updated_total_liabilities_amount": 0,
+        "year_of_present_control": "2008"
+      },
+      "government_activity": {
+        "activity": {
+          "is_borrower": false,
+          "has_administrative_debt": false,
+          "is_contractor": false,
+          "is_grantee": false,
+          "is_excluded_party": false
+        },
+        "special_program_eligibility": {
+          "is_in_labor_surplus_area": true,
+          "labor_surplus_at": "\"2015\"",
+          "is_small_business": false,
+          "small_business_at": "nil",
+          "is_type_8A_firm": false,
+          "type_8A_firm_at": "nil"
+        }
+      },
+      "historical_scores": [
+        {
+          "date": "2017-04",
+          "description": "19 days beyond",
+          "maximum_value": "100",
+          "minimum_value": "0",
+          "model": "paydex",
+          "value": "55"
+        }
+      ],
+      "judgments": [
+        {
+          "award": "72854",
+          "collected_date": "nil",
+          "creditor_details": "ASIA ONLINE PTE LTD",
+          "debtor_details": "LINGOTEK INC",
+          "document_number": "169300045",
+          "document_number_type": "FILING NO.",
+          "file_date": "2016-06-25",
+          "filing_office_details": "UTAH COUNTY DISTRICT COURT / AMERICAN FORK BRANCH, AMERICAN FORK, UT",
+          "info_received_date": "2016-07-07",
+          "status": "unsatisfied",
+          "status_date": "2016-06-25"
+        }
+      ],
+      "industry_payments": [
+        {
+          "description": "Telephone communictns",
+          "highest_credit": "500000",
+          "payment_dollar_amount": "1595050",
+          "payment_experiences": 8,
+          "percentage_within_terms": 100,
+          "percentage_days_beyond_terms_30_days": 0,
+          "percentage_days_beyond_terms_60_days": 0,
+          "percentage_days_beyond_terms_90_days": 0,
+          "percentage_days_beyond_terms_over_90_days": 0
+        }
+      ],
+      "liabilities": [
+        {
+          "amount": -644000,
+          "description": "ACCUM OTHER COMPREHENSIVE LOSS",
+          "is_current": false,
+          "is_updated": false
+        }
+      ],
+      "nav_commentary": [
+        {
+          "code": "payment_status",
+          "performance": "excellent",
+          "description": "You're doing awethome!"
+        }
+      ],
+      "operations": {
+        "date": "2017-10-21",
+        "seasonal_text": [
+          "Nonseasonal"
+        ],
+        "employee_text": [
+          "125 which includes officer(s). 85 employed here."
+        ],
+        "facilities_text": [
+          "Rents premises on all floor of a multi story building."
+        ],
+        "operations_text": [
+          "Subsidiary of ACTIVISION BLIZZARD, INC., SANTA MONICA, CA.",
+          "As noted, this company is a subsidiary of Activision Blizzard, Inc., DUNS number 09-853-3342, and reference is made to that report for background information on the parent company and its management.",
+          "Provides prepackaged software. Retails computers or computer software, specializing in computer games software. Provides services allied to motion pictures, specializing in reproduction services.",
+          "All sales cash. Sells to general public. Territory : International."
+        ],
+        "branch_text": [
+          "nil"
+        ],
+        "import_export_text": [
+          "nil"
+        ],
+        "global_newsworthy_text": [
+          "nil"
+        ],
+        "subsidiaries_text": [
+          "Detailed information is available in D&B's linkage or family tree products."
+        ],
+        "history_text": [
+          "The Delaware Secretary of State's business registrations file showed that Blizzard Entertainment, Inc. was registered as a Corporation on December 03, 2004, under file registration number C2967377.",
+          "Business started 2004. Present control succeeded 2008. 100% of capital stock is owned by the parent company.",
+          "RECENT EVENTS:",
+          "On May 22, 2013, sources stated that Blizzard Entertainment Inc, Irvine, CA, has acquired IGN Pro League technology and assets from IGN Entertainment, Inc., San Francisco, CA, on April 8, 2013. Blizzard has also hired several IPL employees as part of the acquisition.",
+          "On March 27, 2012, sources stated that Blizzard Entertainment Inc., Irvine, CA, announced on February 29, 2012, that it has conducted a review of its business based on current organizational needs. Following a completion of the review, the company is conducting a global reduction in workforce of approximately 600 employees. The company anticipates approximately 90% of the affected employees will come from departments not related to game development. Further details are unavailable.",
+          "MIKE MORHAIME. Antecedents are unknown.",
+          "PAUL SAMS. Antecedents are unknown.",
+          "CHRIS METZEN. Antecedents are unknown.",
+          "TODD PAWLOWSKI. Antecedents are unknown."
+        ]
+      },
+      "payment_experiences": [
+        {
+          "reported_at": "2016-05-01",
+          "paying_record": "Ppt",
+          "high_credit": 200000,
+          "now_owes": 150000,
+          "past_due": 50000,
+          "selling_terms": "N30",
+          "last_sale_within": "6-12 mos",
+          "note": "Satisfactory"
+        },
+        {
+          "reported_at": "2016-05-01",
+          "paying_record": "Ppt",
+          "high_credit": 200000,
+          "now_owes": 230000,
+          "past_due": 50000,
+          "selling_terms": "N30",
+          "last_sale_within": "6-12 mos",
+          "note": "Satisfactory"
+        },
+        {
+          "reported_at": "2016-05-01",
+          "paying_record": "Ppt",
+          "high_credit": 79880,
+          "now_owes": 1234,
+          "past_due": 0,
+          "selling_terms": "N30",
+          "last_sale_within": "6-12 mos",
+          "note": "Satisfactory"
+        }
+      ],
+      "report_date": "2017-05-01",
+      "scores": [
+        {
+          "date": "2017-05",
+          "description": "19 days beyond",
+          "maximum_value": "100",
+          "minimum_value": "0",
+          "model": "paydex",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "value": "55"
+        },
+        {
+          "date": "2017-05",
+          "description": "nil",
+          "maximum_value": "5A1",
+          "minimum_value": "HH4",
+          "model": "dnb_rating",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "value": "1A4"
+        },
+        {
+          "date": "2017-05",
+          "description": "nil",
+          "maximum_value": "5A",
+          "minimum_value": "HH",
+          "model": "dnb_financial_strength",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "value": "1A"
+        },
+        {
+          "date": "2017-05",
+          "description": "nil",
+          "maximum_value": "1",
+          "minimum_value": "5",
+          "model": "dnb_composite_credit_appraisal",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "value": "4"
+        }
+      ],
+      "special_events": [
+        {
+          "description": "As of March 22, 2007 outside sources were unable to confirm active operations for Apple, Inc located at 20525 Mariani Ave, Cupertino, CA 95014. The previously listed phone number rings to a fax tone and an online phone search yielded no new listing. Current whereabouts and extent of outstanding debt, if any, is undetermined.",
+          "date": "2007-03-22"
+        }
+      ],
+      "suits": [
+        {
+          "amount": "nil",
+          "cause_details": "SMALL CLAIMS",
+          "collected_date": "nil",
+          "document_number": "201300310798SCSCCTL",
+          "defendant_details": "BLIZZARD ENTERTAINMENT INC",
+          "file_date": "2013-07-17",
+          "filing_office_details": "DUCHESNE COUNTY DISTRICT COURT/ROOSEVELT, ROOSEVELT, UT",
+          "info_received_date": "2013-07-22",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "plaintiff_details": "STENVALL, MICHAEL",
+          "status": "Pending",
+          "status_date": "2013-07-17"
+        }
+      ],
+      "tax_liens": [
+        {
+          "amount": 80000,
+          "amount_description": "some amount",
+          "debtor_details": "some debotor has stuff",
+          "file_date": "2014-08-01",
+          "filing_description": "filing description",
+          "filing_number": "998789878",
+          "filing_office_details": "THE SUPREME OFFICE OF THE DICTATOR",
+          "filing_type": "filing type",
+          "holder_details": "holder details",
+          "info_received_date": "2016-08-09",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "status": "nil",
+          "status_date": "nil"
+        },
+        {
+          "amount": 90,
+          "amount_description": "some amount",
+          "debtor_details": "some debotor has stuff",
+          "file_date": "2014-08-01",
+          "filing_description": "filing description",
+          "filing_number": "998789878",
+          "filing_office_details": "office details",
+          "filing_type": "filing type",
+          "holder_details": "holder details",
+          "info_received_date": "2016-08-09",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "status": "nil",
+          "status_date": "nil"
+        },
+        {
+          "amount": 400,
+          "amount_description": "some amount",
+          "debtor_details": "some debotor has stuff",
+          "file_date": "2014-08-01",
+          "filing_description": "filing description",
+          "filing_number": "998789878",
+          "filing_office_details": "office details",
+          "filing_type": "filing type",
+          "holder_details": "holder details",
+          "info_received_date": "2016-08-09",
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ],
+          "status": "nil",
+          "status_date": "nil"
+        }
+      ],
+      "ucc_filings": [
+        {
+          "collaterals": [
+            "All Assets and proceeds"
+          ],
+          "status": "terminated",
+          "document_number": "20165156201",
+          "secured_party": "BANK OF AMERICA, N.A., AS COLLATERAL AGENT, DALLAS, TX",
+          "filing_office": "SECRETARY OF STATE/UCC DIVISION, DOVER, DE",
+          "assignee": "nil",
+          "debtor": "BLIZZARD ENTERTAINMENT, INC.",
+          "file_date": "2016-08-24",
+          "info_received_date": "2016-10-17",
+          "collected_date": "nil",
+          "original_ucc_filing": {
+            "document_number": "2013 4086261",
+            "file_date": "2013-10-17"
+          },
+          "nav_commentary": [
+            {
+              "code": "payment_status",
+              "performance": "excellent",
+              "description": "You're doing awethome!"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

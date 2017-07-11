@@ -1,0 +1,45 @@
+.c-loan-reality-card__menu {
+  @include flex-container(center, $wrap: false);
+  @include flex-item($max: 450px, $grow: 1);
+  color: $cl-neutral-5;
+}
+
+.c-loan-reality-card__menu-card-title {
+  padding: 16px;
+  text-align: left;
+}
+
+.c-loan-reality-card__small-menu-image {
+  @include flex-item($max: 50px);
+  height: 50px;
+  margin-top: 16px;
+  padding-left: 16px;
+  text-align: center;
+}
+
+.c-loan-reality-card__small-menu-gauge-image {
+  @include flex-item($max: 50px);
+  height: 25px;
+  text-align: center;
+}
+
+.c-loan-reality-card__menu-gauge-image-wrapper {
+  @include flex-container(center, center, center);
+  @include flex-item($max: 82px);
+}
+
+.c-loan-reality-card__menu-phone-wrapper {
+  @include flex-container(center, $wrap: nowrap);
+}
+
+.c-loan-reality-card__menu-phone {
+  @include flex-item($basis: 125px);
+  display: inline-block;
+  text-align: right;
+}
+
+.c-loan-reality-card__menu-phone-text {
+  @include flex-item($grow: 1);
+  display: inline-block;
+  text-align: left;
+}

@@ -1,0 +1,117 @@
+/* ==========================================================================
+    DOWNGRADE PAGE
+   ========================================================================== */
+
+// TODO split into components into diff files
+
+.c-downgrade-details {
+  width: 100%;
+  border-bottom: 1px solid $cl-neutral-2;
+  text-align: center;
+
+  > .o-site-container {
+    @include flex-item(100%);
+    @include flex-container();
+
+    > h1 {
+      width: 100%;
+      padding-top: 48px;
+    }
+  }
+}
+
+.c-downgrade-details__panel {
+  @include flex-item(200px, 1);
+  @include flex-container(center, $align-content: flex-start);
+  margin-top: 48px;
+  padding-bottom: 48px;
+  border-right: 1px solid $cl-neutral-2;
+
+  > p {
+    max-width: 240px;
+  }
+
+  @include if-screen-smaller-than(sm) {
+    border-right: 0;
+    border-bottom: 1px solid $cl-neutral-2;
+  }
+
+  &:last-child {
+    border-right: 0;
+    border-bottom: 0;
+  }
+}
+
+.c-downgrade-details__panel-header {
+  width: 100%;
+  color: $cl-good;
+}
+
+.c-downgrade-details__panel-header.c-downgrade-details__panel-header--poor {
+  color: $cl-poor;
+}
+
+.c-downgrade-details__image-container {
+  width: 100%;
+  padding-bottom: 8px;
+
+  > img {
+    width: 120px;
+    height: auto;
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+}
+
+.c-downgrade-reports-affected {
+  @include flex-item(100%);
+  @include flex-container(
+    center);
+  padding-top: 48px;
+  padding-bottom: 48px;
+  text-align: center;
+}
+
+.c-i-would-stay-panel {
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 64px;
+  background-color: $cl-fair;
+
+  > .o-site-container {
+    @include flex-container(center);
+    text-align: center;
+
+    > img {
+      width: 104px;
+      height: auto;
+    }
+  }
+}
+
+.c-i-would-stay-panel__warning {
+  flex-basis: 100%;
+  @include flex-container(center);
+
+  > h2 {
+    flex-basis: 100%;
+  }
+
+  > p {
+    max-width: 360px;
+    padding-top: 16px;
+    padding-bottom: 32px;
+  }
+}
+
+.c-i-would-stay-panel__alert-container {
+  @include flex-item(100%);
+  @include flex-container(center);
+  text-align: center;
+}
+
+.c-downgrade-anyways-link {
+  @include flex-container(center);
+  width: 100%;
+  padding-top: 80px;
+}

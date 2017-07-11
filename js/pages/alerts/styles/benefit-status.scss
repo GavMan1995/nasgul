@@ -1,0 +1,41 @@
+.c-benefit-status-container {
+  @include flex-container(space-between, center);
+  @include flex-item(100%);
+
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  > p {
+    padding-left: 24px;
+    color: $cl-good;
+  }
+}
+
+.c-benefit-status-container.c-benefit-status-container--inactive {
+  > p {
+    color: $cl-neutral-3;
+  }
+}
+
+.c-benefit-status {
+  @include flex-container($wrap: nowrap, $align-items: center);
+
+  > span {
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin-right: 16px;
+    border-radius: 50%;
+    background-color: $cl-good;
+  }
+}
+
+.c-benefit-status.c-benefit-status--inactive {
+  > span {
+    background-color: $cl-poor;
+  }
+
+  > p {
+    color: $cl-neutral-3;
+  }
+}

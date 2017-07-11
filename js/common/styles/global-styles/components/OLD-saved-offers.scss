@@ -1,0 +1,138 @@
+// TODO: OLD Style, Kill them eventually please.
+// scss-lint:disable all
+
+@mixin setStatusColor {
+  &.-good {
+    color: $cl-good;
+  }
+  &.-semi-good {
+    color: $cl-semi-good;
+  }
+  &.-fair {
+    color: $cl-fair;
+  }
+  &.-semi-poor {
+    color: $cl-semi-poor;
+  }
+  &.-poor {
+    color: $cl-poor;
+  }
+}
+
+
+.saved-offers {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  height: 100vh;
+  width: 328px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: $cl-pagebg;
+  z-index: 50;
+  box-shadow: 0 0px 33px 0 rgba(44,49,56,0.3);
+  transition:
+    box-shadow .4s linear,
+    right .4s ease-in-out;
+
+  ._header-section {
+    z-index: 5;
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    ._close-btn {
+      height: 24px;
+      width: 24px;
+      font-size: 38px;
+      line-height: 1.1;
+      background-color: $cl-pagebg;
+      top: 0px;
+      font-weight: 100;
+    }
+    hr {
+      color: $cl-neutral-1;
+      margin: 0;
+      margin-bottom: 32px;
+    }
+  }
+  ._helper-text {
+    font-size: 12px;
+    color: $cl-neutral-5;
+  }
+  ._content {
+    z-index: 5;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  &.-close {
+    right: -380px;
+    ._bg {
+      display: none;
+    }
+  }
+
+  ._saved-offer {
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    max-height: 300px;
+    transform: translateX(0);
+    transition: transform .2s ease-in, margin-top .3s ease-in .2s, max-height .3s ease-in .2s;
+    &.-deleted {
+      transform: translateX(150%);
+      max-height: 0;
+      margin-top: 0;
+    }
+    img {
+      height: 44px;
+      width: auto;
+    }
+    h6 {
+      display: block;
+      font-size: 13px;
+      line-height: 1.2;
+      color: $cl-neutral-5;
+      align-items: baseline;
+      width: 100%;
+      sup {
+        display: inline-block;
+      }
+    }
+    ._match-factor {
+      display: block;
+      display: block;
+      width: 100%;
+      line-height: 1;
+      font-size: 14px;
+      @include setStatusColor;
+      span {
+        font-weight: 600;
+      }
+    }
+    a._learn-more {
+      font-size: 12px;
+    }
+    a._apply-now {
+      font-size: 16px;
+    }
+    ._unsave {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 30px;
+      height: 22px;
+      padding: 4px;
+      cursor: pointer;
+      z-index: 30;
+      &:hover {
+        transition: transform .2s;
+        &:hover {
+          transform: scale(.9);
+        }
+      }
+    }
+  }
+}

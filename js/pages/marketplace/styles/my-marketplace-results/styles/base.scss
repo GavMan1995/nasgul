@@ -1,0 +1,289 @@
+.c-offer-category {
+  @include flex-container();
+  @include flex-item(100%, 1, 100%);
+  margin: 32px 0 16px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid $cl-neutral-2;
+
+  .c-wide-offer-card {
+    @include flex-item(600px, 3);
+  }
+}
+
+.c-offer-category__details {
+  @include flex-container($align-items: center);
+  @include flex-item(100%);
+  padding-bottom: 8px;
+}
+
+.c-offer-category__biz-service-details {
+  @include flex-container(left, top, top);
+  @include flex-item(160px, 1);
+  margin: 0 16px;
+  padding-bottom: 16px;
+
+  span,
+  h3,
+  p {
+    flex-basis: 100%;
+  }
+
+  span {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    flex-basis: 100%;
+    padding-bottom: 8px;
+    color: $cl-primary-3;
+    text-transform: capitalize;
+  }
+
+  p {
+    position: relative;
+    max-height: 128px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+
+  .c-btn {
+    margin-top: 8px;
+  }
+
+  @include if-screen-smaller-than(680px) {
+    h2 {
+      flex-basis: inherit;
+    }
+
+    .c-btn {
+      margin-left: auto;
+    }
+  }
+}
+
+.c-low-approval-header {
+  padding: 32px 0 8px;
+  font-weight: 600;
+}
+
+.c-offer-category__details-header {
+  @include flex-item(100%);
+  @include flex-container($align-items: center, $wrap: nowrap);
+
+  > h2 {
+    padding-right: 16px;
+    color: $cl-primary-3;
+    text-transform: capitalize;
+  }
+
+  @include if-screen-smaller-than(sm) {
+    justify-content: space-between;
+  }
+}
+
+.c-offer-category__details-content {
+  @include flex-item(400px, 1);
+
+  > p {
+    max-width: 400px;
+  }
+
+  @include if-screen-smaller-than(sm) {
+    > p {
+      display: none;
+    }
+  }
+}
+
+.c-offer-category__offers {
+  @include flex-container($wrap: false);
+  @include flex-item(720px, 3);
+
+  @include if-screen-smaller-than(sm) {
+    flex-wrap: wrap;
+
+    > .c-offer-card {
+      flex-basis: 100%;
+    }
+  }
+}
+
+.c-offer-category__see-more-btn {
+  @include flex-container(flex-end);
+  @include flex-item(100%);
+  margin-bottom: 16px;
+
+  a {
+    display: block;
+    position: relative;
+    padding-left: 16px;
+    text-align: center;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 100%;
+      background-color: $cl-poor;
+      content: '';
+    }
+  }
+}
+
+.c-offer-category__see-more-btn.c-offer-category__see-more-btn--hide-on-mobile {
+  @include if-screen-smaller-than(680px) {
+    display: none;
+  }
+}
+
+.c-offer-header {
+  @include if-screen-smaller-than(sm) {
+    padding-bottom: 32px;
+  }
+}
+
+.c-offer-sub-header {
+  padding-bottom: 32px;
+
+  @include if-screen-smaller-than(sm) {
+    display: none;
+  }
+}
+
+.c-low-mf-container {
+  @include flex-item();
+  margin-bottom: 16px;
+}
+
+.c-low-mf-header {
+  font-weight: 600;
+  padding-top: 32px;
+}
+
+.c-low-mf-header__copy {
+  padding-bottom: 16px;
+  padding-right: 56px;
+}
+
+.c-low-mf-box {
+  @include flex-container();
+  @include flex-item(100%);
+  max-width: 960px;
+}
+
+.c-approval-factor-container {
+  @include flex-container(space-between);
+  @include flex-item(100%);
+}
+
+.c-approval-factor {
+  @include flex-container(left, center, center, nowrap);
+  @include flex-item(240px);
+  padding-bottom: 40px;
+}
+
+.c-approval-factor--poor {
+  > p {
+    color: $cl-poor;
+  }
+}
+
+.c-approval-factor--good {
+  > p {
+    color: $cl-good;
+  }
+}
+
+.c-approval-factor__img {
+  height: 48px;
+  margin: 8px;
+  margin-left: 0;
+  width: 48px;
+}
+
+.c-approval-factor-sub-text {
+  color: $cl-neutral-4;
+}
+
+.c-low-mf-internal-card {
+  @include flex-container();
+  border-radius: 4px;
+  box-shadow: 0 0 8px $cl-neutral-3;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.c-low-mf-external-card {
+  @include flex-container();
+  border-radius: 4px;
+  box-shadow: 0 0 8px $cl-neutral-3;
+  padding-top: 24px;
+  overflow: hidden;
+}
+
+.c-low-mf-card__body {
+  @include flex-container($wrap: nowrap);
+}
+
+.c-low-mf-card__text {
+  @include flex-container();
+  @include flex-item(240px, 1);
+}
+
+.c-low-mf-card__img {
+  @include flex-item(96px);
+  margin: 0 32px 32px 24px;
+  margin-top: 0;
+
+  > img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.c-low-mf-button {
+  margin: 8px 0;
+}
+
+.c-low-mf__header {
+  width: 100%;
+  font-weight: 600;
+}
+
+.c-low-mf-card__copy {
+  color: $cl-neutral-5;
+  padding-top: 16px;
+}
+
+.c-cc-com-offer {
+  @include flex-container(space-between, center, center, nowrap);
+  @include flex-item(100%);
+  background: linear-gradient(to right, $cl-secondary-2, $cl-white 60%);
+  margin-top: 16px;
+  padding: 16px 0 16px 16px;
+}
+
+.c-cc-com-offer__img {
+  @include flex-container();
+  height: 40px;
+}
+
+.c-cc-com-offer__copy {
+  @include flex-container($align-content: flex-end);
+  color: $cl-secondary-2;
+  padding: 16px;
+}
+
+.c-show-offer-bar {
+  @include flex-container(center, center, center, wrap);
+  height: 40px;
+  margin: 16px 0;
+  background-color: $cl-neutral-1;
+  border-radius: 4px;
+  color: $cl-neutral-4;
+  max-width: 960px;
+  cursor: pointer;
+}

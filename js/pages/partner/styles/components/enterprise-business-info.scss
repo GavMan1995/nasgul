@@ -1,0 +1,29 @@
+.c-enterprise-business-info {
+  padding: 24px;
+}
+
+.c-enterprise-business-info__section {
+  @include flex-container(flex-start);
+  width: 100%;
+  padding-bottom: 24px;
+}
+
+.c-enterprise-business-info__section-header {
+  @include flex-item(200px);
+  padding-right: 16px;
+  padding-bottom: 16px;
+
+  @include if-screen-smaller-than(sm) {
+    padding-right: 0;
+  }
+}
+
+.c-enterprise-business-info__section-info {
+  @include flex-item(480px);
+  font-weight: 200;
+
+  > p {
+    margin-bottom: 16px;
+    font-weight: 200;
+  }
+}

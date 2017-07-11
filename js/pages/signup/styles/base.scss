@@ -1,0 +1,261 @@
+.c-signup-page {
+  @include flex-container(center);
+  @include flex-item(100%, 1);
+  overflow: hidden;
+}
+
+.c-signup-page__container {
+  @include site-container();
+  @include flex-container(center, top, top);
+  max-width: calc(100% + 32px);
+  margin: 0 -16px;
+  background-color: $cl-white;
+}
+
+.c-signup-page__max-width-container {
+  @include flex-container();
+  @include flex-item(100%);
+  max-width: 600px;
+}
+
+.c-signup-page__header {
+  @include flex-container(left, center, center, nowrap);
+  @include flex-item(100%);
+  margin: 0 24px;
+  padding: 32px 0;
+
+  img {
+    margin-right: 16px;
+  }
+
+  span {
+    font-weight: 600;
+  }
+
+  @include if-screen-smaller-than(sm) {
+    padding: 24px 0 8px;
+  }
+}
+
+.c-signup-page__info-box {
+  @include flex-container();
+  @include flex-item(360px, 1);
+  align-self: flex-start;
+  margin: 8px 16px 16px;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: $cl-neutral-1;
+
+  span {
+    flex-basis: 100%;
+    color: $cl-neutral-4;
+    font-size: 12px;
+  }
+
+  strong {
+    padding-right: 4px;
+  }
+
+  h5 {
+    flex-basis: 100%;
+    padding-top: 8px;
+    font-weight: 600;
+  }
+
+  @include if-screen-smaller-than(sm) {
+    padding: 0 8px;
+    background-color: $cl-white;
+  }
+}
+
+.c-signup-page__form {
+  @include flex-container();
+  @include flex-item(360px, 10);
+  position: relative;
+  max-width: calc(100% - 32px);
+  margin: 0 16px 32px;
+
+  h5 {
+    flex-basis: 100%;
+    margin: 18px 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+
+    @include if-screen-smaller-than(sm) {
+      font-size: 14px;
+    }
+  }
+}
+
+.c-signup-page__input-group {
+  @include flex-container($wrap: nowrap);
+  flex-basis: 100%;
+}
+
+.c-signup-page__select-group {
+  @include flex-container($wrap: false);
+  flex-basis: 100%;
+
+  .c-select {
+    max-width: 192px;
+  }
+}
+
+.c-signup-page__coupon-section {
+  @include flex-container();
+  @include flex-item(100%);
+  margin-top: 16px;
+
+  .c-input,
+  .c-btn {
+    height: 48px;
+  }
+
+  .c-btn {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-color: $cl-neutral-2;
+    color: $cl-neutral-5;
+
+    @include if-screen-smaller-than(sm) {
+      flex-basis: 160px;
+    }
+
+    &:hover {
+      border-color: $cl-secondary-2;
+      background-color: $cl-white;
+    }
+  }
+}
+
+.c-signup-page__ssn-input {
+  max-width: 400px;
+}
+
+.c-signup-page__verification-question {
+  @include flex-container();
+  @include flex-item(100%);
+  margin: 8px 8px 16px;
+  border-radius: 4px;
+  @include box-shadow(dark);
+  overflow: hidden;
+
+  > p {
+    flex-basis: 100%;
+    margin-bottom: 16px;
+    padding: 8px 16px;
+    background-color: $cl-neutral-1;
+  }
+
+  > ul {
+    @include flex-container();
+    @include flex-item(100%);
+    padding: 24px 16px;
+  }
+}
+
+.c-signup-page__verification-question.has-error {
+  outline: 1px solid $cl-error;
+}
+
+.c-signup-page__timer {
+  padding: 0 4px;
+  color: $cl-primary-3;
+  font-weight: 600;
+}
+
+.c-signup-page__error-text {
+  flex-basis: 100%;
+  margin: 0 8px;
+  color: $cl-error;
+}
+
+.c-signup-page__agree-checkbox {
+  @include flex-container(left, center, center, nowrap);
+  position: relative;
+  flex-basis: 100%;
+  padding: 8px 0;
+  font-size: 14px;
+
+  input {
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 120px;
+    height: 100%;
+    cursor: pointer;
+    z-index: 50;
+  }
+
+  label,
+  input {
+    margin: 0;
+  }
+
+  span {
+    padding-left: 8px;
+  }
+}
+
+.c-signup-page__agree-checkbox.has-error {
+  .c-check + label {
+    background-color: $cl-error;
+  }
+}
+
+.c-signup-page__submit-btn {
+  margin-left: auto;
+
+  @include if-screen-smaller-than(sm) {
+    flex-basis: 100%;
+    max-width: calc(100% - 16px);
+  }
+}
+
+.c-signup-page__disclaimer-text {
+  @include flex-item(240px, 1);
+  align-self: center;
+  margin: 8px;
+  color: $cl-neutral-4;
+  font-size: 12px;
+
+  @include if-screen-smaller-than(sm) {
+    flex-basis: 100%;
+  }
+}
+
+.c-signup-page__info-text {
+  @include flex-item(100%);
+  margin: 8px;
+}
+
+.c-signup-page__footer {
+  @include site-container();
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  p {
+    max-width: 752px;
+    margin-bottom: 24px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.c-signup-page__bureau-icons {
+  @include flex-container();
+  margin: 0 -16px;
+  padding: 32px 0;
+
+  img {
+    width: auto;
+    height: 24px;
+    margin: 8px 16px;
+  }
+
+  @include if-screen-smaller-than(sm) {
+    justify-content: space-around;
+  }
+}

@@ -1,0 +1,25 @@
+.c-page-disclaimer {
+  @include site-container();
+
+  > p {
+    color: $cl-neutral-3;
+    font-size: 12px;
+  }
+}
+
+.c-section-disclaimer {
+  padding-top: 80px;
+  color: $cl-neutral-3;
+}
+
+.c-tax-disclaimer {
+  @include flex-container();
+  width: 100%;
+  padding: 16px 0;
+  color: $cl-neutral-3;
+  text-align: center;
+
+  > small {
+    @include flex-item(100%);
+  }
+}

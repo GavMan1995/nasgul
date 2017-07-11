@@ -1,0 +1,70 @@
+// TODO: OLD Style, Kill them eventually please.
+// scss-lint:disable all
+
+.promo-card img {
+  width: 100%;
+  height: auto;
+}
+
+.credit-target-card {
+  width: 100%;
+  height: auto;
+}
+
+.card-mini-feature--card-title {
+  display: inline-block;
+  height: 33px;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #999;
+}
+
+.card-mini-feature--card-image {
+  margin-bottom: 8px;
+}
+
+.card-mini-feature {
+  margin-bottom: 8px;
+}
+
+.card-mini-feature--headline {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.card-mini-feature--list-head {
+  display: block;
+  margin-top: 16px;
+  color: #888;
+}
+
+.card-mini-featrue--card-button a {
+  font-size: 14px;
+}
+
+.card__btn__bottom, .launcher-steps a.card__btn__bottom {
+  border-radius: 0 2px 2px 0;
+  color:  $cl-neutral-3;
+  background-color:  $cl-neutral-1;
+  &:hover {
+    background-color:  $cl-neutral-2;
+    color: $cl-neutral-6;
+  }
+}
+
+.card__btn__top, .launcher-steps a.card__btn__top {
+  border-radius: 2px 0 0 2px;
+  color: #fff;
+}
+
+.card__btn {
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.card__see-all {
+  text-decoration: none;
+  font-size: 12px;
+}

@@ -1,0 +1,206 @@
+.c-loan-reality-container {
+  @include flex-container(center, center, top, nowrap, column);
+  @include flex-item(100%);
+}
+
+.c-loan-reality-card {
+  @include flex-container(center);
+  @include flex-item($max: 450px, $grow: 1);
+  padding: 32px;
+}
+
+.c-loan-reality-card__item {
+  @include flex-container();
+  @include flex-item(100%);
+}
+
+.c-loan-reality-card__row {
+  @include flex-container($wrap: nowrap);
+  @include flex-item(300px, 1);
+}
+
+.c-loan-reality-card__row-header {
+  @include flex-item(100%, 1);
+  text-align: left;
+}
+
+.c-loan-reality-card__header {
+  padding: 24px;
+  color: $cl-secondary-2;
+  font-weight: 600;
+  text-align: center;
+}
+
+.c-loan-reality-card__header-text {
+  padding: 8px 24px 32px;
+  text-align: center;
+}
+
+.c-loan-reality-card__breadcrumb {
+  @include flex-item(100%);
+  @include flex-container(flex-start, center, center, $wrap: nowrap);
+  padding-bottom: 8px;
+  font-size: 14px;
+  text-transform: none;
+
+  > img {
+    width: 12px;
+    transform: rotate(90deg);
+  }
+}
+
+.c-loan-reality-card__title {
+  padding-bottom: 24px;
+}
+
+.c-loan-reality-card__title--bold {
+  padding-bottom: 24px;
+  font-weight: 600;
+}
+
+.c-loan-reality-card__title--underline {
+  padding-bottom: 24px;
+  border-bottom: 1px solid $cl-neutral-3;
+}
+
+.c-loan-reality-card__title--center {
+  padding-bottom: 24px;
+  text-align: center;
+}
+
+.c-loan-reality-card__loader-wrapper {
+  @include flex-container();
+  @include flex-item(100%);
+  display: none;
+  max-height: 350px;
+  margin-top: 8px;
+
+  &.is-active {
+    display: flex;
+  }
+
+  > .c-btn {
+    align-self: flex-end;
+    width: 100%;
+    border-top: 1px solid $cl-border;
+    border-radius: 0 0 4px 4px;
+  }
+}
+
+.c-loan-reality-card__subtitle {
+  padding: 0;
+}
+
+.c-loan-reality-card__page-subtitle {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.c-loan-reality-card__no-institutions-title--underline {
+  margin-bottom: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid $cl-neutral-3;
+}
+
+.c-loan-reality-card__search-again-title {
+  @include flex-container($align-items: bottom);
+  @include flex-item();
+  padding: 8px 8px 0 0;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.c-loan-reality-card__no-institutions-list {
+  padding: 8px 16px;
+}
+
+.c-loan-reality-card__onboarding-image {
+  @include flex-item($max: 300px);
+}
+
+.c-loan-reality-card__small-image {
+  @include flex-item($max: 50px);
+  height: 50px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.c-loan-reality-card__small-image--left-align {
+  @include flex-item($max: 50px);
+  height: 50px;
+  margin: 16px 16px 0;
+  text-align: left;
+}
+
+.c-loan-reality-card__medium-image {
+  @include flex-item($max: 100px);
+  height: 100px;
+  text-align: center;
+}
+
+.c-loan-reality-card__label--good {
+  color: $cl-good;
+  font-size: 12px;
+  text-align: center;
+}
+
+.c-loan-reality-card__label--poor {
+  color: $cl-poor;
+  font-size: 12px;
+  text-align: center;
+}
+
+.c-loan-reality-card__label--okay {
+  color: $cl-fair;
+  font-size: 12px;
+  text-align: center;
+}
+
+.c-loan-reality-card__label--unknown {
+  color: $cl-secondary-2;
+  font-size: 12px;
+  text-align: center;
+}
+
+.c-loan-reality-card__text {
+  padding: 16px 0;
+}
+
+.c-loan-reality-card__text--center {
+  padding: 0 16px;
+  text-align: center;
+}
+
+// TODO add a transition here
+.c-loan-reality-card__text--hide {
+  display: none;
+}
+
+.c-loan-reality-card__settings-account {
+  @include flex-container();
+  @include flex-item(100%);
+  padding: 4px 0;
+}
+
+.c-loan-reality-card__settings-link {
+  @include flex-item(100px, 1);
+}
+
+.c-loan-reality-card__settings-title {
+  @include flex-item(100px, 1);
+}
+
+.c-loan-reality-card__button {
+  @include flex-item(160px, $max: 160px);
+  margin-top: 64px;
+  text-align: center;
+}
+
+.c-loan-reality-card__options-container {
+  @include flex-container();
+  @include flex-item(100%);
+  padding: 16px;
+  border-right: 1px solid $cl-border;
+  border-bottom: 1px solid $cl-border;
+  border-radius: 4px;
+}

@@ -1,0 +1,181 @@
+// TODO: OLD Style, Kill them eventually please.
+// scss-lint:disable all
+
+.form-container {
+  position: relative;
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  background-color: #fff;
+  border: 1px solid $cl-border;
+  border-radius: 4px;
+  ._section-header, ._input-box {
+    border-bottom: 1px solid $cl-border;
+		border-right: 1px solid $cl-border;
+		border-top: 0;
+		border-left: 0;
+  }
+  ._section-header {
+    margin-bottom: 8px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    overflow: hidden;
+    font-weight: 600;
+    @include padding(24px,l);
+    span {
+      font-weight: 600;
+    }
+  }
+  ._input-box {
+    position: relative;
+    height: 90px;
+    input, select {
+      position: absolute;
+      top: 0;
+      left: 0;
+      align-content: center;
+      width: 100%;
+      height: 100%;
+      font-size: 14px;
+      line-height: 1;
+      background: none;
+      border: 0;
+      padding: 24px 0 0 24px;
+      cursor: pointer;
+      &:focus {
+        color: $cl-neutral-4;
+        outline: 0;
+        box-shadow:inset 0 0 0 1px $cl-secondary-1;
+        & + label {
+          color: $cl-secondary-2;
+          & + ._remove-field {
+            opacity: 1;
+          }
+        }
+      }
+      &[disabled] {
+        color: $cl-neutral-2;
+        background-color: $cl-neutral-0;
+        cursor: not-allowed;
+        & + label {
+          z-index: 1;
+        }
+      }
+    }
+    input {
+      &::-webkit-input-placeholder {
+        color: $cl-neutral-2;
+      }
+      &:-moz-placeholder {
+        color: $cl-neutral-2;
+        opacity: 1;
+      }
+      &::-moz-placeholder {
+        color: $cl-neutral-2;
+        opacity: 1;
+      }
+      &:-ms-input-placeholder {
+        color: $cl-neutral-2;
+      }
+      &:placeholder-shown {
+        color: $cl-neutral-2;
+      }
+      &.-error {
+        color: $cl-neutral-4;
+        &::-webkit-input-placeholder {
+          color: $cl-accent-5;
+        }
+        &:-moz-placeholder {
+          color: $cl-accent-5;
+          opacity: 1;
+        }
+        &::-moz-placeholder {
+          color: $cl-accent-5;
+          opacity: 1;
+        }
+        &:-ms-input-placeholder {
+          color: $cl-accent-5;
+        }
+        &:placeholder-shown {
+          color: $cl-accent-5;
+        }
+        & + label {
+          color: $cl-accent-5;
+        }
+      }
+    }
+    select {
+      padding-top: 6px;
+      line-height: 90px;
+      border-radius: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      color: $cl-neutral-6;
+      cursor: pointer;
+      background: url(#{$cdn-path}/icons/form-dropdown.svg) no-repeat 96% center;
+    }
+    label {
+      color: $cl-neutral-3;
+      font-size: 12px;
+      @include padding(16px,t);
+      @include padding(24px,l);
+      transition: color .2s;
+    }
+    ._remove-field {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 8px;
+      line-height: .6;
+      cursor: pointer;
+      color: $cl-neutral-3;
+    }
+    ._marked-for-deletion {
+      background-color: $cl-pagebg;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      p,a,span {
+        width: 100%;
+        text-align: center;
+      }
+      p {
+        font-size: 12px;
+        line-height: 1.1;
+        color: $cl-neutral-6;
+      }
+      a {
+
+      }
+      span {
+        font-size: 8px;
+        color: $cl-neutral-4;
+      }
+    }
+    &.-want {
+      background-color: $cl-accent-4;
+    }
+    &:nth-last-of-type(3n) {
+      -ms-flex-positive: 1.0001;
+          flex-grow: 1.0001;
+    }
+  }
+  ._form-spacer {
+    border-bottom: 0;
+		border-right: 0;
+		border-top: 0;
+		border-left: 0;
+    background-color: $cl-pagebg;
+    & + ._form-spacer {
+      border-bottom: 0;
+      border-right: 0;
+  		border-top: 0;
+  		border-left: 0;
+      background-color: $cl-pagebg;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+.c-biz-lookup {
+  @include flex-container(flex-start, flex-start, flex-start);
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 32px;
+  padding-right: calc(50% - 500px);
+  padding-left: calc(50% - 500px);
+  background-color: $cl-white;
+}
+
+.c-biz-lookup__img {
+  @include flex-item(200px, 1, 240px);
+  margin: 0 16px;
+
+  > img {
+    width: 100%;
+    height: auto;
+  }
+
+  @include if-screen-smaller-than(sm) {
+    @include flex-container(center);
+    max-width: 100%;
+
+    > img {
+      width: 200px;
+    }
+  }
+}
+
+.c-biz-lookup__content {
+  @include flex-item(400px, 1, 100%);
+  padding: 32px;
+
+  > h1 {
+    width: 100%;
+    padding-bottom: 16px;
+  }
+}
+
+.c-biz-lookup__lookup {
+  flex-basis: 100%;
+
+  > p {
+    max-width: 600px;
+  }
+}
+
+.c-biz-lookup__btn-wrapper {
+  @include flex-container(flex-end);
+  @include flex-item(100%);
+}
+
+.c-biz-lookup__btn-wrapper.c-biz-lookup__btn-wrapper--align-left {
+  justify-content: flex-start;
+}
+
+.c-biz-lookup__error {
+  color: $cl-poor;
+}
+
+.c-biz-lookup__message {
+  width: 100%;
+  height: 200px;
+  margin: 8px;
+  padding: 8px;
+  transition: border-color 0.3s;
+  border: 1px solid $cl-neutral-3;
+  border-radius: 4px;
+  outline: 0;
+  color: $cl-neutral-4;
+
+  &:hover {
+    border-color: $cl-primary-2;
+  }
+}
+
+.c-biz-lookup__upgrade-text {
+  padding-bottom: 16px;
+}

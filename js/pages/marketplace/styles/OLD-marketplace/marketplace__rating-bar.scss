@@ -1,0 +1,43 @@
+/* ----------------------------------------------------------------------------------
+			Rating Bar
+---------------------------------------------------------------------------------- */
+// TODO: OLD Style, Kill them eventually please.
+// scss-lint:disable all
+
+
+/* +=============================+
+		1. Rating Bar
++=============================+ */
+
+
+ .rating {
+   background-color:  $cl-neutral-2;
+   overflow: hidden;
+   > div {
+     width: 50%;
+   }
+ }
+
+
+ .rating-bar{
+   position: relative;
+   height: 2px;
+   background-color: $cl-primary-2;
+ }
+
+
+.rating-bar--half {
+    position: absolute;
+    right: -25px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 25px solid $cl-primary-2;
+    border-right: 25px solid transparent;
+    border-left: 2px solid $cl-primary-2;
+}
+
+.rating-bar__scale-label {
+  color:  $cl-neutral-3;
+  font-size: 12px;
+}

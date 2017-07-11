@@ -1,0 +1,14 @@
+.c-bureau-image-container {
+  @include flex-container(center);
+  flex-basis: 100%;
+  padding-top: 24px;
+}
+
+.c-bureau-image {
+  max-width: 160px;
+  margin: 0 24px;
+
+  > img {
+    width: 100%;
+  }
+}

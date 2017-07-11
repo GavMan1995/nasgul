@@ -1,0 +1,64 @@
+// NOTE: Use these to set dem rad media queries. But remember, media queries
+// aren't evil, but just like relatives, we try to avoid them except on special
+// occasions. Once a year for thanksgiving is enough.
+
+// TODO clean up number of custom media queries used in our styles
+
+@mixin if-screen-smaller-than($query) {
+  @if $query == 'sm' {
+    @media (max-width: $screen-small) { @content; }
+  }
+  @else if $query == 'md' {
+    @media (max-width: $screen-medium) { @content; }
+  }
+  @else if $query == 'lg' {
+    @media (max-width: $screen-large) { @content; }
+  }
+  @else if unit($query) != 'px' {
+    @error 'FAILED: \a You tried using a unitless number or a unit other than px for your media query, please either use sm, md, or lg or a number in pixels.';
+  }
+  @else {
+    // @warn 'Please try to use one of the default queries sm, md or lg. Setting too many custom queries will bloat our code. Please do so with wisdom';
+    @media (max-width: #{$query}) { @content; }
+  }
+}
+
+@mixin if-screen-larger-than($query) {
+  @if $query == 'sm' {
+    @media (min-width: $screen-small) { @content; }
+  }
+  @else if $query == 'md' {
+    @media (min-width: $screen-medium) { @content; }
+  }
+  @else if $query == 'lg' {
+    @media (min-width: $screen-large) { @content; }
+  }
+  @else if unit($query) != 'px' {
+    @error 'FAILED: \a You tried using a unitless number or a unit other than px for your media query, please either use sm, md, or lg or a number in pixels.';
+  }
+  @else {
+    // @warn 'Please try to use one of the default queries sm, md or lg. Setting too many custom queries will bloat our code. Please do so with wisdom';
+    @media (min-width: #{$query}) { @content; }
+  }
+}
+
+@mixin if-screen-between($query-min, $query-max) {
+  // Variable Helpers
+  @if $query-min == 'sm' { $query-min: $screen-small; }
+  @if $query-min == 'md' { $query-min: $screen-medium; }
+  @if $query-min == 'lg' { $query-min: $screen-large; }
+  @if $query-min == 'sm' { $query-max: $screen-small; }
+  @if $query-max == 'md' { $query-max: $screen-medium; }
+  @if $query-max == 'lg' { $query-max: $screen-large; }
+
+  @if $query-min >= $query-max {
+    @error 'FAILED: \a Your min is greater than or equal to your max. Please set your minimum screen size first, then your maximum.';
+  }
+  @else if unit($query-min) != 'px' or unit($query-max) != 'px' {
+    @error 'FAILED: \a You tried using a unitless number or a unit other than px for your media query, please either use sm, md, or lg or a number in pixels.';
+  }
+  @else {
+    // @warn 'Please try to use one of the default queries sm, md or lg. Setting too many custom queries will bloat our code. Please do so with wisdom';
+    @media (min-width: $query-min) and (max-width: $query-max) { @content; }
+  }
+}

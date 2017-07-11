@@ -1,0 +1,93 @@
+.c-alerts-card {
+  @include flex-container();
+
+  margin: 0;
+  padding: 24px;
+  border-radius: 4px;
+  background-color: $cl-white;
+
+  @include if-screen-smaller-than(sm) {
+    margin-top: 32px;
+  }
+}
+
+.c-alerts-card__title {
+  @include flex-container();
+
+  > p {
+    flex-basis: 100%;
+  }
+
+  > img {
+    align-self: center;
+  }
+}
+
+.c-alerts-card__title-img {
+  @include flex-container(center);
+
+  flex-basis: 100%;
+}
+
+.c-alerts-card__content {
+  @include flex-container(space-between, $wrap: nowrap);
+
+  flex-basis: 100%;
+  padding-top: 16px;
+}
+
+.c-alerts-card__headline {
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: $cl-neutral-3;
+  text-align: center;
+}
+
+.c-alerts-card__settings {
+  max-height: 48px;
+  margin-top: 24px;
+  padding-top: 24px;
+  transition: max-height 0.3s;
+  border-top: 1px solid $cl-border;
+  overflow: hidden;
+}
+
+.c-alerts-card__settings.is-open {
+  max-height: 442px;
+  transition: max-height 0.3s;
+}
+
+.c-alerts-card__settings-title {
+  @include flex-container($wrap: nowrap, $justify-content: space-between);
+
+  cursor: pointer;
+
+  > strong {
+    color: $cl-secondary-2;
+  }
+
+  > img {
+    transition: transform 0.3s;
+  }
+}
+
+.c-alerts-card__settings-title.is-open {
+  > img {
+    transform: rotate(-180deg);
+    transition: transform 0.3s;
+  }
+}
+
+.c-alerts-card__id-theft-info {
+  margin-top: 8px;
+  margin-bottom: 24px;
+  padding: 16px;
+  border: 1px solid $cl-border;
+  border-radius: 4px;
+  background-color: $cl-neutral-0;
+
+  > p {
+    padding-top: 16px;
+  }
+}

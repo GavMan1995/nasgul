@@ -1,11 +1,34 @@
-module.exports = function () {
-  const findInFiles = require('find-in-files')
-  const _ = require('lodash')
+const findInFiles = require('find-in-files')
+const _ = require('lodash')
+const fs = require('fs')
 
+module.exports = function () {
   grabAllClasses((err, res) => {
+    const unusedList = res.unusedClasses.map((val, index) => {
+      return `${index + 1}: ` + val + '\n'
+    }).join('')
+
+    const noCSSList = res.classesNotInCSS.map((val, index) => {
+      return `${index + 1}: ` + val + '\n'
+    }).join('')
+
+    const text = `Unused Classes\n-------------------------\n${unusedList}\n-------------\n\nClasses not in CSS\n------------------------\n${noCSSList}\n------------`
+
     if (err) {
       console.log(err)
     } else {
+      fs.open('unused-class-list.txt', 'w', (err, fd) => {
+        if (err) {
+          console.log(err)
+        }
+
+        fs.writeFile('unused-class-list.txt', text, (err) => {
+          if (err) {
+            console.log(err)
+          }
+        })
+      })
+
       console.log('=======================================')
       console.log(res.unusedClasses.slice(0,4))
       console.log('---------------------------------------')
@@ -14,6 +37,7 @@ module.exports = function () {
       console.log(res.classesNotInCSS.slice(0,4))
       console.log('---------------------------------------')
       console.log(`There are ${res.classesNotInCSS.length} classes not found in the CSS!`)
+      console.log('Full list of classes in unused-class-list.txt in the current directory')
     }
   })
 

@@ -2,64 +2,35 @@
 const findInFiles = require('find-in-files')
 const _ = require('lodash')
 
-// checkClasses((err, res) => {
-//   // console.log(`There are ${res.length} unused classes`)
-//   // console.log('============ Classes ============')
-//   // console.log(res)
-//   // console.log('=================================')
-// })
-//
-//
+grabAllClasses((err, res) => {
+  console.log('=======================================')
+  console.log(res)
+  console.log('=======================================')
+  console.log(`There are ${res.length} unused classes!`)
+})
 
-//
-// function checkClasses(callback) {
-//   let unusedClasses = []
-//   let css = []
-//   let js = []
-//
-//   grabClassesFromFiles((err, res) => {
-//     css = res.css
-//     js = res.js
-//
-//     const arr = css.concat(js)
-//
-//
-//     callback(arr)
-//
-//     console.log(js)
-//   })
-// }
+function grabAllClasses(callback) {
+  const arg = process.argv[2]
 
-grabClassesFromFiles()
+  parseCSSFiles(arg, (err, res) => {
+    parseJSFiles(arg, res, (err, res)  => {
+      let css = res.css
+      let js = res.js
 
-function grabClassesFromFiles() {
-  const arg = process.argv
-  let cssClasses = []
-  let jsClasses = []
+      const unusedClasses = js.filter((value) => {
+        return css.indexOf(value) === -1
+      })
 
-  console.log(parseJSFiles(arg[2]))
-
-  // if ( arg.length <= 2 ) {
-  //   console.warn('You must supply the directories you need to check')
-  // }
-  //
-  // if (arg.length === 3) {
-  //   parseJSFiles(arg[2], (err, res) => {
-  //     jsClasses = res
-  //   })
-  //
-  //   parseCSSFiles(arg[2], (err, res) => {
-  //     cssClasses = res
-  //   })
-  // }
+      callback(null, unusedClasses)
+    })
+  })
 }
-
 
 
 function parseCSSFiles(file, callback) {
   let arrOfCSSClasses = []
 
-  findInFiles.findSync({'term': /\..+ \{/, 'flags': 'g'}, file, '.scss$')
+  findInFiles.find({'term': /\..+ \{/, 'flags': 'g'}, file, '.scss$')
     .then((results) => {
       let arrOfValues = _.values(results)
 
@@ -77,31 +48,33 @@ function parseCSSFiles(file, callback) {
         return index === self.indexOf(elem)
       })
 
-      return arrOfCSSClasses
+      callback(null, arrOfCSSClasses)
     })
 }
 
-function parseJSFiles(file) {
+function parseJSFiles(file, cssArray, callback) {
   let arrOfJSClasses = []
 
-  const results = findInFiles.findSync({'term': /className='.+[^ >]'/, 'flags': 'g'}, file, '.js$')
-  const arrOfValues = _.values(results)
+  findInFiles.find({'term': / className='.+?'/, 'flags': 'g'}, file, '.js$')
+    .then((results) => {
+      let arrOfValues = _.values(results)
 
-  arrOfValues = arrOfValues.map((val) => {
-    return val.matches
-  })
+      arrOfValues = arrOfValues.map((val) => {
+        return val.matches
+      })
 
-  arrOfValues = [].concat.apply([], arrOfValues)
+      arrOfValues = [].concat.apply([], arrOfValues)
 
-  arrOfValues = arrOfValues.map((val) => {
-    return val.split("className='").pop().split("'").join('').split(' ')
-  })
+      arrOfValues = arrOfValues.map((val) => {
+        return val.split("className='").pop().split("'").join('').split(' ')
+      })
 
-  arrOfJSClasses = [].concat.apply([], arrOfValues)
+      arrOfJSClasses = [].concat.apply([], arrOfValues)
 
-  arrOfJSClasses = arrOfJSClasses.filter((elem, index, self) => {
-    return index === self.indexOf(elem)
-  })
+      arrOfJSClasses = arrOfJSClasses.filter((elem, index, self) => {
+        return index === self.indexOf(elem)
+      })
 
-  return arrOfJSClasses
+      callback(null, {css: cssArray, js: arrOfJSClasses})
+    })
 }

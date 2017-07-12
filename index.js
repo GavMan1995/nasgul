@@ -4,9 +4,13 @@ const _ = require('lodash')
 
 grabAllClasses((err, res) => {
   console.log('=======================================')
-  console.log(res)
+  console.log(res.unusedClasses.slice(0,4))
   console.log('=======================================')
-  console.log(`There are ${res.length} unused classes!`)
+  console.log(`There are ${res.unusedClasses.length} unused classes!`)
+  console.log('=======================================')
+  console.log(res.classesNotInCSS.slice(0,4))
+  console.log('=======================================')
+  console.log(`There are ${res.classesNotInCSS.length} classes not used in CSS!`)
 })
 
 function grabAllClasses(callback) {
@@ -17,11 +21,15 @@ function grabAllClasses(callback) {
       let css = res.css
       let js = res.js
 
-      const unusedClasses = js.filter((value) => {
+      const unusedClasses = css.filter((value) => {
+        return js.indexOf(value) === -1
+      })
+
+      const classesNotInCSS = js.filter((value) => {
         return css.indexOf(value) === -1
       })
 
-      callback(null, unusedClasses)
+      callback(null, {unusedClasses, classesNotInCSS})
     })
   })
 }

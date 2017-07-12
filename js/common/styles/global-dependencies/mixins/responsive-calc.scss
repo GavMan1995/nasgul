@@ -1,7 +1,0 @@
-// Uses my fancy dancy formula to scale between the min and max value based on screen size.
-
-@mixin responsive-calc ($property, $min, $max) {
-  #{$property}: responsiveCalc($min, $max);
-  @include if-screen-smaller-than(sm) { #{$property}: $min; }
-  @include if-screen-larger-than(lg) { #{$property}: $max; }
-}

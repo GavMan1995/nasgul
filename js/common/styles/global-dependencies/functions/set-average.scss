@@ -1,6 +1,0 @@
-// Returns the average of two values. Must be the same unit.
-
-@function avg($min, $max) {
-  $avg: ($min + $max) / 2;
-  @return #{$avg};
-}

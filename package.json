@@ -1,6 +1,10 @@
 {
   "name": "nasgul",
+<<<<<<< HEAD
   "version": "0.1.1",
+=======
+  "version": "1.2.0",
+>>>>>>> 0d4d5801a1669587f1269c4830e2b39dcebc48ca
   "description": "A program that checks to see if we have unused css classes, and if we have css classes that do the same thing",
   "main": "index.js",
   "scripts": {
@@ -14,6 +18,9 @@
   "dependencies": {
     "find-in-file": "^1.0.1",
     "find-in-files": "^0.4.0",
-    "lodash": "^4.17.4"
+    "glob": "^7.1.2",
+    "glob-fs": "^0.1.6",
+    "lodash": "^4.17.4",
+    "node-sass": "^4.5.3"
   }
 }

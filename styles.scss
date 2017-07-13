@@ -51,7 +51,7 @@ $cl-accent-8: #84e4e9;
 
 // Statuses
 $cl-good: #00bb7b;
-$cl-semi-good: #78dd6f; // TODO I think design wants to kill these.
+$cl-semi-good: #81eaac; // TODO I think design wants to kill these.
 $cl-fair: #ffc709;
 $cl-semi-poor: #f9a000; // TODO I think design wants to kill these.
 $cl-poor: #ed193f;
@@ -133,11 +133,8 @@ $cl-hyperlink: #005cff;
   @elseif $align-content == 'middle' or $align-content == 'center' {
     @return 'center';
   }
-  @elseif $align-content == 'space-between' {
-    @return 'space-between';
-  }
   @else {
-    @error 'Please enter a correct value for row-vertical: stretch, top, bottom, space-between, or middle';
+    @error 'Please enter a correct value for row-vertical: stretch, top, bottom, or middle';
   }
 }
 @function helperFlexWrap($wrap) {
@@ -599,47 +596,6 @@ $cl-hyperlink: #005cff;
 
 
 
-.c-benefit-status-container {
-  @include flex-container(space-between, center);
-  @include flex-item(100%);
-
-  padding-top: 4px;
-  padding-bottom: 4px;
-
-  > p {
-    padding-left: 24px;
-    color: $cl-good;
-  }
-}
-
-.c-benefit-status-container.c-benefit-status-container--inactive {
-  > p {
-    color: $cl-neutral-3;
-  }
-}
-
-.c-benefit-status {
-  @include flex-container($wrap: nowrap, $align-items: center);
-
-  > span {
-    display: block;
-    width: 8px;
-    height: 8px;
-    margin-right: 16px;
-    border-radius: 50%;
-    background-color: $cl-good;
-  }
-}
-
-.c-benefit-status.c-benefit-status--inactive {
-  > span {
-    background-color: $cl-poor;
-  }
-
-  > p {
-    color: $cl-neutral-3;
-  }
-}
 .c-card {
   @include flex-container($direction: column);
   @include flex-item(auto, 1);
@@ -4266,7 +4222,6 @@ input::-ms-clear {
 
 
 
-
 html,
 html a {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
@@ -4794,6 +4749,7 @@ label {
     }
   }
 }
+
 
 
 
@@ -7313,6 +7269,7 @@ li.goal-task-failed {
 .c-change-plan-card__info {
   @include flex-container(center);
 
+  flex-grow: 1;
   padding: 16px;
   border-right: 1px solid $cl-border;
   border-left: 1px solid $cl-border;
@@ -7338,17 +7295,9 @@ li.goal-task-failed {
   }
 }
 
-.c-change-plan-card__disclaimer {
-  @include flex-item();
-  text-align: center;
-  padding: 8px;
-  color: $cl-neutral-3;
-}
-
 .c-change-plan-card__benefits-container {
-  @include flex-container(center, $align-content: space-between);
+  @include flex-container(center);
 
-  flex-grow: 1;
   align-self: flex-end;
   transition: max-height ease-in-out 0.3s;
   border: 1px solid $cl-border;
@@ -9711,6 +9660,13 @@ li.goal-task-failed {
     display: block;
   }
 
+  .c-btn {
+    // stylelint-disable-next-line declaration-no-important
+    background-color: $cl-white !important;
+    // stylelint-disable-next-line declaration-no-important
+    color: $cl-secondary-2 !important;
+  }
+
   .c-call-agent-cta {
     .c-btn {
       // stylelint-disable-next-line declaration-no-important
@@ -9814,11 +9770,6 @@ li.goal-task-failed {
   }
 }
 
-.c-low-approval-header {
-  padding: 32px 0 8px;
-  font-weight: 600;
-}
-
 .c-offer-category__details-header {
   @include flex-item(100%);
   @include flex-container($align-items: center, $wrap: nowrap);
@@ -9904,141 +9855,6 @@ li.goal-task-failed {
     display: none;
   }
 }
-
-.c-low-mf-container {
-  @include flex-item();
-  margin-bottom: 16px;
-}
-
-.c-low-mf-header {
-  font-weight: 600;
-  padding-top: 32px;
-}
-
-.c-low-mf-header__copy {
-  padding-bottom: 16px;
-  padding-right: 56px;
-}
-
-.c-low-mf-box {
-  @include flex-container();
-  @include flex-item(100%);
-  max-width: 960px;
-}
-
-.c-approval-factor-container {
-  @include flex-container(space-between);
-  @include flex-item(100%);
-}
-
-.c-approval-factor {
-  @include flex-container(left, center, center, nowrap);
-  @include flex-item(240px);
-  padding-bottom: 40px;
-}
-
-.c-approval-factor--poor {
-  > p {
-    color: $cl-poor;
-  }
-}
-
-.c-approval-factor--good {
-  > p {
-    color: $cl-good;
-  }
-}
-
-.c-approval-factor__img {
-  height: 48px;
-  margin: 8px;
-  margin-left: 0;
-  width: 48px;
-}
-
-.c-approval-factor-sub-text {
-  color: $cl-neutral-4;
-}
-
-.c-low-mf-internal-card {
-  @include flex-container();
-  border-radius: 4px;
-  box-shadow: 0 0 8px $cl-neutral-3;
-  padding: 24px;
-  overflow: hidden;
-}
-
-.c-low-mf-external-card {
-  @include flex-container();
-  border-radius: 4px;
-  box-shadow: 0 0 8px $cl-neutral-3;
-  padding-top: 24px;
-  overflow: hidden;
-}
-
-.c-low-mf-card__body {
-  @include flex-container($wrap: nowrap);
-}
-
-.c-low-mf-card__text {
-  @include flex-container();
-  @include flex-item(240px, 1);
-}
-
-.c-low-mf-card__img {
-  @include flex-item(96px);
-  margin: 0 32px 32px 24px;
-  margin-top: 0;
-
-  > img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-.c-low-mf-button {
-  margin: 8px 0;
-}
-
-.c-low-mf__header {
-  width: 100%;
-  font-weight: 600;
-}
-
-.c-low-mf-card__copy {
-  color: $cl-neutral-5;
-  padding-top: 16px;
-}
-
-.c-cc-com-offer {
-  @include flex-container(space-between, center, center, nowrap);
-  @include flex-item(100%);
-  background: linear-gradient(to right, $cl-secondary-2, $cl-white 60%);
-  margin-top: 16px;
-  padding: 16px 0 16px 16px;
-}
-
-.c-cc-com-offer__img {
-  @include flex-container();
-  height: 40px;
-}
-
-.c-cc-com-offer__copy {
-  @include flex-container($align-content: flex-end);
-  color: $cl-secondary-2;
-  padding: 16px;
-}
-
-.c-show-offer-bar {
-  @include flex-container(center, center, center, wrap);
-  height: 40px;
-  margin: 16px 0;
-  background-color: $cl-neutral-1;
-  border-radius: 4px;
-  color: $cl-neutral-4;
-  max-width: 960px;
-  cursor: pointer;
-}
 $offer-filter-aside-breakpoint: 1048px;
 
 .c-aside-filter-container {
@@ -10051,6 +9867,20 @@ $offer-filter-aside-breakpoint: 1048px;
     flex-basis: 100%;
     max-width: 100%;
     margin: 0;
+  }
+}
+
+.c-fix-aside {
+  position: relative;
+  @include flex-item(100%);
+  height: 0;
+  background-color: $cl-white;
+
+  > div {
+    position: absolute;
+    top: -40px;
+    width: 100%;
+    height: 1px;
   }
 }
 
@@ -10439,21 +10269,10 @@ body {
   font-size: 14px;
   opacity: 0;
   overflow: hidden;
-}
 
-.c-mf-tip {
-  display: block;
-  margin-top: 16px;
-}
-
-.c-mf-tip__btn {
-  margin-top: 16px;
-}
-
-.c-mf-tip__link {
-  display: block;
-  margin-top: 16px;
-  text-align: center;
+  span {
+    font-weight: 600;
+  }
 }
 
 .c-mf-factor-list__expand-btn {
@@ -13408,11 +13227,6 @@ body {
 
 
 
-
-
-
-
-
 .c-enterprise {
   width: 100%;
   padding-right: calc(50% - 400px);
@@ -13430,38 +13244,33 @@ body {
 }
 
 .c-enterprise__header-images {
-  @include flex-container(flex-end, flex-end, flex-end, nowrap);
-  @include flex-item(240px, 1);
+  @include flex-container(flex-end, center, center, nowrap);
+  @include flex-item(200px, 1);
 
   > small {
+    align-self: flex-end;
     padding-right: 4px;
+    padding-bottom: 2px;
     padding-left: 16px;
-    color: $cl-neutral-3;
-    font-size: 8px;
+    color: $cl-neutral-4;
+    font-size: 10px;
     text-transform: uppercase;
-    line-height: 1.2;
-  }
-
-  @include if-screen-smaller-than(sm) {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    padding-top: 8px;
   }
 }
 
 .c-enterprise__partner-logo {
   width: auto;
-  height: 24px;
+  height: 32px;
 }
 
 .c-enterprise__nav-logo {
   width: auto;
-  height: 16px;
+  height: 24px;
 }
 
 .c-enterprise__bread-crumb {
   @include flex-container(flex-start, center, center, nowrap);
-  @include flex-item(184px, 1);
+  @include flex-item(200px, 1);
   color: $cl-secondary-2;
   cursor: pointer;
 
@@ -13548,12 +13357,7 @@ body {
 
 .c-enterprise-business-info__section-header {
   @include flex-item(200px);
-  padding-right: 16px;
   padding-bottom: 16px;
-
-  @include if-screen-smaller-than(sm) {
-    padding-right: 0;
-  }
 }
 
 .c-enterprise-business-info__section-info {
@@ -13563,339 +13367,6 @@ body {
   > p {
     margin-bottom: 16px;
     font-weight: 200;
-  }
-}
-.c-active-accounts-card-header {
-  @include flex-container(space-between, center, center);
-  @include flex-item(100%);
-  cursor: pointer;
-}
-
-.c-active-accounts-card-header__arrow-section {
-  @include flex-container(flex-end);
-  @include flex-item(120px, 1);
-  padding: 24px;
-
-  @include if-screen-smaller-than(md) {
-    flex-basis: 100%;
-    justify-content: center;
-    border-top: 1px solid $cl-border;
-  }
-}
-
-.c-active-accounts-card-header__arrow-section.is-open {
-  > img {
-    transform: rotate(180deg);
-  }
-}
-
-.c-active-accounts-card-body {
-  @include flex-container(space-between);
-  @include flex-item(100%);
-  height: 0;
-  background-color: $cl-neutral-0;
-}
-
-.c-active-accounts-card-body.is-open {
-  height: 100%;
-}
-
-.c-trade-account-tab-card-section {
-  @include flex-container();
-  @include flex-item(100%);
-  padding-bottom: 8px;
-
-  > p {
-    width: 100%;
-  }
-}
-
-.c-trade-account-tab-card-section__tab-container {
-  @include flex-container();
-  @include flex-item(80px, 1, $shrink: 0);
-  margin-right: 8px;
-  margin-bottom: 8px;
-
-  > small {
-    width: 100%;
-  }
-}
-
-.c-trade-account-tab-card-section__tab {
-  @include flex-container(center, center, center);
-  @include flex-item(80px, $shrink: 0);
-  padding: 4px 16px;
-  border-radius: 4px;
-  background-color: $cl-neutral-3;
-  color: $cl-white;
-}
-.c-list-card-section {
-  @include flex-container(space-between, $wrap: nowrap);
-  @include flex-item(100%);
-  padding-bottom: 4px;
-
-  > p {
-    @include flex-item(200px, 1);
-  }
-
-  > strong {
-    @include flex-item(200px);
-    font-size: 14px;
-  }
-}
-
-.c-list-card-section--align-strong-right {
-  > strong {
-    text-align: right;
-  }
-}
-
-.c-horizontal-list-card-section {
-  flex-basis: 240px;
-  padding: 8px;
-
-  > small {
-    width: 100%;
-    color: $cl-neutral-3;
-  }
-}
-
-.c-horizontal-list-card-section-placeholder {
-  flex-basis: 240px;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.c-ordered-list-card-section {
-  @include flex-item(160px, 1);
-  margin: 0;
-  padding: 32px 24px;
-  color: $cl-neutral-5;
-  list-style-position: inside;
-}
-.o-enterprise-card__section {
-  @include flex-item(40px, 1);
-  padding: 24px;
-}
-
-.o-enterprise-card__section--xs {
-  flex-basis: 80px;
-}
-
-.o-enterprise-card__section--sm {
-  flex-basis: 160px;
-}
-
-.o-enterprise-card__section--md {
-  flex-basis: 200px;
-}
-
-.o-enterprise-card__section--lg {
-  flex-basis: 280px;
-}
-
-.o-enterprise-card__section--full-width {
-  flex-basis: 100%;
-}
-
-.o-enterprise-card__section--full-width-mobile {
-  @include if-screen-smaller-than(sm) {
-    flex-basis: 100%;
-  }
-}
-
-.o-enterprise-card__section--no-padding {
-  padding: 0;
-}
-
-.o-enterprise-card__section--light-color {
-  color: $cl-neutral-4;
-
-  // stylelint-disable-next-line selector-no-universal
-  > * {
-    font-weight: 200;
-  }
-}
-
-.o-enterprise-card__section--header {
-  flex-basis: 100%;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  border-bottom: 2px solid $cl-border;
-}
-
-.o-enterprise-card__section--title {
-  flex-basis: 120px;
-}
-
-.c-score-change-card-section {
-  @include flex-item(80px, 1);
-  padding: 24px;
-  color: $cl-neutral-4;
-
-  > span {
-    margin-top: 8px;
-  }
-}
-
-.c-stat-number-card-section {
-  @include flex-item(48px);
-  padding: 24px;
-
-  > h1 {
-    font-weight: 400;
-  }
-}
-
-.c-beyond-terms-summary-card-section {
-  @include flex-item(200px, 1);
-  margin: 8px;
-  padding: 16px;
-  border: 1px solid $cl-border;
-  border-radius: 4px;
-
-  > h3 {
-    width: 40px;
-    margin-bottom: 8px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid $cl-border;
-  }
-
-  > p {
-    width: 100%;
-  }
-
-  @include if-screen-smaller-than(sm) {
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
-
-.c-tradelines-card-section {
-  position: relative;
-  @include flex-item(280px, 1);
-  margin: 8px;
-  padding: 8px;
-  padding-right: 48px;
-  border: 1px solid $cl-border;
-  border-radius: 4px;
-  overflow: hidden;
-
-  > span {
-    position: absolute;
-    @include flex-container(center, center, center);
-    top: 0;
-    right: 0;
-    height: 100%;
-    padding: 8px 16px;
-    background-color: $cl-neutral-2;
-  }
-}
-
-.c-tradelines-card-section-placeholder {
-  @include flex-item(280px, 1);
-  margin: 0 8px;
-}
-
-.c-enterprise-card-score-factor {
-  @include flex-container(space-between, center, center, nowrap);
-  @include flex-item(100%);
-  padding: 16px;
-  transition: background-color 0.3s;
-  background-color: $cl-white;
-
-  &:hover {
-    background-color: $cl-neutral-1;
-  }
-
-  > p {
-    color: $cl-neutral-5;
-    font-size: 16px;
-    font-weight: 200;
-  }
-}
-
-.c-enterprise-card-score-factor__status {
-  @include flex-container(space-between, center, center, nowrap);
-  @include flex-item(120px);
-
-  > img {
-    width: 16px;
-    height: 24px;
-  }
-}
-
-.c-credit-utilization-bar-card-section {
-  @include flex-container();
-  @include flex-item(100%);
-  padding-bottom: 24px;
-
-  > h1,
-  p {
-    width: 100%;
-    line-height: 1;
-  }
-
-  > h1 {
-    padding-bottom: 4px;
-    font-weight: 200;
-  }
-}
-.c-table-card-section {
-  width: 100%;
-
-  > tbody {
-    border-top: 1px solid $cl-border;
-  }
-
-  th,
-  td {
-    // this padding is because of really weird thing where it wont show border
-    // top on the tbody at 16px but it does 17
-    padding: 17px 8px;
-    font-size: 14px;
-  }
-}
-
-.c-table-card-section__header {
-  > th {
-    padding-top: 24px;
-
-    &:first-child {
-      padding-left: 24px;
-    }
-
-    &:last-child {
-      padding-right: 24px;
-    }
-  }
-}
-
-.c-table-card-section__row {
-  background-color: $cl-neutral-0;
-  color: $cl-neutral-4;
-
-  &:nth-child(2n + 1) {
-    background-color: $cl-white;
-  }
-
-  &:last-child {
-    > td {
-      padding-bottom: 24px;
-    }
-  }
-
-  > td {
-    text-align: right;
-
-    &:first-child {
-      padding-left: 24px;
-      text-align: left;
-    }
-
-    &:last-child {
-      padding-right: 24px;
-    }
   }
 }
 .o-enterprise-info-container {
@@ -13960,80 +13431,336 @@ body {
   padding-top: 16px;
   padding-right: 16px;
 }
-.c-enterprise-pdf-header,
-.c-enterprise-pdf-footer {
-  display: none;
+
+.o-enterprise-card__section {
+  @include flex-item(40px, 1);
+  padding: 24px;
 }
 
-@media print {
-  .c-enterprise-score {
-    display: none;
+.o-enterprise-card__section--title-and-number {
+  flex-basis: 240px;
+
+  > small {
+    color: $cl-neutral-3;
   }
 
-  .c-enterprise__tabs-container {
-    display: none;
+  > h3 {
+    padding-bottom: 8px;
+  }
+}
+
+.o-enterprise-card__section--title-and-number-placeholder {
+  flex-basis: 240px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.o-enterprise-card__section--xs {
+  flex-basis: 80px;
+}
+
+.o-enterprise-card__section--sm {
+  flex-basis: 160px;
+}
+
+.o-enterprise-card__section--md {
+  flex-basis: 200px;
+}
+
+.o-enterprise-card__section--lg {
+  flex-basis: 280px;
+}
+
+.o-enterprise-card__section--full-width {
+  flex-basis: 100%;
+}
+
+.o-enterprise-card__section--full-width-mobile {
+  @include if-screen-smaller-than(sm) {
+    flex-basis: 100%;
+  }
+}
+
+.o-enterprise-card__section--no-padding {
+  padding: 0;
+}
+
+.o-enterprise-card__section--light-color {
+  color: $cl-neutral-4;
+
+  // stylelint-disable-next-line selector-no-universal
+  > * {
+    font-weight: 200;
+  }
+}
+
+.o-enterprise-card__section--list {
+  @include flex-container(space-between, $wrap: nowrap);
+  flex-basis: 100%;
+  padding: 0;
+}
+
+.o-enterprise-card__section--header {
+  flex-basis: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid $cl-border;
+}
+
+.c-tax-liens-list-card-section {
+  @include flex-container(space-between, $wrap: nowrap);
+  @include flex-item(100%);
+
+  > p {
+    @include flex-item(200px, 1);
+
+    &:first-child {
+      flex-grow: 0;
+    }
+  }
+}
+
+.c-score-change-card-section {
+  @include flex-item(80px, 1);
+  padding: 24px;
+  color: $cl-neutral-4;
+
+  > span {
+    margin-top: 8px;
+  }
+}
+
+.c-stat-number-card-section {
+  @include flex-item(48px);
+  padding: 24px;
+
+  > h1 {
+    font-weight: 400;
+  }
+}
+
+.c-influencing-factor-card-section {
+  @include flex-item(160px, 1);
+  padding: 32px 24px;
+  color: $cl-neutral-5;
+  list-style-position: inside;
+}
+
+.c-beyond-terms-summary-card-section {
+  @include flex-item(200px, 1);
+  margin: 8px;
+  padding: 16px;
+  border: 1px solid $cl-border;
+  border-radius: 4px;
+
+  > h3 {
+    width: 40px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid $cl-border;
   }
 
-  .c-enterprise__header {
-    display: none;
-  }
-
-  .o-enterprise-card {
-    margin-bottom: 0;
-  }
-
-  .c-enterprise-pdf-header {
-    @include flex-container(space-between, flex-start, flex-start, nowrap);
+  > p {
     width: 100%;
+  }
 
-    > img {
-      width: 200px;
-      height: auto;
+  @include if-screen-smaller-than(sm) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.c-tradelines-card-section {
+  position: relative;
+  @include flex-item(280px, 1);
+  margin: 8px;
+  padding: 8px;
+  padding-right: 48px;
+  border: 1px solid $cl-border;
+  border-radius: 4px;
+  overflow: hidden;
+
+  > span {
+    position: absolute;
+    @include flex-container(center, center, center);
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 8px 16px;
+    background-color: $cl-neutral-2;
+  }
+}
+
+.c-tradelines-card-section-placeholder {
+  @include flex-item(280px, 1);
+  margin: 0 8px;
+}
+
+.c-table-card-section {
+  width: 100%;
+
+  > tbody {
+    border-top: 1px solid $cl-border;
+  }
+
+  th,
+  td {
+    // this padding is because of really weird thing where it wont show border
+    // top on the tbody at 16px but it does 17
+    padding: 17px 8px;
+    font-size: 14px;
+  }
+}
+
+.c-table-card-section__header {
+  > th {
+    padding-top: 24px;
+
+    &:first-child {
+      padding-left: 24px;
+    }
+
+    &:last-child {
+      padding-right: 24px;
+    }
+  }
+}
+
+.c-table-card-section__row {
+  background-color: $cl-neutral-0;
+  color: $cl-neutral-4;
+
+  &:nth-child(2n + 1) {
+    background-color: $cl-white;
+  }
+
+  &:last-child {
+    > td {
+      padding-bottom: 24px;
     }
   }
 
-  .c-enterprise-pdf-header__score-container {
-    > img {
-      width: 200px;
-      height: auto;
+  > td {
+    text-align: right;
+
+    &:first-child {
+      padding-left: 24px;
+      text-align: left;
     }
 
-    > p {
-      padding-top: 4px;
-
-      &:first-child {
-        line-height: 1;
-      }
-    }
-
-    > h1 {
-      width: 100%;
-      padding-top: 16px;
-      font-size: 48px;
-      font-weight: 200;
+    &:last-child {
+      padding-right: 24px;
     }
   }
+}
 
-  .c-enterprise-pdf-footer {
-    @include flex-container(flex-start, flex-end, flex-end, nowrap);
+.c-trade-account-tab-card-section {
+  @include flex-container();
+  @include flex-item(100%);
+  padding-bottom: 8px;
+
+  > p {
     width: 100%;
-    min-height: 200px;
-    padding-top: 48px;
-    font-style: italic;
+  }
+}
 
-    > p {
-      line-height: 1;
-    }
+.c-trade-account-tab-card-section__tab-container {
+  @include flex-container();
+  @include flex-item(80px, 1, $shrink: 0);
+  margin-right: 8px;
+  margin-bottom: 8px;
 
-    > img {
-      width: 120px;
-      height: auto;
-      padding-left: 8px;
-    }
+  > small {
+    width: 100%;
+  }
+}
+
+.c-trade-account-tab-card-section__tab {
+  @include flex-container(center, center, center);
+  @include flex-item(80px, $shrink: 0);
+  padding: 4px 16px;
+  border-radius: 4px;
+  background-color: $cl-neutral-3;
+  color: $cl-white;
+}
+
+.c-enterprise-card-score-factor {
+  @include flex-container(space-between, center, center, nowrap);
+  @include flex-item(100%);
+  padding: 16px;
+  transition: background-color 0.3s;
+  background-color: $cl-white;
+
+  &:hover {
+    background-color: $cl-neutral-1;
   }
 
-  .c-beyond-terms-summary-card-section {
-    border: 0;
+  > p {
+    color: $cl-neutral-5;
+    font-size: 16px;
+    font-weight: 200;
+  }
+}
+
+.c-enterprise-card-score-factor__status {
+  @include flex-container(space-between, center, center, nowrap);
+  @include flex-item(120px);
+
+  > img {
+    width: 16px;
+    height: 24px;
+  }
+}
+
+.c-active-accounts-card-header {
+  @include flex-container(space-between, center, center);
+  @include flex-item(100%);
+  cursor: pointer;
+}
+
+.c-active-accounts-card-header__arrow-section {
+  @include flex-container(flex-end);
+  @include flex-item(160px, 1);
+  padding: 24px;
+
+  @include if-screen-smaller-than(md) {
+    flex-basis: 100%;
+    justify-content: center;
+    border-top: 1px solid $cl-border;
+  }
+}
+
+.c-active-accounts-card-header__arrow-section.is-open {
+  > img {
+    transform: rotate(180deg);
+  }
+}
+
+.c-active-accounts-card-body {
+  @include flex-container(space-between);
+  @include flex-item(100%);
+  height: 0;
+  background-color: $cl-neutral-0;
+}
+
+.c-active-accounts-card-body.is-open {
+  height: 100%;
+}
+
+.c-credit-utilization-bar-card-section {
+  @include flex-container();
+  @include flex-item(100%);
+  padding-bottom: 24px;
+
+  > h1,
+  p {
+    width: 100%;
+    line-height: 1;
+  }
+
+  > h1 {
+    padding-bottom: 4px;
+    font-weight: 200;
   }
 }
 .c-enterprise-score {
@@ -14105,6 +13832,28 @@ body {
     font-weight: 200;
     line-height: 0.7;
   }
+}
+
+.c-enterprise-score__score-change {
+  @include flex-container(center, center, center, nowrap);
+  width: 48px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: $cl-white;
+
+  > img {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
+}
+
+.c-enterprise-score__score-change--good {
+  background-color: $cl-good;
+}
+
+.c-enterprise-score__score-change--poor {
+  background-color: $cl-accent-5;
 }
 
 .c-enterprise-score__update-info {
@@ -14181,10 +13930,6 @@ body {
 .c-enterprise__tabs-container {
   @include flex-container(space-between, $wrap: nowrap);
   width: 100%;
-
-  @include if-screen-smaller-than(sm) {
-    flex-wrap: wrap;
-  }
 }
 
 .c-enterprise__tabs-container--score-tabs {
@@ -14198,19 +13943,32 @@ body {
   overflow-y: hidden;
 
   @include if-screen-smaller-than(660px) {
-    flex-wrap: nowrap;
     height: 64px;
     box-shadow: inset -32px 0 32px -32px $cl-primary-3;
   }
 }
 
 .c-enterprise__bereau-tab {
-  @include flex-container(space-between, center, center, nowrap);
+  @include flex-container(space-between, center, center);
   @include flex-item(280px, 1);
   padding: 16px 24px;
-  background-color: $cl-neutral-1;
+  background-color: $cl-neutral-2;
+  color: $cl-neutral-6;
   cursor: pointer;
   opacity: 0.6;
+
+  > small {
+    flex-basis: 100%;
+    font-weight: 200;
+  }
+
+  > h4 {
+    padding-right: 24px;
+
+    @include if-screen-smaller-than(sm) {
+      padding-right: 0;
+    }
+  }
 
   &:first-child {
     box-shadow: inset -2px -2px 4px -1px $cl-neutral-3;
@@ -14234,10 +13992,6 @@ body {
   > h4 {
     display: none;
   }
-
-  > .c-enterprise__download-icon {
-    display: flex;
-  }
 }
 
 .c-enterprise__bereau-tab--dnb {
@@ -14253,62 +14007,6 @@ body {
       height: 8px;
       border-radius: 50%;
       background-color: $cl-secondary-2;
-      content: '';
-    }
-  }
-}
-
-.c-enterprise__bereau-tab-copy {
-  @include flex-item (160px, 1);
-  color: $cl-neutral-6;
-
-  > small {
-    flex-basis: 100%;
-    font-weight: 200;
-  }
-
-  > h4 {
-    padding-right: 24px;
-
-    @include if-screen-smaller-than(sm) {
-      padding-right: 0;
-    }
-  }
-}
-
-.c-enterprise__download-icon {
-  position: relative;
-  @include flex-container(center, center);
-  display: none;
-  width: 48px;
-  height: 48px;
-  padding: 8px;
-  border-radius: 50%;
-
-  &:hover {
-    background-color: $cl-neutral-1;
-
-    &::before {
-      position: absolute;
-      right: 64px;
-      min-width: 160px;
-      padding: 16px;
-      border-radius: 4px;
-      background-color: $cl-white;
-      color: $cl-neutral-4;
-      font-size: 14px;
-      box-shadow: 4px 2px 8px $cl-neutral-3;
-      content: 'Download Report';
-    }
-
-    &::after {
-      position: absolute;
-      right: 56px;
-      width: 24px;
-      height: 24px;
-      border-radius: 4px;
-      background-color: $cl-white;
-      transform: rotate(45deg);
       content: '';
     }
   }
@@ -14388,28 +14086,6 @@ body {
   width: 19%;
   margin-right: 0;
   background-color: $cl-good;
-}
-
-.c-score-bar__segment-container--experian-report {
-  > .c-score-bar__segment--poor {
-    width: 9%;
-  }
-
-  > .c-score-bar__segment--semi-poor {
-    width: 14%;
-  }
-
-  > .c-score-bar__segment--fair {
-    width: 24%;
-  }
-
-  > .c-score-bar__segment--semi-good {
-    width: 24%;
-  }
-
-  > .c-score-bar__segment--good {
-    width: 24%;
-  }
 }
 
 .c-score-bar__circle {

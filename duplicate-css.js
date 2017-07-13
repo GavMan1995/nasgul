@@ -2,39 +2,32 @@ const glob = require('glob')
 const fs = require('fs')
 const _ = require('lodash')
 const sass = require('node-sass')
-const findInFiles = require('find-in-files')
 
 const importReg = new RegExp('\@import.+;')
+const cssReg = new RegExp('\.?.+\{[\S\s]+?\}')
 
 module.exports = function (file) {
-  compileCSS(file)
+  compileCSS(file, (err, res) => {
+    if (err) {
+      console.log(err)
+    }
 
-  findInFiles.find({'term': /\..+ \{/, 'flags': 'g'}, __dirname + '/styles.css')
-      .then((results) => {
+    console.log(res)
 
-        console.log(results)
-        // let arrOfValues = _.values(results)
+    const css = fs.readFileSync(__dirname + '/styles.css', 'utf8')
 
-        // arrOfValues = arrOfValues.map((val) => {
-        //   return val.matches
-        // })
+    let arrOfClasses = css.split(cssReg)
 
-        // arrOfValues = [].concat.apply([], arrOfValues)
+    arrOfClasses.map((val) => {
+      console.log(val + '\n\n')
+    })
+  })
 
-        // arrOfValues = arrOfValues.map((val) => {
-        //   return val.split('.').pop().split(' {').join('')
-        // })
 
-        // arrOfCSSClasses = arrOfValues.filter((elem, index, self) => {
-        //   return index === self.indexOf(elem)
-        // })
-
-        // callback(null, arrOfCSSClasses)
-      })
 }
 
 
-function compileCSS(file, cb) {
+function compileCSS(file, callback) {
   fs.writeFileSync(__dirname + '/styles.scss', '')
 
   console.log('Grabbing SCSS files!')
@@ -82,11 +75,12 @@ function compileCSS(file, cb) {
 
     sass.render({file: __dirname + '/styles.scss'}, (err, res) => {
       if(err) {
-        console.log(err)
+        callback(err, null)
       }
 
       console.log(res)
-      fs.writeFile(__dirname + '/styles.css', res.css)
+      fs.writeFileSync(__dirname + '/styles.css', res.css)
+      callback(null, 'successful write to styles.css')
     })
   })
 }

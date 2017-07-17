@@ -10,7 +10,8 @@ if (process.argv[2] === '--css') {
       const duplicateClasses = _.values(response)
       console.log(response)
       console.log(`There are ${duplicateClasses.length} sets of classes that are doing the same thing`)
-      console.log('you can open unused-class-list.txt to see all the duplicate classes')
+      console.log(`You could delete ${_.flattenDeep(duplicateClasses).length - duplicateClasses.length} classes from your css`)
+      console.log('you can open duplicate-class-list.txt to see a more readable list of duplicate classes')
     })
     .catch(console.error)
 } else {

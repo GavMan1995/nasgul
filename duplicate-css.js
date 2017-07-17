@@ -1,6 +1,7 @@
 const glob = require('glob')
 const _ = require('lodash')
 const findInFiles = require('find-in-files')
+const fs = require('fs')
 
 const importReg = new RegExp('\@import.+;')
 const classReg = /{.+}$/g
@@ -8,10 +9,12 @@ const classReg = /{.+}$/g
 module.exports = function(file) {
   return new Promise((resolve, reject) => {
     findInFiles
-      .find({'term': /\.?.+\{[\S\s]+?\}/, 'flags': 'g'}, file, '.scss$')
+      .find({'term': /\.?.+\{[\S\s]+?\}$/, 'flags': 'g'}, file, '.scss$')
       .then((results) => {
+        fs.writeFile('duplicate-class-list.txt', '')
         const classObj = {}
         const filteredObj = {}
+        const realClasses = {}
         let arrOfValues = _.values(results).map((val) => {
           return val.matches
         })
@@ -28,7 +31,13 @@ module.exports = function(file) {
           classObj[objKey] = objVal
         })
 
-        const inverted = _.invertBy(classObj)
+        _.keys(classObj).map((key) => {
+          if (key.indexOf('@') === -1) {
+            realClasses[key] = classObj[key]
+          }
+        })
+
+        const inverted = _.invertBy(realClasses)
 
         _.keys(inverted).forEach((key) => {
           if (inverted[key].length > 1) {
@@ -41,10 +50,10 @@ module.exports = function(file) {
             reject(err)
           }
 
-          fs.writeFile('duplicate-class-list.txt', JSON.stringify(filteredObj), (err) => {
-            if (err) {
-              reject(err)
-            }
+          _.keys(filteredObj).forEach((key) => {
+            const classes =  JSON.stringify(filteredObj[key]).split(',').join('\n').split('"').join('').split('[').join('').split(']').join('')
+            const text = `${classes}\n\nall have the same css properties:\n\n${key}\n\n========================================\n\n\n`
+            fs.appendFileSync('duplicate-class-list.txt', text, 'utf8')
           })
         })
 

@@ -1,86 +1,55 @@
 const glob = require('glob')
-const fs = require('fs')
 const _ = require('lodash')
-const sass = require('node-sass')
+const findInFiles = require('find-in-files')
 
 const importReg = new RegExp('\@import.+;')
-const cssReg = new RegExp('\.?.+\{[\S\s]+?\}')
+const classReg = /{.+}$/g
 
-module.exports = function (file) {
-  compileCSS(file, (err, res) => {
-    if (err) {
-      console.log(err)
-    }
+module.exports = function(file) {
+  return new Promise((resolve, reject) => {
+    findInFiles
+      .find({'term': /\.?.+\{[\S\s]+?\}/, 'flags': 'g'}, file, '.scss$')
+      .then((results) => {
+        const classObj = {}
+        const filteredObj = {}
+        let arrOfValues = _.values(results).map((val) => {
+          return val.matches
+        })
 
-    console.log(res)
+        arrOfValues = [].concat.apply([], arrOfValues)
 
-    const css = fs.readFileSync(__dirname + '/styles.css', 'utf8')
+        arrOfValues.forEach((val) => {
+          const polished = val.split(' ').join('').split('\n').join('')
+          const objKey = polished.split(classReg)[0]
+          const objVal = (polished.match(classReg) || [])[0]
 
-    let arrOfClasses = css.split(cssReg)
+          if (!objKey || !objVal) return
 
-    arrOfClasses.map((val) => {
-      console.log(val + '\n\n')
-    })
-  })
+          classObj[objKey] = objVal
+        })
 
+        const inverted = _.invertBy(classObj)
 
-}
+        _.keys(inverted).forEach((key) => {
+          if (inverted[key].length > 1) {
+            filteredObj[key] = inverted[key]
+          }
+        })
 
+        fs.open('duplicate-class-list.txt', 'w', (err, fd) => {
+          if (err) {
+            reject(err)
+          }
 
-function compileCSS(file, callback) {
-  fs.writeFileSync(__dirname + '/styles.scss', '')
+          fs.writeFile('duplicate-class-list.txt', JSON.stringify(filteredObj), (err) => {
+            if (err) {
+              reject(err)
+            }
+          })
+        })
 
-  console.log('Grabbing SCSS files!')
-
-  glob(file + '/**/*.scss', (err, files) => {
-    if(err) {
-      console.log(err)
-    }
-
-    console.log('Chunking SCSS together')
-
-    files.map((file) => {
-      if (file.indexOf('src/common/styles/global-dependencies/variables.scss') !== -1) {
-        let contents = fs.readFileSync(file, 'utf8')
-        contents = contents.split(importReg).join('')
-        fs.appendFileSync(__dirname + '/styles.scss', contents)
-      }
-    })
-
-    files.map((file) => {
-      if (file.indexOf('global-dependencies') !== -1 && file.indexOf('variables.scss')  === -1) {
-        let contents = fs.readFileSync(file, 'utf8')
-        contents = contents.split(importReg).join('')
-        fs.appendFileSync(__dirname + '/styles.scss', contents)
-      }
-    })
-
-    files.map((file) => {
-      if (file.indexOf('global-styles') !== -1 && file.indexOf('OLD') === -1) {
-        let contents = fs.readFileSync(file, 'utf8')
-        contents = contents.split(importReg).join('')
-        fs.appendFileSync(__dirname + '/styles.scss', contents)
-      }
-    })
-
-    files.map((file) => {
-      if (file.indexOf('global-styles') === -1 && file.indexOf('global-dependencies') === -1) {
-        let contents = fs.readFileSync(file, 'utf8')
-        contents = contents.split(importReg).join('')
-        fs.appendFileSync(__dirname + '/styles.scss', contents)
-      }
-    })
-
-    console.log('Compliing SCSS to css')
-
-    sass.render({file: __dirname + '/styles.scss'}, (err, res) => {
-      if(err) {
-        callback(err, null)
-      }
-
-      console.log(res)
-      fs.writeFileSync(__dirname + '/styles.css', res.css)
-      callback(null, 'successful write to styles.css')
-    })
+        resolve(filteredObj)
+      })
+      .catch(reject)
   })
 }

@@ -29,14 +29,13 @@ module.exports = function () {
         })
       })
 
-      console.log('=======================================')
       console.log(res.unusedClasses.slice(0,4))
       console.log('---------------------------------------')
-      console.log(`There are ${res.unusedClasses.length} unused classes!`)
-      console.log('=======================================')
+      console.log(`There are ${res.unusedClasses.length} out of ${res.numberOfClasses} unused classes!`)
+      console.log(`You are using ${res.numberOfClasses - res.unusedClasses.length} classes\n\n`)
       console.log(res.classesNotInCSS.slice(0,4))
       console.log('---------------------------------------')
-      console.log(`There are ${res.classesNotInCSS.length} classes not found in the CSS!`)
+      console.log(`There are ${res.classesNotInCSS.length} classes not found in the CSS!\n\n`)
       console.log('Full list of classes in unused-class-list.txt in the current directory')
     }
   })
@@ -46,7 +45,7 @@ module.exports = function () {
       const arg = process.argv[2]
 
       parseCSSFiles(arg, (err, res) => {
-        parseReactFiles(arg, res, (err, res)  => {
+        parseJSFiles(arg, res, (err, res)  => {
           if(err) {
             callback(err)
           }
@@ -62,7 +61,7 @@ module.exports = function () {
             return css.indexOf(value) === -1
           })
 
-          callback(null, {unusedClasses, classesNotInCSS})
+          callback(null, {unusedClasses, classesNotInCSS, numberOfClasses: css.length})
         })
       })
     } else if (process.argv.length === 4) {
@@ -70,7 +69,7 @@ module.exports = function () {
       const jsArg = process.argv[3]
 
       parseCSSFiles(cssArg, (err, res) => {
-        parseReactFiles(jsArg, res, (err, res)  => {
+        parseJSFiles(jsArg, res, (err, res)  => {
           if (err) {
             callback(err)
           }
@@ -106,80 +105,43 @@ module.exports = function () {
           return val.matches
         })
 
-        arrOfValues = [].concat.apply([], arrOfValues)
+        arrOfValues = _.flattenDeep(arrOfValues)
 
         arrOfValues = arrOfValues.map((val) => {
           return val.split('.').pop().split(' {').join('')
         })
 
-        arrOfCSSClasses = arrOfValues.filter((elem, index, self) => {
-          return index === self.indexOf(elem)
-        })
+        arrOfCSSClasses = _.pull(_.flattenDeep(arrOfValues), '')
+
+        arrOfCSSClasses = _.uniq(arrOfCSSClasses)
 
         callback(null, arrOfCSSClasses)
-      })
-  }
-
-  function parseReactFiles(file, cssArray, callback) {
-    let arrOfJSClasses = []
-
-    findInFiles.find({'term': / className='.+?'/, 'flags': 'g'}, file, '.js$')
-      .then((results) => {
-        if (results === []) {
-          parseJSFiles(file, cssArray, (err, res) => {
-            callback(err, res)
-          })
-        }
-
-        let arrOfValues = _.values(results)
-
-        arrOfValues = arrOfValues.map((val) => {
-          return val.matches
-        })
-
-        arrOfValues = [].concat.apply([], arrOfValues)
-
-        arrOfValues = arrOfValues.map((val) => {
-          return val.split("className='").pop().split("'").join('').split(' ')
-        })
-
-        arrOfJSClasses = [].concat.apply([], arrOfValues)
-
-        arrOfJSClasses = arrOfJSClasses.filter((elem, index, self) => {
-          return index === self.indexOf(elem)
-        })
-
-        callback(null, {css: cssArray, js: arrOfJSClasses})
       })
   }
 
   function parseJSFiles(file, cssArray, callback) {
     let arrOfJSClasses = []
 
-    findInFiles.find({'term': / class=".+?"/, 'flags': 'g'}, file, '.js$')
+    findInFiles.find({'term': / (className|class)='.+?'/, 'flags': 'g'}, file, '.js$')
       .then((results) => {
-        if (results === []) {
-          callback('no files')
-        }
-
         let arrOfValues = _.values(results)
 
         arrOfValues = arrOfValues.map((val) => {
           return val.matches
         })
 
-        arrOfValues = [].concat.apply([], arrOfValues)
+        arrOfValues = _.flattenDeep(arrOfValues)
+
 
         arrOfValues = arrOfValues.map((val) => {
-          return val.split("className='").pop().split("'").join('').split(' ')
+          return val.split('className=').join('').split("'").join('').split(' ')
         })
 
-        arrOfJSClasses = [].concat.apply([], arrOfValues)
+        arrOfJSClasses = _.pull(_.flattenDeep(arrOfValues), '')
 
-        arrOfJSClasses = arrOfJSClasses.filter((elem, index, self) => {
-          return index === self.indexOf(elem)
-        })
+        arrOfJSClasses = _.uniq(arrOfJSClasses)
 
+        console.log(arrOfJSClasses)
         callback(null, {css: cssArray, js: arrOfJSClasses})
       })
   }

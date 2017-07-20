@@ -5,11 +5,14 @@ const fs = require('fs')
 
 const importReg = new RegExp('\@import.+;')
 const classReg = /{.+}$/g
+const regEx = /\.?[\D\d]*?{[\S\s]+?}/g
+
+//TODO: Compile the scss to css and use the above regex to match the patterns in the file generated
 
 module.exports = function(file) {
   return new Promise((resolve, reject) => {
     findInFiles
-      .find({'term': /\.?.+\{[\S\s]+?\}$/, 'flags': 'g'}, file, '.scss$')
+      .find({'term': regEx, 'flags': 'g'}, file, '.scss$')
       .then((results) => {
         fs.writeFile('duplicate-class-list.txt', '')
         const classObj = {}

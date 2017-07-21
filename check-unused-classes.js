@@ -14,30 +14,24 @@ module.exports = function () {
 
     const text = `Unused Classes\n-------------------------\n${unusedList}\n-------------\n\nClasses not in CSS\n------------------------\n${noCSSList}\n------------`
 
-    if (err) {
-      console.log(err)
-    } else {
-      fs.open('unused-class-list.txt', 'w', (err, fd) => {
-        if (err) {
-          console.log(err)
-        }
+    if (err) console.log(err)
 
-        fs.writeFile('unused-class-list.txt', text, (err) => {
-          if (err) {
-            console.log(err)
-          }
-        })
+    fs.open('unused-class-list.txt', 'w', (err, fd) => {
+      if (err) console.log(err)
+
+      fs.writeFile('unused-class-list.txt', text, (err) => {
+        if (err) console.log(err)
       })
+    })
 
-      console.log(res.unusedClasses.slice(0,4))
-      console.log('---------------------------------------')
-      console.log(`There are ${res.unusedClasses.length} out of ${res.numberOfClasses} unused classes!`)
-      console.log(`You are using ${res.numberOfClasses - res.unusedClasses.length} classes\n\n`)
-      console.log(res.classesNotInCSS.slice(0,4))
-      console.log('---------------------------------------')
-      console.log(`There are ${res.classesNotInCSS.length} classes not found in the CSS!\n\n`)
-      console.log('Full list of classes in unused-class-list.txt in the current directory')
-    }
+    console.log(res.unusedClasses.slice(0,4))
+    console.log('---------------------------------------')
+    console.log(`There are ${res.unusedClasses.length} out of ${res.numberOfClasses} unused classes!`)
+    console.log(`You are using ${res.numberOfClasses - res.unusedClasses.length} classes\n\n`)
+    console.log(res.classesNotInCSS.slice(0,4))
+    console.log('---------------------------------------')
+    console.log(`There are ${res.classesNotInCSS.length} classes not found in the CSS!\n\n`)
+    console.log('Full list of classes in unused-class-list.txt in the current directory')
   })
 
   function grabAllClasses(callback) {
@@ -89,7 +83,7 @@ module.exports = function () {
         })
       })
     } else {
-      callback('Please Specify either onne or two files to check "CSS file is is always first"')
+      callback('Please Specify either onne or two files to check "CSS file is is always first"', null)
     }
   }
 
@@ -111,9 +105,7 @@ module.exports = function () {
           return val.split('.').pop().split(' {').join('')
         })
 
-        arrOfCSSClasses = _.pull(_.flattenDeep(arrOfValues), '')
-
-        arrOfCSSClasses = _.uniq(arrOfCSSClasses)
+        arrOfCSSClasses = _.uniq(_.pull(_.flattenDeep(arrOfValues), ''))
 
         callback(null, arrOfCSSClasses)
       })
@@ -137,11 +129,8 @@ module.exports = function () {
           return val.split('className=').join('').split("'").join('').split(' ')
         })
 
-        arrOfJSClasses = _.pull(_.flattenDeep(arrOfValues), '')
+        arrOfJSClasses = _.uniq(_.pull(_.flattenDeep(arrOfValues), ''))
 
-        arrOfJSClasses = _.uniq(arrOfJSClasses)
-
-        console.log(arrOfJSClasses)
         callback(null, {css: cssArray, js: arrOfJSClasses})
       })
   }

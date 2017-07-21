@@ -1,9 +1,9 @@
-const glob = require('glob')
-const _ = require('lodash')
 const findInFiles = require('find-in-files')
 const fs = require('fs')
+const glob = require('glob')
+const _ = require('lodash')
+const sass = require('node-sass')
 
-const importReg = new RegExp('\@import.+;')
 const classReg = /{.+}$/g
 const regEx = /\.?[\D\d]*?{[\S\s]+?}/g
 
@@ -11,16 +11,14 @@ const regEx = /\.?[\D\d]*?{[\S\s]+?}/g
 
 module.exports = function(file) {
   return new Promise((resolve, reject) => {
-    glob('/**/*.scss', {root: file}, (err, files) => {
-      if (err) console.log(err)
+    writeAllScss(file)
 
-      files.map((file) => {
-        const content = fs.readFileSync(file, 'utf8')
+    sass.render({file: __dirname + '/styles.scss'}, (err, res) => {
+      fs.writeFileSync(__dirname + '/compiled.css', res.css)
 
-        if(file.indexOf('variables') !== -1) {
-          console.log(file)
-        }
-      })
+      const cssObj = parseCSS(__dirname + '/compiled.css')
+
+      console.log(cssObj)
     })
     // findInFiles
     //   .find({'term': regEx, 'flags': 'g'}, file, '.scss$')
@@ -74,5 +72,52 @@ module.exports = function(file) {
     //     resolve(filteredObj)
     //   })
     //   .catch(reject)
+  })
+}
+
+function parseCSS(file, callback) {
+  let obj = {}
+  const css = fs.readFileSync(file, 'utf8')
+  let matches = css.match(regEx)
+
+  matches.forEach((match) => {
+    const polished =  match.split(' ').join('').split('\n').join('')
+    const objKey = polished.split(classReg)[0].split('{').join('').split('}').join('')
+    const objVal = _.pull((polished.match(classReg) || [])[0].split('{').join('').split('}').join('').split(';'), '')
+
+    obj[objKey] = objVal
+  })
+
+  if (obj === {}) return console.log('Something went wrong')
+
+  return obj;
+}
+
+function writeAllScss(file, callback) {
+  glob('/**/*.scss', {root: file}, (err, files) => {
+    if (err) return console.log(err)
+
+    fs.writeFileSync(__dirname + '/styles.scss', '')
+
+    writeSpecificFile(files, 'variables')
+    writeSpecificFile(files, 'animations')
+    writeSpecificFile(files, 'functions')
+    writeSpecificFile(files, 'mixins')
+
+    files.map((file) => {
+      const content = fs.readFileSync(file, 'utf8')
+      if (file.indexOf('variables') === -1 && file.indexOf('animations') === -1 && file.indexOf('functions') === -1 && file.indexOf('mixins') === -1 && content.indexOf('@import') === -1) {
+        fs.appendFileSync(__dirname + '/styles.scss', content)
+      }
+    })
+  })
+}
+
+function writeSpecificFile(files, query) {
+  files.map((file) => {
+    if(file.indexOf(query) !== -1) {
+      const content = fs.readFileSync(file, 'utf8')
+      fs.appendFileSync(__dirname + '/styles.scss', content)
+    }
   })
 }

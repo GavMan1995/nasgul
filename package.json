@@ -19,5 +19,8 @@
     "node-sass": "^4.5.3",
     "query-ast": "^1.0.1",
     "scss-parser": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.3.0"
   }
 }

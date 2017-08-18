@@ -137,7 +137,7 @@ module.exports = function() {
     let arrOfJSClasses = []
 
     findInFiles
-      .find({ term: / (className|class)='.+?'/, flags: 'g' }, file, '.js$')
+      .find({ term: / ((className|class)='.+?')|((className|class)={`.+?`})/, flags: 'g' }, file, '.js$')
       .then(results => {
         let arrOfValues = _.values(results)
 
@@ -148,7 +148,7 @@ module.exports = function() {
         arrOfValues = _.flattenDeep(arrOfValues)
 
         arrOfValues = arrOfValues.map(val => {
-          return val.split('className=').join('').split("'").join('').split(' ')
+          return val.split('className=').join('').split("'").join('').split('${').join('').split('=').join('').split('?').join('').split('{`').join('').split('`}').join('').split(' ')
         })
 
         arrOfJSClasses = _.uniq(_.pull(_.flattenDeep(arrOfValues), ''))

@@ -124,7 +124,7 @@ module.exports = function() {
         arrOfValues = _.flattenDeep(arrOfValues)
 
         arrOfValues = arrOfValues.map(val => {
-          return val.split('.').pop().split(' {').join('')
+          return val.split('.').pop().split(' {').join('').split(':').pop().split(' ')
         })
 
         arrOfCSSClasses = _.uniq(_.pull(_.flattenDeep(arrOfValues), ''))
@@ -148,7 +148,7 @@ module.exports = function() {
         arrOfValues = _.flattenDeep(arrOfValues)
 
         arrOfValues = arrOfValues.map(val => {
-          return val.split('className=').join('').split("'").join('').split('${').join('').split('=').join('').split('?').join('').split('{`').join('').split('`}').join('').split(' ')
+          return val.split('className=').join('').split("'").join('').split('${').join('').split('=').join('').split('?').join('').split("{`").join('').split('`}').join('').split(')').join('').split('}').join('').split(' ')
         })
 
         arrOfJSClasses = _.uniq(_.pull(_.flattenDeep(arrOfValues), ''))

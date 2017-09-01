@@ -1,6 +1,7 @@
 const findInFiles = require('find-in-files')
 const _ = require('lodash')
 const fs = require('fs')
+const queue = require('async/queue')
 
 module.exports = function() {
   grabAllClasses((err, res) => {
@@ -15,6 +16,17 @@ module.exports = function() {
         return `${index + 1}: ` + val + '\n'
       })
       .join('')
+
+    const q = queue((unusedClass) => {
+      const term = new RegExp(unusedClass)
+      findInFiles
+        .find({ term, flags: 'g' }, process.argv[2], '.js')
+        .then((response) => {
+          console.log(response)
+        })
+    })
+
+    q.push(res.unusedClasses)
 
     const text = `Unused Classes\n-------------------------\n${unusedList}\n-------------\n\nClasses not in CSS\n------------------------\n${noCSSList}\n------------`
 
@@ -50,70 +62,38 @@ module.exports = function() {
   })
 
   function grabAllClasses(callback) {
-    if (process.argv.length === 3) {
-      const arg = process.argv[2]
+    const file = process.argv[2]
 
-      parseCSSFiles(arg, (err, res) => {
-        parseJSFiles(arg, res, (err, res) => {
-          if (err) {
-            callback(err)
-          }
+    parseCSSFiles(file, (err, res) => {
+      parseJSFiles(file, res, (err, res) => {
+        if (err) callback(err)
 
-          let css = res.css
-          let js = res.js
+        let css = res.css
+        let js = res.js
 
-          const unusedClasses = css.filter(value => {
-            return js.indexOf(value) === -1
-          })
+        const unusedClasses = css.filter(value => {
+          return js.indexOf(value) === -1
+        })
 
-          const classesNotInCSS = js.filter(value => {
-            return css.indexOf(value) === -1
-          })
+        const classesNotInCSS = js.filter(value => {
+          return css.indexOf(value) === -1
+        })
 
-          callback(null, {
-            unusedClasses,
-            classesNotInCSS,
-            numberOfClasses: css.length
-          })
+        callback(null, {
+          unusedClasses,
+          classesNotInCSS,
+          numberOfClasses: css.length
         })
       })
-    } else if (process.argv.length === 4) {
-      const cssArg = process.argv[2]
-      const jsArg = process.argv[3]
-
-      parseCSSFiles(cssArg, (err, res) => {
-        parseJSFiles(jsArg, res, (err, res) => {
-          if (err) {
-            callback(err)
-          }
-
-          let css = res.css
-          let js = res.js
-
-          const unusedClasses = css.filter(value => {
-            return js.indexOf(value) === -1
-          })
-
-          const classesNotInCSS = js.filter(value => {
-            return css.indexOf(value) === -1
-          })
-
-          callback(null, { unusedClasses, classesNotInCSS })
-        })
-      })
-    } else {
-      callback(
-        'Please Specify either onne or two files to check "CSS file is is always first"',
-        null
-      )
-    }
+    })
   }
 
   function parseCSSFiles(file, callback) {
     let arrOfCSSClasses = []
+    const htmlEle = /^(p|a|h1|h2|h3|h4|h5|ul|ol|li|table|td|tr|th|hr|\+|>|div|input|thead|tbody|span|tfoot)$/gi
 
     findInFiles
-      .find({ term: /\..+ \{/, flags: 'g' }, file, '.scss$')
+      .find({ term: /\..+\{/, flags: 'g' }, file, '.scss')
       .then(results => {
         let arrOfValues = _.values(results)
 
@@ -123,11 +103,18 @@ module.exports = function() {
 
         arrOfValues = _.flattenDeep(arrOfValues)
 
-        arrOfValues = arrOfValues.map(val => {
-          return val.split('.').pop().split(' {').join('').split(':').pop().split(' ')
+        arrOfValues = arrOfValues.map((val) => {
+          return val.split('.').pop().split('{').join('').split(':').shift().split('[').shift().split(' ')
         })
 
-        arrOfCSSClasses = _.uniq(_.pull(_.flattenDeep(arrOfValues), ''))
+        arrOfValues = _.uniq(_.pull(_.flattenDeep(arrOfValues), ''))
+
+        arrOfValues.forEach((val) => {
+          if (!val.match(htmlEle)) {
+            arrOfCSSClasses.push(val)
+          }
+        })
+
 
         callback(null, arrOfCSSClasses)
       })

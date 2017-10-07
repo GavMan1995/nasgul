@@ -18,7 +18,7 @@ module.exports = function() {
       .join('')
 
     const q = queue((unusedClass) => {
-      const term = new RegExp(unusedClass)
+      const term = `/'${unusedClass}'/`
       findInFiles
         .find({ term, flags: 'g' }, process.argv[2], '.js')
         .then((response) => {
